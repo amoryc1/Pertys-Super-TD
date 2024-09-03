@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvhf0pyotf3qe"]
+
+[ext_resource type="Script" path="res://Global/ui.gd" id="1_m5h7i"]
+
+[node name="GlobalUI" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_m5h7i")
+
+[node name="debug" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0.705882)
+
+[node name="counter" type="Label" parent="debug"]
+z_index = 4096
+offset_left = 1125.0
+offset_top = 2.0
+offset_right = 1598.0
+offset_bottom = 25.0
+text = "FPS: current"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ram" type="Label" parent="debug"]
+z_index = 4096
+offset_left = 1110.0
+offset_top = 25.0
+offset_right = 1599.0
+offset_bottom = 49.0
+text = "Memory: current / peak"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="lastLoadTime" type="Label" parent="debug"]
+z_index = 4096
+offset_left = 1110.0
+offset_top = 49.0
+offset_right = 1599.0
+offset_bottom = 73.0
+text = "Last load time: 0ms"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true

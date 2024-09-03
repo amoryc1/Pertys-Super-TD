@@ -1,0 +1,98 @@
+[gd_scene load_steps=14 format=3 uid="uid://j887qkdp3sd8"]
+
+[ext_resource type="Script" path="res://nodes/towers/redwoodworker/worker.gd" id="1_7ta4r"]
+[ext_resource type="Texture2D" uid="uid://d0557ul50bqgn" path="res://assets/towers/redwoodworker/redwoodworker.png" id="2_1isoo"]
+[ext_resource type="Texture2D" uid="uid://b21hiwh2ohg4c" path="res://assets/ui/ring.png" id="4_rtrpb"]
+[ext_resource type="Script" path="res://nodes/towers/global/StackCollision.gd" id="5_mxq52"]
+[ext_resource type="FontFile" uid="uid://bqn5qcu0iu4yn" path="res://font/Retro Gaming.ttf" id="5_q7rc0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ewv5f"]
+radius = 0.01
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omqyp"]
+atlas = ExtResource("2_1isoo")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72nbi"]
+atlas = ExtResource("2_1isoo")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3n7x"]
+atlas = ExtResource("2_1isoo")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhm0q"]
+atlas = ExtResource("2_1isoo")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ndj0y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omqyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72nbi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3n7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhm0q")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ybiqf"]
+radius = 76.1548
+
+[sub_resource type="LabelSettings" id="LabelSettings_b50ub"]
+font = ExtResource("5_q7rc0")
+font_size = 17
+
+[node name="Tower" type="Area2D"]
+z_index = 10
+script = ExtResource("1_7ta4r")
+cost = 1250
+sellValue = 625
+towerName = "Redwood Worker"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ewv5f")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+z_index = -1
+rotation = 4.71239
+scale = Vector2(1.1, 1.1)
+sprite_frames = SubResource("SpriteFrames_ndj0y")
+
+[node name="waittime" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="ring" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_rtrpb")
+
+[node name="StackCollision" type="Area2D" parent="."]
+scale = Vector2(1.00213, 1.00947)
+script = ExtResource("5_mxq52")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StackCollision"]
+shape = SubResource("CircleShape2D_ybiqf")
+debug_color = Color(0.7, 0, 0, 0.419608)
+
+[node name="level" type="Label" parent="."]
+visible = false
+offset_left = -61.0
+offset_top = -64.0
+offset_right = 61.0
+offset_bottom = -42.0
+pivot_offset = Vector2(61, 64)
+text = "[0,0,0]"
+label_settings = SubResource("LabelSettings_b50ub")
+horizontal_alignment = 1
+
+[connection signal="timeout" from="waittime" to="." method="_on_waittime_timeout"]

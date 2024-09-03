@@ -1,0 +1,98 @@
+[gd_scene load_steps=14 format=3 uid="uid://c1qc2u8p260nr"]
+
+[ext_resource type="Script" path="res://nodes/enemies/pathFollow.gd" id="1_1s5s6"]
+[ext_resource type="Script" path="res://nodes/enemies/enemyai.gd" id="1_glwt8"]
+[ext_resource type="Texture2D" uid="uid://b7k3skipkchf5" path="res://assets/enemies/perty.png" id="2_vphra"]
+[ext_resource type="AudioStream" uid="uid://cjad37uon8nav" path="res://music/sfx/poop.ogg" id="4_g1req"]
+[ext_resource type="Script" path="res://nodes/enemies/deathSFX.gd" id="4_jb63k"]
+[ext_resource type="Texture2D" uid="uid://hp23uimov4ln" path="res://assets/enemies/particles/pop.png" id="6_81i70"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gucul"]
+size = Vector2(64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_567b1"]
+atlas = ExtResource("2_vphra")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cv4cu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_567b1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj7p2"]
+atlas = ExtResource("6_81i70")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygdyf"]
+atlas = ExtResource("6_81i70")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jilli"]
+atlas = ExtResource("6_81i70")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ecc2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fj7p2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygdyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jilli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygdyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fj7p2")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="PathFollow2D" type="PathFollow2D"]
+rotates = false
+loop = false
+script = ExtResource("1_1s5s6")
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = 30
+script = ExtResource("1_glwt8")
+spawns = {}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = -3
+shape = SubResource("RectangleShape2D_gucul")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+position = Vector2(-32, -32)
+sprite_frames = SubResource("SpriteFrames_cv4cu")
+frame_progress = 0.86458
+centered = false
+
+[node name="pop" type="AudioStreamPlayer" parent="Area2D"]
+stream = ExtResource("4_g1req")
+volume_db = -7.0
+bus = &"SFX"
+script = ExtResource("4_jb63k")
+
+[node name="particlesprite" type="Sprite2D" parent="Area2D"]
+
+[node name="deathPop" type="AnimatedSprite2D" parent="Area2D"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_7ecc2")
+frame = 4
+frame_progress = 1.0
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="area_exited" from="Area2D" to="Area2D" method="_on_area_exited"]

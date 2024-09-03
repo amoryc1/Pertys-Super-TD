@@ -1,0 +1,104 @@
+[gd_scene load_steps=14 format=3 uid="uid://bygvpgi5h0jw8"]
+
+[ext_resource type="Script" path="res://nodes/towers/glue/gluetower.gd" id="1_co6dj"]
+[ext_resource type="Texture2D" uid="uid://2o2tw76tf5h7" path="res://assets/towers/glue/glue.png" id="2_d8jux"]
+[ext_resource type="Script" path="res://nodes/towers/global/shootenemy.gd" id="3_ij3ib"]
+[ext_resource type="Texture2D" uid="uid://b21hiwh2ohg4c" path="res://assets/ui/ring.png" id="4_2xakp"]
+[ext_resource type="Script" path="res://nodes/towers/global/StackCollision.gd" id="5_tuivf"]
+[ext_resource type="FontFile" uid="uid://bqn5qcu0iu4yn" path="res://font/Retro Gaming.ttf" id="6_cr3c7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ewv5f"]
+radius = 200.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tmur"]
+atlas = ExtResource("2_d8jux")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pggms"]
+atlas = ExtResource("2_d8jux")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4c8jb"]
+atlas = ExtResource("2_d8jux")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ndj0y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tmur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pggms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4c8jb")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ybiqf"]
+radius = 39.0304
+
+[sub_resource type="LabelSettings" id="LabelSettings_q1u6q"]
+font = ExtResource("6_cr3c7")
+font_size = 17
+
+[node name="Tower" type="Area2D"]
+z_index = 10
+script = ExtResource("1_co6dj")
+waittime = 1.0
+cost = 275
+sellValue = 138
+projectileSpeed = 15
+projectileDamage = 0
+towerName = "Glue Gunner"
+canHitLead = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ewv5f")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+z_index = -1
+rotation = 4.71239
+scale = Vector2(1.1, 1.1)
+sprite_frames = SubResource("SpriteFrames_ndj0y")
+frame = 2
+frame_progress = 1.0
+
+[node name="waittime" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="shootenemy" type="Node2D" parent="."]
+script = ExtResource("3_ij3ib")
+weaponType = "particles/glue"
+
+[node name="ring" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(1.55, 1.55)
+texture = ExtResource("4_2xakp")
+
+[node name="StackCollision" type="Area2D" parent="."]
+scale = Vector2(1.00213, 1.00947)
+script = ExtResource("5_tuivf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StackCollision"]
+shape = SubResource("CircleShape2D_ybiqf")
+debug_color = Color(0.7, 0, 0, 0.419608)
+
+[node name="level" type="Label" parent="."]
+visible = false
+offset_left = -61.0
+offset_top = -64.0
+offset_right = 61.0
+offset_bottom = -42.0
+pivot_offset = Vector2(61, 64)
+text = "[0,0,0]"
+label_settings = SubResource("LabelSettings_q1u6q")
+horizontal_alignment = 1
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="waittime" to="shootenemy" method="_on_waittime_timeout"]

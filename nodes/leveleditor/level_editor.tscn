@@ -1,0 +1,965 @@
+[gd_scene load_steps=54 format=3 uid="uid://da1g6oajl8rkt"]
+
+[ext_resource type="Script" path="res://nodes/leveleditor/level_editor.gd" id="1_15cr8"]
+[ext_resource type="AudioStream" uid="uid://ciaver1d0t26" path="res://music/other/leveleditor.ogg" id="1_qccpx"]
+[ext_resource type="FontFile" uid="uid://cps6ey1uyqeql" path="res://font/coolvetica rg.otf" id="2_gn0rb"]
+[ext_resource type="Texture2D" uid="uid://r20sdatiowwq" path="res://assets/ui/leveleditor/perty.png" id="3_jww38"]
+[ext_resource type="Texture2D" uid="uid://crgyhaju38qnj" path="res://assets/ui/stats/coin.png" id="5_q7rmr"]
+[ext_resource type="Texture2D" uid="uid://k8j1e7qug60h" path="res://assets/ui/stats/life.png" id="6_bb7pr"]
+[ext_resource type="LabelSettings" uid="uid://dj4f586fw1yk6" path="res://font/Normal_LabelSettings.tres" id="7_21c34"]
+[ext_resource type="Script" path="res://nodes/leveleditor/deletePart.gd" id="7_kqawx"]
+[ext_resource type="Texture2D" uid="uid://crj1yrs6hsann" path="res://assets/ui/leveleditor/status.png" id="7_rv6en"]
+[ext_resource type="FontFile" uid="uid://bqn5qcu0iu4yn" path="res://font/Retro Gaming.ttf" id="7_wwdt0"]
+[ext_resource type="LabelSettings" uid="uid://em8bdwags5a3" path="res://font/Small_smallpixel_LabelSettings.tres" id="8_i0wbw"]
+[ext_resource type="Texture2D" uid="uid://dsqcf5teaicr5" path="res://assets/ui/leveleditor/statusIcon.png" id="8_mlbn2"]
+[ext_resource type="LabelSettings" uid="uid://b0fn8moe1cdwt" path="res://font/Title_LabelSettings.tres" id="8_teqbe"]
+[ext_resource type="Texture2D" uid="uid://b7k3skipkchf5" path="res://assets/enemies/perty.png" id="9_uahr8"]
+[ext_resource type="Texture2D" uid="uid://du5qtjdh1yhqn" path="res://assets/enemies/bluePerty.png" id="13_ds0bo"]
+[ext_resource type="Script" path="res://nodes/leveleditor/howToUseMenu.gd" id="14_1kwke"]
+[ext_resource type="Texture2D" uid="uid://mcea6div582s" path="res://assets/enemies/greenPerty.png" id="14_jumjb"]
+[ext_resource type="Texture2D" uid="uid://iftfd3yhnndt" path="res://assets/ui/leveleditor/speech.png" id="14_r7abh"]
+[ext_resource type="Texture2D" uid="uid://bpdtwus28lrc6" path="res://assets/enemies/yellowPerty.png" id="15_8a1iw"]
+[ext_resource type="Texture2D" uid="uid://hscp8pw70reh" path="res://assets/enemies/pinkPerty.png" id="16_1f26r"]
+[ext_resource type="Texture2D" uid="uid://bgv20eefvbv0w" path="res://assets/ui/leveleditor/howtouseFrames/frame1.png" id="16_gyk86"]
+[ext_resource type="Texture2D" uid="uid://bq7uudvkb12rq" path="res://assets/ui/leveleditor/howtouseFrames/frame2.png" id="17_iacxk"]
+[ext_resource type="PackedScene" uid="uid://cvhf0pyotf3qe" path="res://Global/ui.tscn" id="17_ol6ix"]
+[ext_resource type="Texture2D" uid="uid://d35b3l4t2iuyd" path="res://assets/ui/leveleditor/howtouseFrames/frame3.png" id="18_0eq33"]
+[ext_resource type="AudioStream" uid="uid://cn4c5l33bs1io" path="res://music/sfx/error.ogg" id="18_jyc51"]
+[ext_resource type="AudioStream" uid="uid://0du834wr0hml" path="res://music/sfx/click.ogg" id="19_rhhu2"]
+[ext_resource type="Texture2D" uid="uid://clw1cawr64dh1" path="res://assets/ui/leveleditor/howtouseFrames/frame4.png" id="19_vmlhh"]
+[ext_resource type="Texture2D" uid="uid://hki85ltlrxsy" path="res://assets/ui/leveleditor/howtouseFrames/frame5.png" id="20_j7hhm"]
+[ext_resource type="Texture2D" uid="uid://cf0skws1nnai0" path="res://assets/ui/leveleditor/howtouseFrames/frame6.png" id="21_0mhm1"]
+[ext_resource type="Texture2D" uid="uid://wn1m182ty0h0" path="res://assets/ui/leveleditor/howtouseFrames/frame7.png" id="22_h3px6"]
+[ext_resource type="Texture2D" uid="uid://nq8uxtvyne1g" path="res://assets/ui/leveleditor/howtouseFrames/frame8.png" id="23_oemv5"]
+[ext_resource type="Texture2D" uid="uid://bpvuo15ejj5q7" path="res://assets/enemies/rainbowPerty.png" id="29_lwgln"]
+[ext_resource type="PackedScene" uid="uid://cah6h6440ntlp" path="res://nodes/menu/loading_screen.tscn" id="31_pae3u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgajw"]
+bg_color = Color(0.0430392, 0.0430392, 0.0430391, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yft4q"]
+bg_color = Color(0.190762, 0.190762, 0.190762, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxcmf"]
+atlas = ExtResource("3_jww38")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60n7e"]
+atlas = ExtResource("3_jww38")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0jwq"]
+atlas = ExtResource("3_jww38")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwna3"]
+atlas = ExtResource("3_jww38")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3tpv"]
+bg_color = Color(0.295867, 0.295867, 0.295866, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d10nh"]
+atlas = ExtResource("8_mlbn2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i1skp"]
+bg_color = Color(0.1444, 0.219007, 0.38, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tr1a4"]
+atlas = ExtResource("7_rv6en")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp6n5"]
+atlas = ExtResource("7_rv6en")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps4qd"]
+atlas = ExtResource("7_rv6en")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_keuac"]
+atlas = ExtResource("7_rv6en")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xw1g"]
+atlas = ExtResource("7_rv6en")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1sdh"]
+bg_color = Color(0.443697, 0.00773203, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_218dy"]
+bg_color = Color(0.332429, 0.153348, 0.263924, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp700"]
+atlas = ExtResource("14_r7abh")
+region = Rect2(0, 0, 313, 223)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8ftt"]
+atlas = ExtResource("14_r7abh")
+region = Rect2(313, 0, 313, 223)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ioje"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jp700")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8ftt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nc52t"]
+bg_color = Color(0.0638665, 0.262898, 0.214771, 1)
+
+[node name="LevelEditor" type="Node2D"]
+script = ExtResource("1_15cr8")
+
+[node name="topbar" type="Panel" parent="."]
+offset_left = -21.0
+offset_top = -15.0
+offset_right = 1614.0
+offset_bottom = 198.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rgajw")
+
+[node name="musicloop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_qccpx")
+volume_db = -8.0
+autoplay = true
+bus = &"Music"
+
+[node name="bottombar" type="Panel" parent="."]
+offset_left = -21.0
+offset_top = 113.0
+offset_right = 1614.0
+offset_bottom = 917.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yft4q")
+
+[node name="spawnamount" type="LineEdit" parent="bottombar"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 350.0
+offset_right = 537.0
+offset_bottom = 486.0
+theme_override_fonts/font = ExtResource("2_gn0rb")
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Perty spawn amount"
+virtual_keyboard_type = 2
+right_icon = SubResource("AtlasTexture_mxcmf")
+
+[node name="spawntime" type="LineEdit" parent="bottombar"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 209.0
+offset_right = 538.0
+offset_bottom = 345.0
+theme_override_fonts/font = ExtResource("2_gn0rb")
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Time for 1 spawn (seconds)"
+right_icon = SubResource("AtlasTexture_60n7e")
+
+[node name="startingcash" type="LineEdit" parent="bottombar"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 66.0
+offset_right = 291.0
+offset_bottom = 113.0
+theme_override_fonts/font = ExtResource("2_gn0rb")
+theme_override_font_sizes/font_size = 32
+text = "200"
+placeholder_text = "Starting cash"
+right_icon = ExtResource("5_q7rmr")
+
+[node name="cashmultiplier" type="LineEdit" parent="bottombar"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 118.0
+offset_right = 292.0
+offset_bottom = 165.0
+theme_override_fonts/font = ExtResource("2_gn0rb")
+theme_override_font_sizes/font_size = 32
+text = "1"
+placeholder_text = "Cash Multiplier"
+right_icon = ExtResource("5_q7rmr")
+
+[node name="startinglife" type="LineEdit" parent="bottombar"]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 66.0
+offset_right = 536.0
+offset_bottom = 113.0
+theme_override_fonts/font = ExtResource("2_gn0rb")
+theme_override_font_sizes/font_size = 32
+text = "100"
+placeholder_text = "Starting life"
+right_icon = ExtResource("6_bb7pr")
+
+[node name="difficultyname" type="LineEdit" parent="bottombar"]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 10.0
+offset_right = 536.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("2_gn0rb")
+theme_override_font_sizes/font_size = 32
+text = "Normal"
+placeholder_text = "Difficulty name"
+right_icon = ExtResource("6_bb7pr")
+
+[node name="levelname" type="LineEdit" parent="bottombar"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 10.0
+offset_right = 292.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("2_gn0rb")
+theme_override_font_sizes/font_size = 32
+text = "New Level"
+placeholder_text = "Level name"
+right_icon = ExtResource("6_bb7pr")
+
+[node name="set" type="Button" parent="bottombar"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = -92.0
+offset_right = 126.0
+offset_bottom = -25.0
+theme_override_fonts/font = ExtResource("2_gn0rb")
+theme_override_font_sizes/font_size = 48
+text = "Set"
+
+[node name="showsave" type="Button" parent="bottombar"]
+layout_mode = 0
+offset_left = 245.0
+offset_top = -92.0
+offset_right = 326.0
+offset_bottom = -25.0
+theme_override_fonts/font = ExtResource("2_gn0rb")
+theme_override_font_sizes/font_size = 48
+text = "Show save"
+
+[node name="howtouse" type="Button" parent="bottombar"]
+layout_mode = 0
+offset_left = 573.0
+offset_top = -92.0
+offset_right = 810.0
+offset_bottom = -25.0
+theme_override_fonts/font = ExtResource("2_gn0rb")
+theme_override_font_sizes/font_size = 48
+text = "Show How to use"
+
+[node name="goback" type="Button" parent="bottombar"]
+layout_mode = 0
+offset_left = 1365.0
+offset_top = -92.0
+offset_right = 1602.0
+offset_bottom = -25.0
+theme_override_fonts/font = ExtResource("2_gn0rb")
+theme_override_font_sizes/font_size = 48
+text = "Go back"
+
+[node name="status" type="Button" parent="bottombar"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 492.0
+offset_right = 537.0
+offset_bottom = 628.0
+theme_override_fonts/font = ExtResource("2_gn0rb")
+theme_override_font_sizes/font_size = 32
+text = "Open status menu"
+icon = SubResource("AtlasTexture_m0jwq")
+alignment = 0
+icon_alignment = 2
+
+[node name="pertytype" type="Button" parent="bottombar"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 636.0
+offset_right = 537.0
+offset_bottom = 772.0
+theme_override_fonts/font = ExtResource("2_gn0rb")
+theme_override_font_sizes/font_size = 32
+text = "Choose Perty type"
+icon = SubResource("AtlasTexture_cwna3")
+alignment = 0
+icon_alignment = 2
+
+[node name="debuginfo" type="Label" parent="bottombar"]
+visible = false
+layout_mode = 0
+offset_left = 1286.0
+offset_top = 553.0
+offset_right = 1619.0
+offset_bottom = 793.0
+text = "startingHealth : 0
+startingMoney : 0
+cashMultiplier : 0x
+difficultyName : Normal
+currentStatus : []
+waveCount : 0
+"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="waves" type="Panel" parent="bottombar"]
+layout_mode = 0
+offset_left = 616.0
+offset_top = 11.0
+offset_right = 1628.0
+offset_bottom = 794.0
+
+[node name="list" type="Panel" parent="bottombar/waves"]
+layout_mode = 0
+offset_top = 84.0
+offset_right = 1013.0
+offset_bottom = 784.0
+
+[node name="example" type="Panel" parent="bottombar/waves/list"]
+visible = false
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 994.0
+offset_bottom = 71.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f3tpv")
+script = ExtResource("7_kqawx")
+
+[node name="wavenumber" type="Label" parent="bottombar/waves/list/example"]
+layout_mode = 0
+offset_left = 843.0
+offset_right = 987.0
+offset_bottom = 8.0
+scale = Vector2(0.75, 0.75)
+text = "-1"
+label_settings = ExtResource("8_i0wbw")
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="id" type="Label" parent="bottombar/waves/list/example"]
+layout_mode = 0
+offset_left = 843.0
+offset_top = 7.0
+offset_right = 987.0
+offset_bottom = 15.0
+scale = Vector2(0.75, 0.75)
+text = "0"
+label_settings = ExtResource("8_i0wbw")
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="title" type="Label" parent="bottombar/waves/list/example"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 16.0
+offset_right = 277.0
+offset_bottom = 47.0
+text = "Normal Perty"
+label_settings = ExtResource("7_21c34")
+
+[node name="status" type="Label" parent="bottombar/waves/list/example"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 21.0
+offset_right = 985.0
+offset_bottom = 59.0
+text = "[]"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="time" type="Label" parent="bottombar/waves/list/example"]
+layout_mode = 0
+offset_left = 331.0
+offset_top = 1.0
+offset_right = 539.0
+offset_bottom = 32.0
+text = "0.1s"
+label_settings = ExtResource("7_21c34")
+
+[node name="icon" type="Sprite2D" parent="bottombar/waves/list/example/time"]
+position = Vector2(-14, 15)
+scale = Vector2(1.01563, 1.01563)
+texture = ExtResource("8_mlbn2")
+hframes = 3
+frame = 1
+
+[node name="amount" type="Label" parent="bottombar/waves/list/example"]
+layout_mode = 0
+offset_left = 331.0
+offset_top = 32.0
+offset_right = 539.0
+offset_bottom = 63.0
+text = "20x"
+label_settings = ExtResource("7_21c34")
+
+[node name="icon" type="Sprite2D" parent="bottombar/waves/list/example/amount"]
+position = Vector2(-14, 14)
+scale = Vector2(1.01563, 1.01563)
+texture = ExtResource("8_mlbn2")
+hframes = 3
+
+[node name="pertyIcon" type="Sprite2D" parent="bottombar/waves/list/example"]
+position = Vector2(31.5, 31.5)
+scale = Vector2(1.01563, 1.01563)
+texture = ExtResource("9_uahr8")
+
+[node name="trash" type="TextureButton" parent="bottombar/waves/list/example"]
+visible = false
+layout_mode = 0
+offset_left = 952.0
+offset_right = 984.0
+offset_bottom = 32.0
+texture_normal = SubResource("AtlasTexture_d10nh")
+
+[node name="wavenumber" type="Label" parent="bottombar/waves"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 10.0
+offset_right = 1006.0
+offset_bottom = 72.0
+text = "Wave 1"
+label_settings = ExtResource("8_teqbe")
+horizontal_alignment = 1
+
+[node name="left" type="Button" parent="bottombar/waves"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 17.0
+offset_right = 66.0
+offset_bottom = 69.0
+text = "<"
+
+[node name="right" type="Button" parent="bottombar/waves"]
+layout_mode = 0
+offset_left = 933.0
+offset_top = 19.0
+offset_right = 988.0
+offset_bottom = 71.0
+text = ">"
+
+[node name="statusMenu" type="Panel" parent="bottombar"]
+visible = false
+layout_mode = 0
+offset_left = 547.0
+offset_top = 96.0
+offset_right = 999.0
+offset_bottom = 764.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i1skp")
+
+[node name="hot" type="CheckButton" parent="bottombar/statusMenu"]
+layout_mode = 0
+offset_top = 12.0
+offset_right = 451.0
+offset_bottom = 61.0
+theme_override_fonts/font = ExtResource("7_wwdt0")
+theme_override_font_sizes/font_size = 32
+text = "Hot"
+icon = SubResource("AtlasTexture_tr1a4")
+alignment = 2
+icon_alignment = 2
+
+[node name="Label" type="Label" parent="bottombar/statusMenu/hot"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 13.0
+offset_right = 236.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("7_wwdt0")
+text = "Immune to the glue status"
+
+[node name="camo" type="CheckButton" parent="bottombar/statusMenu"]
+layout_mode = 0
+offset_top = 68.0
+offset_right = 451.0
+offset_bottom = 117.0
+theme_override_fonts/font = ExtResource("7_wwdt0")
+theme_override_font_sizes/font_size = 32
+text = "Camo"
+icon = SubResource("AtlasTexture_qp6n5")
+alignment = 2
+icon_alignment = 2
+
+[node name="Label" type="Label" parent="bottombar/statusMenu/camo"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 15.0
+offset_right = 268.0
+offset_bottom = 38.0
+theme_override_fonts/font = ExtResource("7_wwdt0")
+theme_override_font_sizes/font_size = 15
+text = "Some towers can't detect"
+
+[node name="metal" type="CheckButton" parent="bottombar/statusMenu"]
+layout_mode = 0
+offset_top = 124.0
+offset_right = 451.0
+offset_bottom = 173.0
+theme_override_fonts/font = ExtResource("7_wwdt0")
+theme_override_font_sizes/font_size = 32
+text = "Metal"
+icon = SubResource("AtlasTexture_ps4qd")
+alignment = 2
+icon_alignment = 2
+
+[node name="Label" type="Label" parent="bottombar/statusMenu/metal"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 13.0
+offset_right = 268.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("7_wwdt0")
+text = "Pencils can't damage"
+
+[node name="fast" type="CheckButton" parent="bottombar/statusMenu"]
+layout_mode = 0
+offset_top = 180.0
+offset_right = 451.0
+offset_bottom = 229.0
+theme_override_fonts/font = ExtResource("7_wwdt0")
+theme_override_font_sizes/font_size = 32
+text = "Fast"
+icon = SubResource("AtlasTexture_keuac")
+alignment = 2
+icon_alignment = 2
+
+[node name="Label" type="Label" parent="bottombar/statusMenu/fast"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 13.0
+offset_right = 268.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("7_wwdt0")
+text = "Perty is 50% faster"
+
+[node name="shield" type="CheckButton" parent="bottombar/statusMenu"]
+layout_mode = 0
+offset_top = 236.0
+offset_right = 451.0
+offset_bottom = 285.0
+theme_override_fonts/font = ExtResource("7_wwdt0")
+theme_override_font_sizes/font_size = 32
+text = "Shield"
+icon = SubResource("AtlasTexture_2xw1g")
+alignment = 2
+icon_alignment = 2
+
+[node name="Label" type="Label" parent="bottombar/statusMenu/shield"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 13.0
+offset_right = 268.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("7_wwdt0")
+text = "+25 HP to Perty"
+
+[node name="saveArrayMenu" type="Panel" parent="bottombar"]
+visible = false
+layout_mode = 0
+offset_left = -5.0
+offset_top = -1.0
+offset_right = 1641.0
+offset_bottom = 806.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_d1sdh")
+
+[node name="TextEdit" type="TextEdit" parent="bottombar/saveArrayMenu"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 145.0
+offset_right = 1538.0
+offset_bottom = 737.0
+editable = false
+wrap_mode = 1
+
+[node name="copydisclaimer" type="Label" parent="bottombar/saveArrayMenu"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 25.0
+offset_right = 1626.0
+offset_bottom = 90.0
+text = "Right Click over this text box and save it somewhere
+safe. I have not implemented a system to do that yet."
+label_settings = ExtResource("7_21c34")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="howToUseMenu" type="Panel" parent="bottombar"]
+visible = false
+layout_mode = 0
+offset_left = -5.0
+offset_top = -1.0
+offset_right = 1641.0
+offset_bottom = 806.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_218dy")
+script = ExtResource("14_1kwke")
+
+[node name="page1" type="Node2D" parent="bottombar/howToUseMenu"]
+
+[node name="frame" type="Sprite2D" parent="bottombar/howToUseMenu/page1"]
+position = Vector2(712, 395)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("16_gyk86")
+
+[node name="pertyTalking" type="AnimatedSprite2D" parent="bottombar/howToUseMenu/page1"]
+position = Vector2(1313, 565)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_6ioje")
+frame_progress = 0.236835
+
+[node name="speech" type="Label" parent="bottombar/howToUseMenu/page1"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = 1025.0
+offset_top = 359.0
+offset_right = 1448.0
+offset_bottom = 706.0
+text = "How to use this???? Well I tell you!! :)"
+label_settings = ExtResource("7_21c34")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="page2" type="Node2D" parent="bottombar/howToUseMenu"]
+visible = false
+
+[node name="frame" type="Sprite2D" parent="bottombar/howToUseMenu/page2"]
+position = Vector2(712, 395)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("17_iacxk")
+
+[node name="pertyTalking" type="AnimatedSprite2D" parent="bottombar/howToUseMenu/page2"]
+position = Vector2(1313, 565)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_6ioje")
+frame_progress = 0.75939
+
+[node name="speech" type="Label" parent="bottombar/howToUseMenu/page2"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = 1025.0
+offset_top = 359.0
+offset_right = 1448.0
+offset_bottom = 706.0
+text = "Here you put in the name of the levels difficulty like \"Normal\", \"Hard\", \"Impossible\", \"Hell\", \"Easy\", \"Peasy\". Thats a few example. This can be anything :P"
+label_settings = ExtResource("7_21c34")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="page3" type="Node2D" parent="bottombar/howToUseMenu"]
+visible = false
+
+[node name="frame" type="Sprite2D" parent="bottombar/howToUseMenu/page3"]
+position = Vector2(712, 395)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("18_0eq33")
+
+[node name="pertyTalking" type="AnimatedSprite2D" parent="bottombar/howToUseMenu/page3"]
+position = Vector2(1313, 565)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_6ioje")
+frame_progress = 0.75939
+
+[node name="speech" type="Label" parent="bottombar/howToUseMenu/page3"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = 1025.0
+offset_top = 359.0
+offset_right = 1448.0
+offset_bottom = 706.0
+text = "Here you put the cash you start with (at least 200 is recommended). The life you start with (has to be above 1) and the cash multiplier when you win a wave (1x is normal, 2x is double, 0.5x is half etc.) :]"
+label_settings = ExtResource("7_21c34")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="page4" type="Node2D" parent="bottombar/howToUseMenu"]
+visible = false
+
+[node name="frame" type="Sprite2D" parent="bottombar/howToUseMenu/page4"]
+position = Vector2(712, 395)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("19_vmlhh")
+
+[node name="pertyTalking" type="AnimatedSprite2D" parent="bottombar/howToUseMenu/page4"]
+position = Vector2(1313, 565)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_6ioje")
+frame_progress = 0.75939
+
+[node name="speech" type="Label" parent="bottombar/howToUseMenu/page4"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = 1025.0
+offset_top = 363.0
+offset_right = 1450.0
+offset_bottom = 701.0
+text = "Here you put in the time for a perty to spawn (can be a decimal value) and the amount of pertys to spawn in that group. For example, if the spawn amount was 20 and the time was 0.5 it would take each Perty 0.5s to spawn (10s total) :O"
+label_settings = ExtResource("7_21c34")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="page5" type="Node2D" parent="bottombar/howToUseMenu"]
+visible = false
+
+[node name="frame" type="Sprite2D" parent="bottombar/howToUseMenu/page5"]
+position = Vector2(712, 395)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("20_j7hhm")
+
+[node name="pertyTalking" type="AnimatedSprite2D" parent="bottombar/howToUseMenu/page5"]
+position = Vector2(1313, 565)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_6ioje")
+frame_progress = 0.75939
+
+[node name="speech" type="Label" parent="bottombar/howToUseMenu/page5"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = 1025.0
+offset_top = 359.0
+offset_right = 1448.0
+offset_bottom = 706.0
+text = "Open the status menu to choose effects for the group. Choose Perty type will affect the type of Perty spawned in the group (the lower down in the list the more layers the Perty has) B)"
+label_settings = ExtResource("7_21c34")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="page6" type="Node2D" parent="bottombar/howToUseMenu"]
+visible = false
+
+[node name="frame" type="Sprite2D" parent="bottombar/howToUseMenu/page6"]
+position = Vector2(712, 395)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("21_0mhm1")
+
+[node name="pertyTalking" type="AnimatedSprite2D" parent="bottombar/howToUseMenu/page6"]
+position = Vector2(1313, 565)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_6ioje")
+frame_progress = 0.75939
+
+[node name="speech" type="Label" parent="bottombar/howToUseMenu/page6"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = 1025.0
+offset_top = 359.0
+offset_right = 1448.0
+offset_bottom = 706.0
+text = "Here you can scroll through the different waves to select the one you want to send the group into. :)"
+label_settings = ExtResource("7_21c34")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="page7" type="Node2D" parent="bottombar/howToUseMenu"]
+visible = false
+
+[node name="frame" type="Sprite2D" parent="bottombar/howToUseMenu/page7"]
+position = Vector2(712, 395)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("22_h3px6")
+
+[node name="pertyTalking" type="AnimatedSprite2D" parent="bottombar/howToUseMenu/page7"]
+position = Vector2(1313, 565)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_6ioje")
+frame_progress = 0.75939
+
+[node name="speech" type="Label" parent="bottombar/howToUseMenu/page7"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = 1025.0
+offset_top = 359.0
+offset_right = 1448.0
+offset_bottom = 706.0
+text = "When you are happy with your group and wave select this button to set the group into that wave. :D"
+label_settings = ExtResource("7_21c34")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="page8" type="Node2D" parent="bottombar/howToUseMenu"]
+visible = false
+
+[node name="frame" type="Sprite2D" parent="bottombar/howToUseMenu/page8"]
+position = Vector2(712, 395)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("23_oemv5")
+
+[node name="pertyTalking" type="AnimatedSprite2D" parent="bottombar/howToUseMenu/page8"]
+position = Vector2(1313, 565)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_6ioje")
+frame_progress = 0.75939
+
+[node name="speech" type="Label" parent="bottombar/howToUseMenu/page8"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = 1025.0
+offset_top = 359.0
+offset_right = 1448.0
+offset_bottom = 706.0
+text = "Press this when you want to copy the data of the level and paste it into a file. This file can then be used to make new levels if you know what you're doing :)"
+label_settings = ExtResource("7_21c34")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="page9" type="Node2D" parent="bottombar/howToUseMenu"]
+visible = false
+
+[node name="pertyTalking" type="AnimatedSprite2D" parent="bottombar/howToUseMenu/page9"]
+position = Vector2(809, 565)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_6ioje")
+frame_progress = 0.75939
+
+[node name="speech" type="Label" parent="bottombar/howToUseMenu/page9"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = 513.0
+offset_top = 359.0
+offset_right = 936.0
+offset_bottom = 706.0
+text = "Have fun playing and making levels of my game! Thanks for playing <3"
+label_settings = ExtResource("7_21c34")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="left" type="Button" parent="bottombar/howToUseMenu"]
+layout_mode = 0
+offset_left = 1444.0
+offset_top = 18.0
+offset_right = 1489.0
+offset_bottom = 114.0
+theme_override_font_sizes/font_size = 64
+text = "<"
+
+[node name="right" type="Button" parent="bottombar/howToUseMenu"]
+layout_mode = 0
+offset_left = 1542.0
+offset_top = 20.0
+offset_right = 1587.0
+offset_bottom = 116.0
+theme_override_font_sizes/font_size = 64
+text = ">"
+
+[node name="pageNumber" type="Label" parent="bottombar/howToUseMenu"]
+layout_mode = 0
+offset_left = 1486.0
+offset_top = 23.0
+offset_right = 1541.0
+offset_bottom = 111.0
+theme_override_font_sizes/font_size = 64
+text = "1"
+horizontal_alignment = 1
+
+[node name="pertytypeMenu" type="Panel" parent="bottombar"]
+visible = false
+layout_mode = 0
+offset_left = 546.0
+offset_top = 220.0
+offset_right = 998.0
+offset_bottom = 781.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nc52t")
+
+[node name="normal" type="CheckButton" parent="bottombar/pertytypeMenu"]
+layout_mode = 0
+offset_top = -7.0
+offset_right = 904.0
+offset_bottom = 65.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("7_wwdt0")
+theme_override_font_sizes/font_size = 44
+button_pressed = true
+text = "Normal"
+icon = ExtResource("9_uahr8")
+
+[node name="blue" type="CheckButton" parent="bottombar/pertytypeMenu"]
+layout_mode = 0
+offset_top = 25.0
+offset_right = 904.0
+offset_bottom = 97.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("7_wwdt0")
+theme_override_font_sizes/font_size = 44
+text = "Blue"
+icon = ExtResource("13_ds0bo")
+
+[node name="green" type="CheckButton" parent="bottombar/pertytypeMenu"]
+layout_mode = 0
+offset_top = 57.0
+offset_right = 904.0
+offset_bottom = 129.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("7_wwdt0")
+theme_override_font_sizes/font_size = 44
+text = "Green"
+icon = ExtResource("14_jumjb")
+
+[node name="yellow" type="CheckButton" parent="bottombar/pertytypeMenu"]
+layout_mode = 0
+offset_top = 89.0
+offset_right = 904.0
+offset_bottom = 161.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("7_wwdt0")
+theme_override_font_sizes/font_size = 44
+text = "Yellow"
+icon = ExtResource("15_8a1iw")
+
+[node name="pink" type="CheckButton" parent="bottombar/pertytypeMenu"]
+layout_mode = 0
+offset_top = 121.0
+offset_right = 904.0
+offset_bottom = 193.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("7_wwdt0")
+theme_override_font_sizes/font_size = 44
+text = "Pink"
+icon = ExtResource("16_1f26r")
+
+[node name="rainbow" type="CheckButton" parent="bottombar/pertytypeMenu"]
+layout_mode = 0
+offset_top = 153.0
+offset_right = 904.0
+offset_bottom = 225.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("7_wwdt0")
+theme_override_font_sizes/font_size = 44
+text = "Rainbow"
+icon = ExtResource("29_lwgln")
+
+[node name="GlobalUI" parent="." instance=ExtResource("17_ol6ix")]
+
+[node name="sfx" type="Node2D" parent="."]
+
+[node name="errorSFX" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("18_jyc51")
+volume_db = 4.0
+bus = &"SFX"
+
+[node name="clickSFX" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("19_rhhu2")
+volume_db = -6.0
+bus = &"SFX"
+
+[node name="LoadingScreen" parent="." instance=ExtResource("31_pae3u")]
+
+[connection signal="pressed" from="bottombar/set" to="." method="_on_set_pressed"]
+[connection signal="pressed" from="bottombar/showsave" to="." method="_on_showsave_pressed"]
+[connection signal="pressed" from="bottombar/howtouse" to="." method="_on_howtouse_pressed"]
+[connection signal="pressed" from="bottombar/goback" to="." method="_on_goback_pressed"]
+[connection signal="pressed" from="bottombar/status" to="." method="_on_status_pressed"]
+[connection signal="pressed" from="bottombar/pertytype" to="." method="_on_pertytype_pressed"]
+[connection signal="pressed" from="bottombar/waves/list/example/trash" to="bottombar/waves/list/example" method="_on_trash_pressed"]
+[connection signal="pressed" from="bottombar/waves/left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="bottombar/waves/right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="bottombar/howToUseMenu/left" to="bottombar/howToUseMenu" method="_on_left_pressed"]
+[connection signal="pressed" from="bottombar/howToUseMenu/right" to="bottombar/howToUseMenu" method="_on_right_pressed"]
+[connection signal="pressed" from="bottombar/pertytypeMenu/normal" to="." method="_on_normal_pressed"]
+[connection signal="pressed" from="bottombar/pertytypeMenu/blue" to="." method="_on_blue_pressed"]
+[connection signal="pressed" from="bottombar/pertytypeMenu/green" to="." method="_on_green_pressed"]
+[connection signal="pressed" from="bottombar/pertytypeMenu/yellow" to="." method="_on_yellow_pressed"]
+[connection signal="pressed" from="bottombar/pertytypeMenu/pink" to="." method="_on_pink_pressed"]
+[connection signal="pressed" from="bottombar/pertytypeMenu/rainbow" to="." method="_on_rainbow_pressed"]

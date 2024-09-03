@@ -1,0 +1,101 @@
+[gd_scene load_steps=14 format=3 uid="uid://b8u0v0h86vayw"]
+
+[ext_resource type="Script" path="res://nodes/towers/dart/darttower.gd" id="1_aq53w"]
+[ext_resource type="Texture2D" uid="uid://bo72e1fwe01n4" path="res://assets/towers/normal/normal.png" id="2_37i8s"]
+[ext_resource type="Script" path="res://nodes/towers/global/shootenemy.gd" id="3_7xhts"]
+[ext_resource type="Texture2D" uid="uid://b21hiwh2ohg4c" path="res://assets/ui/ring.png" id="4_0byt7"]
+[ext_resource type="Script" path="res://nodes/towers/global/StackCollision.gd" id="5_2xhdg"]
+[ext_resource type="FontFile" uid="uid://bqn5qcu0iu4yn" path="res://font/Retro Gaming.ttf" id="6_xfyc6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_isf4x"]
+resource_local_to_scene = true
+radius = 140.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x776o"]
+atlas = ExtResource("2_37i8s")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gce3v"]
+atlas = ExtResource("2_37i8s")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgbuq"]
+atlas = ExtResource("2_37i8s")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ndj0y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x776o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gce3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgbuq")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ybiqf"]
+radius = 39.915
+
+[sub_resource type="LabelSettings" id="LabelSettings_pkqnl"]
+font = ExtResource("6_xfyc6")
+font_size = 17
+
+[node name="Tower" type="Area2D"]
+z_index = 10
+script = ExtResource("1_aq53w")
+waittime = 0.75
+cost = 200
+sellValue = 100
+projectileSpeed = 15
+towerName = "Pencil Tower"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_isf4x")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+z_index = -1
+rotation = 4.71238
+scale = Vector2(1.1, 1.1)
+sprite_frames = SubResource("SpriteFrames_ndj0y")
+frame = 2
+frame_progress = 1.0
+
+[node name="waittime" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="shootenemy" type="Node2D" parent="."]
+script = ExtResource("3_7xhts")
+
+[node name="ring" type="Sprite2D" parent="."]
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("4_0byt7")
+
+[node name="StackCollision" type="Area2D" parent="."]
+scale = Vector2(1.00213, 1.00947)
+script = ExtResource("5_2xhdg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StackCollision"]
+shape = SubResource("CircleShape2D_ybiqf")
+debug_color = Color(0.7, 0, 0, 0.419608)
+
+[node name="level" type="Label" parent="."]
+visible = false
+offset_left = -61.0
+offset_top = -64.0
+offset_right = 61.0
+offset_bottom = -42.0
+pivot_offset = Vector2(61, 64)
+text = "[0,0,0]"
+label_settings = SubResource("LabelSettings_pkqnl")
+horizontal_alignment = 1
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="waittime" to="shootenemy" method="_on_waittime_timeout"]

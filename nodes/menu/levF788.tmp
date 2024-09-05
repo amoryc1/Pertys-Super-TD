@@ -1,0 +1,686 @@
+[gd_scene load_steps=21 format=3 uid="uid://ddopo0p0fyxle"]
+
+[ext_resource type="Script" path="res://TowerDefence/nodes/menu/levelui.gd" id="1_wh3yf"]
+[ext_resource type="Texture2D" uid="uid://crgyhaju38qnj" path="res://TowerDefence/assets/ui/stats/coin.png" id="2_22dol"]
+[ext_resource type="Script" path="res://TowerDefence/nodes/menu/towers.gd" id="2_37top"]
+[ext_resource type="Texture2D" uid="uid://k8j1e7qug60h" path="res://TowerDefence/assets/ui/stats/life.png" id="2_tppk4"]
+[ext_resource type="Script" path="res://TowerDefence/nodes/menu/placetower.gd" id="3_3qh5k"]
+[ext_resource type="Texture2D" uid="uid://cky4dapg10mub" path="res://TowerDefence/assets/particles/spikes.png" id="6_cnsui"]
+[ext_resource type="Texture2D" uid="uid://cki3vso8c2wdm" path="res://TowerDefence/assets/ui/stats/strength.png" id="6_q5quv"]
+[ext_resource type="FontFile" uid="uid://bqn5qcu0iu4yn" path="res://Global/Fonts/Retro Gaming.ttf" id="7_hw3dq"]
+[ext_resource type="Texture2D" uid="uid://dc0gb3rsty25e" path="res://TowerDefence/assets/ui/stats/range.png" id="7_kyi02"]
+[ext_resource type="Script" path="res://TowerDefence/nodes/menu/debug/superperry.gd" id="8_j5xjt"]
+[ext_resource type="Texture2D" uid="uid://bo72e1fwe01n4" path="res://TowerDefence/assets/towers/normal.png" id="8_l7lej"]
+[ext_resource type="Texture2D" uid="uid://d0557ul50bqgn" path="res://TowerDefence/assets/towers/redwoodworker.png" id="10_62wvg"]
+[ext_resource type="Texture2D" uid="uid://cfv5hwwi0ux1c" path="res://TowerDefence/assets/ui/buttons/arrowbutton.png" id="11_572ky"]
+[ext_resource type="Texture2D" uid="uid://2o2tw76tf5h7" path="res://TowerDefence/assets/towers/glue.png" id="11_btr4y"]
+[ext_resource type="Texture2D" uid="uid://dao13ix3wup1b" path="res://TowerDefence/assets/ui/buttons/arrowbuttonPRESSED.png" id="12_p0rs3"]
+[ext_resource type="PackedScene" uid="uid://cvhf0pyotf3qe" path="res://Global/Nodes/ui.tscn" id="13_ai2x0"]
+[ext_resource type="Script" path="res://TowerDefence/nodes/menu/timescale.gd" id="16_cebt5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fv3ot"]
+bg_color = Color(0, 0.241667, 0.5, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rj1c6"]
+font = ExtResource("7_hw3dq")
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l4xlp"]
+bg_color = Color(3.21513e-05, 0.418854, 0.830212, 0.564706)
+
+[node name="LevelUI" type="CanvasLayer"]
+script = ExtResource("1_wh3yf")
+
+[node name="stats" type="Panel" parent="."]
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 109.0
+offset_bottom = 54.0
+
+[node name="health" type="Label" parent="stats"]
+layout_mode = 0
+offset_left = 41.0
+offset_right = 98.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 32
+text = "150"
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="stats/health"]
+position = Vector2(-19.5, 24.5)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_tppk4")
+
+[node name="stats2" type="Panel" parent="stats"]
+layout_mode = 0
+offset_left = 107.0
+offset_right = 316.0
+offset_bottom = 49.0
+
+[node name="moneys" type="Label" parent="stats"]
+layout_mode = 0
+offset_left = 150.0
+offset_right = 305.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 32
+text = "0"
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="stats/moneys"]
+position = Vector2(-21.5, 24.5)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("2_22dol")
+
+[node name="stats3" type="Panel" parent="stats"]
+layout_mode = 0
+offset_left = 319.0
+offset_right = 528.0
+offset_bottom = 49.0
+
+[node name="wave" type="Label" parent="stats"]
+layout_mode = 0
+offset_left = 325.0
+offset_right = 517.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 32
+text = "Wave 0"
+vertical_alignment = 1
+
+[node name="units" type="Panel" parent="."]
+z_index = -3
+offset_left = 1317.0
+offset_top = -3.0
+offset_right = 1603.0
+offset_bottom = 903.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fv3ot")
+
+[node name="list" type="Control" parent="units"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_37top")
+
+[node name="spiketrap" type="Button" parent="units/list"]
+layout_mode = 2
+offset_left = 145.0
+offset_top = 64.0
+offset_right = 273.0
+offset_bottom = 192.0
+script = ExtResource("3_3qh5k")
+towerPath = "particles/spikes"
+
+[node name="Sprite2D" type="Sprite2D" parent="units/list/spiketrap"]
+scale = Vector2(2, 2)
+texture = ExtResource("6_cnsui")
+centered = false
+hframes = 5
+
+[node name="bg" type="Panel" parent="units/list/spiketrap"]
+visible = false
+z_index = -1
+layout_mode = 0
+offset_left = -356.0
+offset_top = 26.0
+offset_right = -153.0
+offset_bottom = 127.0
+
+[node name="desc" type="Label" parent="units/list/spiketrap/bg"]
+z_index = 5
+layout_mode = 0
+offset_right = 203.0
+offset_bottom = 101.0
+text = "Pops a Perty layer when ran over. Breaks after 5 uses."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="towername" type="Label" parent="units/list/spiketrap/bg"]
+z_index = 5
+layout_mode = 0
+offset_left = 3.0
+offset_top = -25.0
+offset_right = 126.0
+offset_bottom = -2.0
+text = "Gabby's Book"
+
+[node name="Panel" type="Panel" parent="units/list/spiketrap/bg/towername"]
+z_index = -1
+layout_mode = 0
+offset_left = -3.0
+offset_top = 1.0
+offset_right = 200.0
+offset_bottom = 23.0
+
+[node name="type" type="Label" parent="units/list/spiketrap/bg"]
+z_index = 5
+layout_mode = 0
+offset_left = 138.0
+offset_top = -49.0
+offset_right = 201.0
+offset_bottom = -26.0
+text = "Trap"
+horizontal_alignment = 2
+
+[node name="Panel" type="Panel" parent="units/list/spiketrap/bg/type"]
+z_index = -1
+layout_mode = 0
+offset_top = 1.0
+offset_right = 65.0
+offset_bottom = 23.0
+
+[node name="dmg" type="Label" parent="units/list/spiketrap/bg"]
+z_index = 5
+layout_mode = 0
+offset_left = 24.0
+offset_top = 103.0
+offset_right = 66.0
+offset_bottom = 126.0
+text = "1x5"
+
+[node name="Panel" type="Panel" parent="units/list/spiketrap/bg/dmg"]
+z_index = -1
+layout_mode = 0
+offset_top = 1.0
+offset_right = 42.0
+offset_bottom = 23.0
+
+[node name="Sprite2D" type="Sprite2D" parent="units/list/spiketrap/bg/dmg"]
+position = Vector2(-14, 12)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_q5quv")
+
+[node name="range" type="Label" parent="units/list/spiketrap/bg"]
+z_index = 5
+layout_mode = 0
+offset_left = 135.0
+offset_top = 103.0
+offset_right = 177.0
+offset_bottom = 126.0
+text = "4.5"
+horizontal_alignment = 2
+
+[node name="Panel" type="Panel" parent="units/list/spiketrap/bg/range"]
+z_index = -1
+layout_mode = 0
+offset_top = 1.0
+offset_right = 42.0
+offset_bottom = 23.0
+
+[node name="Sprite2D" type="Sprite2D" parent="units/list/spiketrap/bg/range"]
+position = Vector2(57, 12)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_kyi02")
+
+[node name="cost" type="Label" parent="units/list/spiketrap"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 21.0
+text = "20"
+label_settings = SubResource("LabelSettings_rj1c6")
+
+[node name="redwoodworker" type="Button" parent="units/list"]
+layout_mode = 2
+offset_left = 145.0
+offset_top = 200.0
+offset_right = 273.0
+offset_bottom = 328.0
+script = ExtResource("3_3qh5k")
+towerPath = "redwoodworker/worker"
+partInList = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="units/list/redwoodworker"]
+texture = ExtResource("10_62wvg")
+centered = false
+hframes = 3
+
+[node name="bg" type="Panel" parent="units/list/redwoodworker"]
+visible = false
+z_index = -1
+layout_mode = 0
+offset_left = -356.0
+offset_top = 26.0
+offset_right = -153.0
+offset_bottom = 127.0
+
+[node name="desc" type="Label" parent="units/list/redwoodworker/bg"]
+z_index = 5
+layout_mode = 0
+offset_left = 5.0
+offset_right = 198.0
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 12
+text = "Occasionally will throw a piece of gold around the tower. Move your mouse over it to collect a bit of $$$"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="towername" type="Label" parent="units/list/redwoodworker/bg"]
+z_index = 5
+layout_mode = 0
+offset_left = 3.0
+offset_top = -25.0
+offset_right = 137.0
+offset_bottom = -2.0
+text = "Redwood Worker
+"
+
+[node name="Panel" type="Panel" parent="units/list/redwoodworker/bg/towername"]
+z_index = -1
+layout_mode = 0
+offset_left = -2.0
+offset_top = 1.0
+offset_right = 200.0
+offset_bottom = 23.0
+
+[node name="type" type="Label" parent="units/list/redwoodworker/bg"]
+z_index = 5
+layout_mode = 0
+offset_left = 138.0
+offset_top = -49.0
+offset_right = 201.0
+offset_bottom = -26.0
+text = "Tower"
+horizontal_alignment = 2
+
+[node name="Panel" type="Panel" parent="units/list/redwoodworker/bg/type"]
+z_index = -1
+layout_mode = 0
+offset_top = 1.0
+offset_right = 65.0
+offset_bottom = 23.0
+
+[node name="dmg" type="Label" parent="units/list/redwoodworker/bg"]
+z_index = 5
+layout_mode = 0
+offset_left = 24.0
+offset_top = 103.0
+offset_right = 66.0
+offset_bottom = 126.0
+text = "0"
+
+[node name="Panel" type="Panel" parent="units/list/redwoodworker/bg/dmg"]
+z_index = -1
+layout_mode = 0
+offset_top = 1.0
+offset_right = 42.0
+offset_bottom = 23.0
+
+[node name="Sprite2D" type="Sprite2D" parent="units/list/redwoodworker/bg/dmg"]
+position = Vector2(-14, 12)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_q5quv")
+
+[node name="range" type="Label" parent="units/list/redwoodworker/bg"]
+z_index = 5
+layout_mode = 0
+offset_left = 135.0
+offset_top = 103.0
+offset_right = 177.0
+offset_bottom = 126.0
+text = "0"
+horizontal_alignment = 2
+
+[node name="Panel" type="Panel" parent="units/list/redwoodworker/bg/range"]
+z_index = -1
+layout_mode = 0
+offset_top = 1.0
+offset_right = 42.0
+offset_bottom = 23.0
+
+[node name="Sprite2D" type="Sprite2D" parent="units/list/redwoodworker/bg/range"]
+position = Vector2(57, 12)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_kyi02")
+
+[node name="cost" type="Label" parent="units/list/redwoodworker"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 21.0
+text = "1,250"
+label_settings = SubResource("LabelSettings_rj1c6")
+
+[node name="darttower" type="Button" parent="units/list"]
+layout_mode = 2
+offset_left = 9.0
+offset_top = 64.0
+offset_right = 137.0
+offset_bottom = 192.0
+script = ExtResource("3_3qh5k")
+
+[node name="Sprite2D" type="Sprite2D" parent="units/list/darttower"]
+texture = ExtResource("8_l7lej")
+centered = false
+hframes = 3
+
+[node name="bg" type="Panel" parent="units/list/darttower"]
+visible = false
+z_index = -1
+layout_mode = 0
+offset_left = -220.0
+offset_top = 26.0
+offset_right = -17.0
+offset_bottom = 127.0
+
+[node name="desc" type="Label" parent="units/list/darttower/bg"]
+z_index = 5
+layout_mode = 0
+offset_right = 203.0
+offset_bottom = 101.0
+text = "Shoots darts at an average speed toward towers."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="towername" type="Label" parent="units/list/darttower/bg"]
+z_index = 5
+layout_mode = 0
+offset_left = 3.0
+offset_top = -25.0
+offset_right = 126.0
+offset_bottom = -2.0
+text = "Dart Tower"
+
+[node name="Panel" type="Panel" parent="units/list/darttower/bg/towername"]
+z_index = -1
+layout_mode = 0
+offset_left = -3.0
+offset_top = 1.0
+offset_right = 200.0
+offset_bottom = 23.0
+
+[node name="type" type="Label" parent="units/list/darttower/bg"]
+z_index = 5
+layout_mode = 0
+offset_left = 138.0
+offset_top = -49.0
+offset_right = 201.0
+offset_bottom = -26.0
+text = "Tower"
+horizontal_alignment = 2
+
+[node name="Panel" type="Panel" parent="units/list/darttower/bg/type"]
+z_index = -1
+layout_mode = 0
+offset_top = 1.0
+offset_right = 65.0
+offset_bottom = 23.0
+
+[node name="dmg" type="Label" parent="units/list/darttower/bg"]
+z_index = 5
+layout_mode = 0
+offset_left = 24.0
+offset_top = 103.0
+offset_right = 66.0
+offset_bottom = 126.0
+text = "1"
+
+[node name="Panel" type="Panel" parent="units/list/darttower/bg/dmg"]
+z_index = -1
+layout_mode = 0
+offset_top = 1.0
+offset_right = 42.0
+offset_bottom = 23.0
+
+[node name="Sprite2D" type="Sprite2D" parent="units/list/darttower/bg/dmg"]
+position = Vector2(-14, 12)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_q5quv")
+
+[node name="range" type="Label" parent="units/list/darttower/bg"]
+z_index = 5
+layout_mode = 0
+offset_left = 135.0
+offset_top = 103.0
+offset_right = 177.0
+offset_bottom = 126.0
+text = "15"
+horizontal_alignment = 2
+
+[node name="Panel" type="Panel" parent="units/list/darttower/bg/range"]
+z_index = -1
+layout_mode = 0
+offset_top = 1.0
+offset_right = 42.0
+offset_bottom = 23.0
+
+[node name="Sprite2D" type="Sprite2D" parent="units/list/darttower/bg/range"]
+position = Vector2(57, 12)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_kyi02")
+
+[node name="cost" type="Label" parent="units/list/darttower"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 21.0
+text = "200"
+label_settings = SubResource("LabelSettings_rj1c6")
+
+[node name="gluetower" type="Button" parent="units/list"]
+layout_mode = 2
+offset_left = 9.0
+offset_top = 200.0
+offset_right = 137.0
+offset_bottom = 328.0
+script = ExtResource("3_3qh5k")
+towerPath = "glue/gluetower"
+partInList = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="units/list/gluetower"]
+texture = ExtResource("11_btr4y")
+centered = false
+hframes = 3
+
+[node name="bg" type="Panel" parent="units/list/gluetower"]
+visible = false
+z_index = -1
+layout_mode = 0
+offset_left = -220.0
+offset_top = 26.0
+offset_right = -17.0
+offset_bottom = 127.0
+
+[node name="desc" type="Label" parent="units/list/gluetower/bg"]
+z_index = 5
+layout_mode = 0
+offset_right = 203.0
+offset_bottom = 101.0
+text = "Sprays glue over 3 layers of Pertys halfing there speed."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="towername" type="Label" parent="units/list/gluetower/bg"]
+z_index = 5
+layout_mode = 0
+offset_left = 3.0
+offset_top = -25.0
+offset_right = 126.0
+offset_bottom = -2.0
+text = "Glue Gunner"
+
+[node name="Panel" type="Panel" parent="units/list/gluetower/bg/towername"]
+z_index = -1
+layout_mode = 0
+offset_left = -3.0
+offset_top = 1.0
+offset_right = 200.0
+offset_bottom = 23.0
+
+[node name="type" type="Label" parent="units/list/gluetower/bg"]
+z_index = 5
+layout_mode = 0
+offset_left = 138.0
+offset_top = -49.0
+offset_right = 201.0
+offset_bottom = -26.0
+text = "Tower"
+horizontal_alignment = 2
+
+[node name="Panel" type="Panel" parent="units/list/gluetower/bg/type"]
+z_index = -1
+layout_mode = 0
+offset_top = 1.0
+offset_right = 65.0
+offset_bottom = 23.0
+
+[node name="dmg" type="Label" parent="units/list/gluetower/bg"]
+z_index = 5
+layout_mode = 0
+offset_left = 24.0
+offset_top = 103.0
+offset_right = 66.0
+offset_bottom = 126.0
+text = "0"
+
+[node name="Panel" type="Panel" parent="units/list/gluetower/bg/dmg"]
+z_index = -1
+layout_mode = 0
+offset_top = 1.0
+offset_right = 42.0
+offset_bottom = 23.0
+
+[node name="Sprite2D" type="Sprite2D" parent="units/list/gluetower/bg/dmg"]
+position = Vector2(-14, 12)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_q5quv")
+
+[node name="range" type="Label" parent="units/list/gluetower/bg"]
+z_index = 5
+layout_mode = 0
+offset_left = 135.0
+offset_top = 103.0
+offset_right = 177.0
+offset_bottom = 126.0
+text = "20"
+horizontal_alignment = 2
+
+[node name="Panel" type="Panel" parent="units/list/gluetower/bg/range"]
+z_index = -1
+layout_mode = 0
+offset_top = 1.0
+offset_right = 42.0
+offset_bottom = 23.0
+
+[node name="Sprite2D" type="Sprite2D" parent="units/list/gluetower/bg/range"]
+position = Vector2(57, 12)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_kyi02")
+
+[node name="cost" type="Label" parent="units/list/gluetower"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 21.0
+text = "275"
+label_settings = SubResource("LabelSettings_rj1c6")
+
+[node name="scrollup" type="TextureButton" parent="units"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 11.0
+offset_right = 211.0
+offset_bottom = 48.0
+texture_normal = ExtResource("11_572ky")
+texture_pressed = ExtResource("12_p0rs3")
+
+[node name="scrolldown" type="TextureButton" parent="units"]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 828.0
+offset_right = 338.0
+offset_bottom = 865.0
+rotation = 3.14159
+scale = Vector2(0.996135, 1.0021)
+texture_normal = ExtResource("11_572ky")
+texture_pressed = ExtResource("12_p0rs3")
+
+[node name="upgrades" type="Panel" parent="."]
+visible = false
+z_index = -3
+offset_left = 1021.0
+offset_top = -9.0
+offset_right = 1307.0
+offset_bottom = 906.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_l4xlp")
+
+[node name="debugbuttons" type="Node2D" parent="."]
+
+[node name="list" type="Node2D" parent="debugbuttons"]
+visible = false
+script = ExtResource("8_j5xjt")
+
+[node name="moneys" type="Button" parent="debugbuttons/list"]
+offset_left = 56.0
+offset_top = 860.0
+offset_right = 340.0
+offset_bottom = 896.0
+text = "Get a ton of $$$"
+
+[node name="show" type="Button" parent="debugbuttons"]
+offset_left = 4.0
+offset_top = 863.0
+offset_right = 36.0
+offset_bottom = 895.0
+rotation = 3.14159
+pivot_offset = Vector2(16, 16)
+text = "V"
+
+[node name="startwave" type="Button" parent="."]
+offset_left = 1332.0
+offset_top = 840.0
+offset_right = 1591.0
+offset_bottom = 893.0
+theme_override_font_sizes/font_size = 32
+text = "Start Next Wave"
+
+[node name="GlobalUI" parent="." instance=ExtResource("13_ai2x0")]
+
+[node name="timescale" type="Panel" parent="."]
+offset_left = -467.0
+offset_top = 4.0
+offset_right = -427.0
+offset_bottom = 44.0
+script = ExtResource("16_cebt5")
+
+[node name="x1" type="Button" parent="timescale"]
+layout_mode = 0
+offset_left = 550.0
+offset_top = 58.0
+offset_right = 609.0
+offset_bottom = 89.0
+disabled = true
+text = "x1"
+
+[node name="x05" type="Button" parent="timescale"]
+layout_mode = 0
+offset_left = 474.0
+offset_top = 58.0
+offset_right = 533.0
+offset_bottom = 89.0
+text = "x0.5"
+
+[node name="x2" type="Button" parent="timescale"]
+layout_mode = 0
+offset_left = 626.0
+offset_top = 58.0
+offset_right = 685.0
+offset_bottom = 89.0
+text = "x2"
+
+[node name="x4" type="Button" parent="timescale"]
+layout_mode = 0
+offset_left = 702.0
+offset_top = 58.0
+offset_right = 761.0
+offset_bottom = 89.0
+text = "x3"
+
+[connection signal="pressed" from="units/scrollup" to="units/list" method="_on_scrollup_pressed"]
+[connection signal="pressed" from="units/scrolldown" to="units/list" method="_on_scrolldown_pressed"]
+[connection signal="pressed" from="debugbuttons/list/moneys" to="debugbuttons/list" method="_on_moneys_pressed"]
+[connection signal="pressed" from="debugbuttons/show" to="debugbuttons/list" method="_on_show_pressed"]
+[connection signal="pressed" from="startwave" to="." method="_on_startwave_pressed"]
+[connection signal="pressed" from="timescale/x1" to="timescale" method="_on_x_1_pressed"]
+[connection signal="pressed" from="timescale/x05" to="timescale" method="_on_x_05_pressed"]
+[connection signal="pressed" from="timescale/x2" to="timescale" method="_on_x_2_pressed"]
+[connection signal="pressed" from="timescale/x4" to="timescale" method="_on_x_4_pressed"]

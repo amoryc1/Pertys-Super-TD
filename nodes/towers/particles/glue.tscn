@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://81lh21sqk36j"]
+
+[ext_resource type="Script" path="res://nodes/towers/particles/glue.gd" id="1_w2y3n"]
+[ext_resource type="Texture2D" uid="uid://bpr4lfemmviqv" path="res://assets/towers/particles.png" id="2_iihub"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q72ww"]
+radius = 18.0
+
+[node name="glue" type="Area2D"]
+z_index = 8
+script = ExtResource("1_w2y3n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.14159
+texture = ExtResource("2_iihub")
+hframes = 20
+vframes = 20
+frame = 19
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_q72ww")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

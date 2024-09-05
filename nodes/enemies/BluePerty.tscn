@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://blrmoccvixwi"]
+
+[ext_resource type="Script" path="res://nodes/enemies/pathFollow.gd" id="1_4vcqq"]
+[ext_resource type="Script" path="res://nodes/enemies/enemyai.gd" id="1_fblju"]
+[ext_resource type="Texture2D" uid="uid://c0fbe0i4gmwwx" path="res://assets/enemies/enemies.png" id="3_aftaf"]
+[ext_resource type="Script" path="res://nodes/enemies/deathSFX.gd" id="4_ce1le"]
+[ext_resource type="AudioStream" uid="uid://cjad37uon8nav" path="res://music/sfx/poop.ogg" id="4_siwtk"]
+[ext_resource type="Texture2D" uid="uid://qymhge4jgbo3" path="res://assets/enemies/particles.png" id="6_f5twy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62ebh"]
+size = Vector2(64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyudm"]
+atlas = ExtResource("6_f5twy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njoqc"]
+atlas = ExtResource("6_f5twy")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxefs"]
+atlas = ExtResource("6_f5twy")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bqmhx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyudm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njoqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxefs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njoqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyudm")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="PathFollow2D" type="PathFollow2D"]
+rotates = false
+loop = false
+script = ExtResource("1_4vcqq")
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = 30
+script = ExtResource("1_fblju")
+speed = 1.4
+damage = 2
+enemyStage = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("3_aftaf")
+hframes = 10
+vframes = 10
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = -3
+shape = SubResource("RectangleShape2D_62ebh")
+
+[node name="pop" type="AudioStreamPlayer" parent="Area2D"]
+stream = ExtResource("4_siwtk")
+volume_db = -7.0
+bus = &"SFX"
+script = ExtResource("4_ce1le")
+
+[node name="particlesprite" type="Sprite2D" parent="Area2D"]
+visible = false
+texture = ExtResource("6_f5twy")
+hframes = 10
+vframes = 10
+
+[node name="deathPop" type="AnimatedSprite2D" parent="Area2D"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_bqmhx")
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]

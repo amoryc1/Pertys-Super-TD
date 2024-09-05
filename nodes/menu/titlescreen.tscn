@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://stp0vp63kapu"]
+
+[ext_resource type="Script" path="res://nodes/menu/titlescreen.gd" id="1_a3l06"]
+[ext_resource type="PackedScene" uid="uid://cah6h6440ntlp" path="res://nodes/menu/loading_screen.tscn" id="2_n5mc7"]
+
+[node name="titlescreen" type="Node2D"]
+script = ExtResource("1_a3l06")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 2.0
+offset_right = 1600.0
+offset_bottom = 902.0
+theme_override_font_sizes/font_size = 64
+text = "Press anywhere to play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="version" type="Label" parent="."]
+z_index = 5
+offset_left = 2.0
+offset_top = 876.0
+offset_right = 302.0
+offset_bottom = 899.0
+text = "version"
+vertical_alignment = 1
+
+[node name="LoadingScreen" parent="." instance=ExtResource("2_n5mc7")]
+z_index = 999

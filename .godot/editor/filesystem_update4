@@ -1,0 +1,13 @@
+res://nodes/menu/menu.tscn
+res://assets/maps/tile_set.tres
+res://font/Title_LabelSettings.tres
+res://font/Normal_LabelSettings.tres
+res://updatelog.txt
+res://nodes/maps/testmap/main.tscn
+res://nodes/maps/testmap/main.gd
+res://nodes/menu/titlescreen.tscn
+res://nodes/menu/levelui.tscn
+res://Global/ui.tscn
+res://nodes/towers/ruler/ruler.tscn
+res://nodes/towers/dart/darttower.tscn
+res://nodes/towers/particles/dart.tscn

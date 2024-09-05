@@ -1,0 +1,105 @@
+[gd_scene load_steps=14 format=3 uid="uid://bcbw1fd8t02ya"]
+
+[ext_resource type="Script" path="res://nodes/towers/ruler/ruler.gd" id="1_qgutj"]
+[ext_resource type="Texture2D" uid="uid://c5k0w0ts7op73" path="res://assets/towers/ruler/ruler.png" id="2_n6va4"]
+[ext_resource type="Script" path="res://nodes/towers/global/shootenemy.gd" id="3_w78y2"]
+[ext_resource type="Texture2D" uid="uid://b21hiwh2ohg4c" path="res://assets/ui/ring.png" id="4_yitba"]
+[ext_resource type="Script" path="res://nodes/towers/global/StackCollision.gd" id="5_qrp8k"]
+[ext_resource type="FontFile" uid="uid://bqn5qcu0iu4yn" path="res://font/Retro Gaming.ttf" id="6_tcgn0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_isf4x"]
+resource_local_to_scene = true
+radius = 200.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygcap"]
+atlas = ExtResource("2_n6va4")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnctr"]
+atlas = ExtResource("2_n6va4")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v0k2"]
+atlas = ExtResource("2_n6va4")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ndj0y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygcap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnctr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v0k2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygcap")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ybiqf"]
+radius = 39.915
+
+[sub_resource type="LabelSettings" id="LabelSettings_pkqnl"]
+font = ExtResource("6_tcgn0")
+font_size = 17
+
+[node name="Tower" type="Area2D"]
+z_index = 10
+script = ExtResource("1_qgutj")
+waittime = 1.0
+cost = 350
+sellValue = 175
+projectileSpeed = 128
+projectilePiercing = 3
+towerName = "Ruler Tower"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_isf4x")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+z_index = -1
+rotation = 4.71238
+scale = Vector2(1.1, 1.1)
+sprite_frames = SubResource("SpriteFrames_ndj0y")
+
+[node name="waittime" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="shootenemy" type="Node2D" parent="."]
+script = ExtResource("3_w78y2")
+weaponType = "particles/ruler"
+
+[node name="ring" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(1.575, 1.575)
+texture = ExtResource("4_yitba")
+
+[node name="StackCollision" type="Area2D" parent="."]
+scale = Vector2(1.00213, 1.00947)
+script = ExtResource("5_qrp8k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StackCollision"]
+shape = SubResource("CircleShape2D_ybiqf")
+debug_color = Color(0.7, 0, 0, 0.419608)
+
+[node name="level" type="Label" parent="."]
+visible = false
+offset_left = -61.0
+offset_top = -64.0
+offset_right = 61.0
+offset_bottom = -42.0
+pivot_offset = Vector2(61, 64)
+text = "[0,0,0]"
+label_settings = SubResource("LabelSettings_pkqnl")
+horizontal_alignment = 1
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="waittime" to="shootenemy" method="_on_waittime_timeout"]

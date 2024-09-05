@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://em8bdwags5a3"]
+
+[ext_resource type="FontFile" uid="uid://baoeo3040amly" path="res://font/small_pixel.ttf" id="1_gno6v"]
+
+[resource]
+font = ExtResource("1_gno6v")
+font_size = 8

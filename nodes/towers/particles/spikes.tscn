@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://v7spcrcplgr7"]
+
+[ext_resource type="Script" path="res://nodes/towers/particles/spikes.gd" id="1_cnk3f"]
+[ext_resource type="Texture2D" uid="uid://bpr4lfemmviqv" path="res://assets/towers/particles.png" id="2_1mh0b"]
+[ext_resource type="Texture2D" uid="uid://b21hiwh2ohg4c" path="res://assets/ui/ring.png" id="3_lg4is"]
+[ext_resource type="Script" path="res://nodes/towers/global/StackCollision.gd" id="4_eeikp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jp6ps"]
+radius = 51.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gpm5c"]
+radius = 43.9177
+
+[node name="spikes" type="Area2D"]
+z_index = 10
+script = ExtResource("1_cnk3f")
+piercing = 5
+cost = 20
+isTrap = true
+towerName = "Gabby's Book"
+canUpgrade = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_1mh0b")
+hframes = 20
+vframes = 20
+frame = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jp6ps")
+
+[node name="ring" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_lg4is")
+
+[node name="StackCollision" type="Area2D" parent="."]
+scale = Vector2(1.00213, 1.00947)
+script = ExtResource("4_eeikp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StackCollision"]
+shape = SubResource("CircleShape2D_gpm5c")
+debug_color = Color(0.7, 0, 0, 0.419608)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvhf0pyotf3qe"]
+
+[ext_resource type="Script" path="res://Global/ui.gd" id="1_m5h7i"]
+
+[node name="GlobalUI" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_m5h7i")
+
+[node name="debug" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0.705882)
+
+[node name="text" type="Label" parent="debug"]
+z_index = 4096
+anchors_preset = -1
+anchor_left = -0.100625
+anchor_bottom = 0.11
+offset_left = 1119.0
+offset_top = 8.0
+offset_right = 1592.0
+offset_bottom = 31.0
+text = "FPS: current"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true

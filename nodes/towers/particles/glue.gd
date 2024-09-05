@@ -17,7 +17,7 @@ func _ready():
 		glueLevelCount = get_node(trueParent).glueLevelCount
 
 func _process(delta):
-	position += (vel * speed * Engine.time_scale) * delta
+	position += (vel * speed) * delta
 	
 	if len(targetlist) > 0:
 		if piercing > 0:

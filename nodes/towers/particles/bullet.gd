@@ -16,7 +16,7 @@ func _ready():
 	if get_node(trueParent).upgradeLevel3 >= 3: $Sprite2D.frame = 1
 
 func _process(delta):
-	position += (vel * speed * Engine.time_scale) * delta
+	position += (vel * speed) * delta
 	$CollisionShape2D.scale = Vector2.ONE * Engine.time_scale
 	
 	if len(targetlist) > 0:

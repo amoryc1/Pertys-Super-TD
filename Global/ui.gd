@@ -1,6 +1,9 @@
 extends CanvasLayer
 
 var load_time : int
+var logical_core_count = 0
+var processor_name = "Hi!"
+var os_name = "TempleOS"
 
 # Bless ChatGPT
 func human_readable_size(size: int):
@@ -15,17 +18,26 @@ func human_readable_size(size: int):
 
 func _ready():
 	load_time = Time.get_ticks_msec() - GLOBALVAR_PTD.ticks_at_load_start
-	
-
+	processor_name = OS.get_processor_name()
+	logical_core_count = str(OS.get_processor_count())
+	os_name = OS.get_name()
 
 func _process(_delta):
 	if GLOBALVAR_PTD.show_debug:
 		var current_memory = OS.get_static_memory_usage()
 		var peak_memory = OS.get_static_memory_peak_usage()
 		
-		$debug/text.text = "FPS: " + str(Engine.get_frames_per_second())
-		$debug/text.text += "\nMemory: " + str(human_readable_size(current_memory)) + " / " + str(human_readable_size(peak_memory)) 
+		$debug/text.text = str(Engine.get_frames_per_second()) + " FPS"
+		
+		$debug/text.text += "\nOS: " + str(os_name)
+		$debug/text.text += "\n" + processor_name + " (L. Cores | " + str(logical_core_count) + ")"
+		
+		$debug/text.text += "\nMemory Used: " + str(human_readable_size(current_memory)) + " / " + str(human_readable_size(peak_memory)) 
+		
 		$debug/text.text += "\nLast load time: " + str(load_time) + "ms"
+		
+		$debug/text.text += "\n" + str(Performance.get_monitor(Performance.OBJECT_COUNT)) + " objects loaded (" + str(get_tree().get_node_count()) + " nodes)"
+		
 
 	
 	$debug.visible = GLOBALVAR_PTD.show_debug

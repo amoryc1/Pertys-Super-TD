@@ -26,7 +26,7 @@ func _ready():
 		$Sprite2D.play("default")
 
 func _process(delta):
-	position += (vel * speed * Engine.time_scale) * delta
+	position += (vel * speed) * delta
 	
 	if len(targetlist) > 0:
 		

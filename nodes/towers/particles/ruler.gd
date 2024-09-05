@@ -26,10 +26,10 @@ func remove():
 	queue_free()
 
 func _process(delta):
-	var travelAmt = (vel * speed * Engine.time_scale) * delta
+	var travelAmt = (vel * speed) * delta
 	
-	if returning: position -= (travelAmt * 2) / Engine.time_scale
-	else: position += (travelAmt * 2) / Engine.time_scale
+	if returning: position -= travelAmt
+	else: position += travelAmt
 	
 	if len(targetlist) > 0:
 		if piercing > 0:

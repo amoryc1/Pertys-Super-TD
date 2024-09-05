@@ -1,11 +1,10 @@
-[gd_scene load_steps=55 format=3 uid="uid://da1g6oajl8rkt"]
+[gd_scene load_steps=54 format=3 uid="uid://da1g6oajl8rkt"]
 
 [ext_resource type="Script" path="res://nodes/leveleditor/level_editor.gd" id="1_15cr8"]
 [ext_resource type="AudioStream" uid="uid://ciaver1d0t26" path="res://music/other/leveleditor.ogg" id="1_qccpx"]
 [ext_resource type="FontFile" uid="uid://cps6ey1uyqeql" path="res://font/coolvetica rg.otf" id="2_gn0rb"]
 [ext_resource type="Texture2D" uid="uid://r20sdatiowwq" path="res://assets/ui/leveleditor/perty.png" id="3_jww38"]
-[ext_resource type="Texture2D" uid="uid://crgyhaju38qnj" path="res://assets/ui/stats/coin.png" id="5_q7rmr"]
-[ext_resource type="Texture2D" uid="uid://k8j1e7qug60h" path="res://assets/ui/stats/life.png" id="6_bb7pr"]
+[ext_resource type="Texture2D" uid="uid://e0jh3ckblci4" path="res://assets/ui/stats.png" id="5_82w2o"]
 [ext_resource type="LabelSettings" uid="uid://dj4f586fw1yk6" path="res://font/Normal_LabelSettings.tres" id="7_21c34"]
 [ext_resource type="Script" path="res://nodes/leveleditor/deletePart.gd" id="7_kqawx"]
 [ext_resource type="Texture2D" uid="uid://crj1yrs6hsann" path="res://assets/ui/leveleditor/status.png" id="7_rv6en"]
@@ -192,7 +191,13 @@ theme_override_fonts/font = ExtResource("2_gn0rb")
 theme_override_font_sizes/font_size = 32
 text = "200"
 placeholder_text = "Starting cash"
-right_icon = ExtResource("5_q7rmr")
+
+[node name="Sprite2D" type="Sprite2D" parent="bottombar/startingcash"]
+position = Vector2(232, 22)
+scale = Vector2(2, 2)
+texture = ExtResource("5_82w2o")
+hframes = 16
+vframes = 16
 
 [node name="cashmultiplier" type="LineEdit" parent="bottombar"]
 layout_mode = 0
@@ -204,7 +209,13 @@ theme_override_fonts/font = ExtResource("2_gn0rb")
 theme_override_font_sizes/font_size = 32
 text = "1"
 placeholder_text = "Cash Multiplier"
-right_icon = ExtResource("5_q7rmr")
+
+[node name="Sprite2D" type="Sprite2D" parent="bottombar/cashmultiplier"]
+position = Vector2(232, 21)
+scale = Vector2(2, 2)
+texture = ExtResource("5_82w2o")
+hframes = 16
+vframes = 16
 
 [node name="startinglife" type="LineEdit" parent="bottombar"]
 layout_mode = 0
@@ -216,7 +227,14 @@ theme_override_fonts/font = ExtResource("2_gn0rb")
 theme_override_font_sizes/font_size = 32
 text = "100"
 placeholder_text = "Starting life"
-right_icon = ExtResource("6_bb7pr")
+
+[node name="Sprite2D" type="Sprite2D" parent="bottombar/startinglife"]
+position = Vector2(218, 22)
+scale = Vector2(2, 2)
+texture = ExtResource("5_82w2o")
+hframes = 16
+vframes = 16
+frame = 2
 
 [node name="difficultyname" type="LineEdit" parent="bottombar"]
 layout_mode = 0
@@ -228,7 +246,14 @@ theme_override_fonts/font = ExtResource("2_gn0rb")
 theme_override_font_sizes/font_size = 32
 text = "Normal"
 placeholder_text = "Difficulty name"
-right_icon = ExtResource("6_bb7pr")
+
+[node name="Sprite2D" type="Sprite2D" parent="bottombar/difficultyname"]
+position = Vector2(218, 22)
+scale = Vector2(2, 2)
+texture = ExtResource("5_82w2o")
+hframes = 16
+vframes = 16
+frame = 2
 
 [node name="levelname" type="LineEdit" parent="bottombar"]
 layout_mode = 0
@@ -240,7 +265,14 @@ theme_override_fonts/font = ExtResource("2_gn0rb")
 theme_override_font_sizes/font_size = 32
 text = "New Level"
 placeholder_text = "Level name"
-right_icon = ExtResource("6_bb7pr")
+
+[node name="Sprite2D" type="Sprite2D" parent="bottombar/levelname"]
+position = Vector2(232, 22)
+scale = Vector2(2, 2)
+texture = ExtResource("5_82w2o")
+hframes = 16
+vframes = 16
+frame = 2
 
 [node name="set" type="Button" parent="bottombar"]
 layout_mode = 0

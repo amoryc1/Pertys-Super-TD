@@ -10,8 +10,8 @@ var spawning = false
 var winMultiplier = 1
 var wavePartID = 0
 
+var checked_level_outcome = false
 var won_level = false
-
 
 
 func _on_gohome_pressed() -> void:
@@ -21,6 +21,7 @@ func _on_gohome_pressed() -> void:
 
 func end_game(win):
 	won_level = win
+	checked_level_outcome = true
 	
 	get_node("../summary_screen/win").visible = false
 	get_node("../summary_screen/loss").visible = false
@@ -58,11 +59,8 @@ func spawn_perty(node, status):
 	get_node("../enemytimer").start()
 
 func _process(_delta):
-	get_node("../pertysOnScreen").text = "Current Perty Count: " + str($path.get_child_count())
-	GLOBALVAR_PTD.wave_number = wave
-	
 	# Check for win
-	if wave == len(get_node("..").levelStats) and !won_level:
+	if wave == len(get_node("..").levelStats) and !checked_level_outcome:
 		end_game(true)
 	
 	if waitingForBaloonPop:

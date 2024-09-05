@@ -99,6 +99,6 @@ func _process(_delta):
 func _on_area_entered(area):
 	if area.name == "death":
 		GLOBALVAR_PTD.health -= damage
-		if GLOBALVAR_PTD.health <= 0:
+		if GLOBALVAR_PTD.health <= 0 and !get_node("../../../").checked_level_outcome:
 			get_node("../../../").end_game(false) # Path for enemyspawner
 		get_parent().queue_free()

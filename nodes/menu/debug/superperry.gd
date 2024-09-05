@@ -3,6 +3,10 @@ extends Node2D
 
 var enemyNode = preload("res://nodes/enemies/Perty.tscn")
 
+
+func _ready() -> void:
+	get_parent().visible = GLOBALVAR_PTD.show_debug
+
 func _on_show_pressed():
 	var listNode = get_node("../list")
 	if listNode.visible: listNode.visible = false ; get_node("../show").rotation_degrees = 180

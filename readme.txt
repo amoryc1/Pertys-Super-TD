@@ -12,10 +12,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Screen at end of level on win or loss
 - Pencil sprite now changed to have a rocket if upgradeLevel3 >= 3
 - Menu for status and enemy in the Encyclopedia
+- New UI for wave/health/cash
 
 ### Optimization
 - Doesnt constantly check if health <= 0 in global script and now only checks when health is depleted
 - Most groups of sprites that could be put into a sprite sheet and it make sense have been
+- Removed 'pertys on screen' text and a useless variable change
 
 ### Removed
 - firewall2 and firewall3

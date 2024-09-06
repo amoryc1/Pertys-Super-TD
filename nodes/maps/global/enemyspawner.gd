@@ -30,6 +30,8 @@ func end_game(win):
 	
 	get_node("../LevelUI/units/list").visible = false
 	get_node("../LevelUI/startwave").disabled = true
+	$path.visible = false
+	get_node("../towers").visible = false
 	
 	get_node("../summary_screen/AnimationPlayer").play("endlevel")
 

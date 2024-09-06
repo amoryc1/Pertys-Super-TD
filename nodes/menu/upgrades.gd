@@ -4,22 +4,23 @@ var towerPath = ""
 var lockedPath = -1
 
 # Checks upgrade values to determine if a path should be locked
-func check_values_for_lock(v1, v2, v3):
+func check_values_for_lock(v1, v2, v3) -> int:
 	# Check if v1 v2 or v3 are bigger then 0 and apply that to the array
-	var valuearray = [false, false, false]
+	var value_array = [v1, v2, v3]
 	var count = 0
-	var falsevalue = -1
-	if v1 > 0: valuearray[0] = true
-	if v2 > 0: valuearray[1] = true
-	if v3 > 0: valuearray[2] = true
+	var false_index = -1
 	
 	var iteration = 0
-	for x in valuearray:
+	for i in value_array:
 		iteration += 1
-		if x: count += 1
-		else: falsevalue = iteration
-	if count >= 2: # Only 1 part of array should be false
-		return falsevalue
+		if i > 0: 
+			count += 1
+		else: 
+			false_index = iteration
+	
+	if count >= 2:
+		return false_index
+	return -1
 
 
 func update_text(child, upg, tower, tier):

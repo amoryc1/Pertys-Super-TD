@@ -35,7 +35,8 @@ var placed_towers = {
 	"Glue Gunner": 0,
 	"Redwood Worker": 0,
 	"Flamethrower": 0,
-	"Ruler Tower": 0
+	"Ruler Tower": 0,
+	"Watergunner": 0
 }
 
 var tower_upgrades = {
@@ -394,6 +395,77 @@ var tower_upgrades = {
 			}
 		},
 	},
+	"Watergunner": {
+		1: { # tier 1 upgrades
+			1: {
+				"name": "Better Plastic",
+				"desc": "Find a new pistol made of better plastic to increase range and projectile speed",
+				"cost": 300,
+				"sprite": "watergunner/upgrades.png", # Location in the assets/towers
+				"spriteFrame": 0,
+			},
+			2: {
+				"name": "Lighter Trigger",
+				"desc": "Presses on the trigger lighter to make water go further and faster... somehow",
+				"cost": 600,
+				"sprite": "watergunner/upgrades.png", # Location in the assets/towers
+				"spriteFrame": 1,
+			},
+			3: {
+				"name": "Reinforced Frame",
+				"desc": "Reinforce the frame with steel, making water go faster and further",
+				"cost": 900,
+				"sprite": "watergunner/upgrades.png", # Location in the assets/towers
+				"spriteFrame": 2,
+			}
+		},
+		2: { # tier 2 upgrades
+			1: {
+				"name": "Increased Capacity",
+				"desc": "More capacity to allow for less time between shots",
+				"cost": 425,
+				"sprite": "watergunner/upgrades.png", # Location in the assets/towers
+				"spriteFrame": 3,
+			},
+			2: {
+				"name": "High Pressure",
+				"desc": "Increase pressure in the pistol to fire it faster",
+				"cost": 650,
+				"sprite": "watergunner/upgrades.png", # Location in the assets/towers
+				"spriteFrame": 4,
+			},
+			3: {
+				"name": "Automatic Pistol",
+				"desc": "Mod the pistol to automate firing further decreasing wait times",
+				"cost": 1100,
+				"sprite": "watergunner/upgrades.png", # Location in the assets/towers
+				"spriteFrame": 5,
+			}
+		},
+		3: { # tier 3 upgrades
+			1: {
+				"name": "Condensed Water",
+				"desc": "Condense water to hurt more and have pierce multiple enemies",
+				"cost": 450,
+				"sprite": "watergunner/upgrades.png", # Location in the assets/towers
+				"spriteFrame": 6,
+			},
+			2: {
+				"name": "Acid Water",
+				"desc": "Embue your water with acid to deal more damage and pierce more enemies",
+				"cost": 700,
+				"sprite": "watergunner/upgrades.png", # Location in the assets/towers
+				"spriteFrame": 7,
+			},
+			3: {
+				"name": "Lava Pistol",
+				"desc": "Use lava instead of water to deal more damage and piercing",
+				"cost": 1300,
+				"sprite": "watergunner/upgrades.png", # Location in the assets/towers
+				"spriteFrame": 8,
+			}
+		},
+	},
 }
 
 
@@ -424,10 +496,6 @@ var perty_stages = {
 	"pink": ["res://nodes/enemies/PinkPerty.tscn", 4],
 	"rainbow": ["res://nodes/enemies/RainbowPerty.tscn", 5],
 	}
-
-
-func _ready():
-	Engine.max_fps = 60 # caps at 60 because of the way the pertys move not taking fps into acount to move smoothly.
 
 
 func end_game(level_difficulty, level_name, win):

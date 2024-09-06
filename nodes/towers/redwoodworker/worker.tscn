@@ -46,7 +46,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ybiqf"]
-radius = 76.1548
+radius = 47.9082
 
 [sub_resource type="LabelSettings" id="LabelSettings_b50ub"]
 font = ExtResource("5_q7rc0")
@@ -101,4 +101,10 @@ horizontal_alignment = 1
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_hnb8i")
 
+[node name="other" type="Node2D" parent="."]
+
 [connection signal="timeout" from="waittime" to="." method="_on_waittime_timeout"]
+[connection signal="area_entered" from="StackCollision" to="StackCollision" method="_on_area_entered"]
+[connection signal="area_exited" from="StackCollision" to="StackCollision" method="_on_area_exited"]
+[connection signal="body_entered" from="StackCollision" to="StackCollision" method="_on_body_entered"]
+[connection signal="body_exited" from="StackCollision" to="StackCollision" method="_on_body_exited"]

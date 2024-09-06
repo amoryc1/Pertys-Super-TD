@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpy47150lywsi"
-path="res://.godot/imported/obsticles.png-88041aeaecfa0ed2090e7f6e7661ad6f.ctex"
+uid="uid://crxku4m7exa3d"
+path="res://.godot/imported/floatie.png-cde77f6e439116d1d6820635c2a6895b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/maps/obsticles.png"
-dest_files=["res://.godot/imported/obsticles.png-88041aeaecfa0ed2090e7f6e7661ad6f.ctex"]
+source_file="res://assets/towers/watergunner/floatie.png"
+dest_files=["res://.godot/imported/floatie.png-cde77f6e439116d1d6820635c2a6895b.ctex"]
 
 [params]
 

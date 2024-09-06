@@ -9,10 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [beta 0.08] - 2024-09-06
 
 ### Added
+- NEW TOWER: Watergunner, can only be placed in water and has a random color assigned to its floatie
 - Shadow for towers with a setting to control it
 - Lock to upgrade paths so only 2 of the 3 can be upgraded 
 
+### Optimization
+- Towers now only check if upgrade menu should be open when left mouse is clicked
 
+### Fixes
+- StackCollision now detects for contact with other StackCollision nodes to prevent tower stacking (hopefully for real this time)
+- Mouse icon now reverts back to normal if a tower was not successfully placed
 
 
 ## [beta 0.08] - 2024-09-05

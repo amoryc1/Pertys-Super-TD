@@ -58,15 +58,13 @@ func _input(_event): if visible:
 			else: Input.set_custom_mouse_cursor(yesMouse)
 			
 			if Input.is_action_just_released("MouseLeft"): # if a tower is purchased and is floating around, place it
+				Input.set_custom_mouse_cursor(normalMouse) # Change mouse back
 				if !canNotBePlaced: # Place the tower
 					target.find_child("ring").visible = false
 					target.active = true
 					target.isMovingFromPurchase = false
 					target.name = "PLACED"
 					target.modulate = Color8(255,255,255)
-					
-					# Change mouse back
-					Input.set_custom_mouse_cursor(normalMouse)
 					
 					GLOBALVAR_PTD.mouse_hover_stack_collision += 1 # when mouse leaves hitbox returns to 0
 					GLOBALVAR_PTD.money -= target.cost

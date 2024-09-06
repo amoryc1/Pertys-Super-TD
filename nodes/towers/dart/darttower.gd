@@ -33,6 +33,8 @@ var targetlist = [] # parent = "enemyspawner"
 var isMovingFromPurchase = false
 func _ready():
 	$waittime.wait_time = waittime
+	
+	
 
 func _process(_delta): if isMovingFromPurchase:
 	global_position = get_global_mouse_position()

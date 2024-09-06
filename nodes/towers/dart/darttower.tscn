@@ -41,7 +41,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ybiqf"]
-radius = 39.915
+radius = 36.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_pkqnl"]
 font = ExtResource("6_xfyc6")
@@ -57,6 +57,7 @@ waittime = 0.75
 cost = 200
 sellValue = 100
 projectileSpeed = 240
+projectilePiercing = 2
 towerName = "Pencil Tower"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -102,6 +103,12 @@ horizontal_alignment = 1
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_61vly")
 
+[node name="other" type="Node2D" parent="."]
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
 [connection signal="timeout" from="waittime" to="shootenemy" method="_on_waittime_timeout"]
+[connection signal="area_entered" from="StackCollision" to="StackCollision" method="_on_area_entered"]
+[connection signal="area_exited" from="StackCollision" to="StackCollision" method="_on_area_exited"]
+[connection signal="body_entered" from="StackCollision" to="StackCollision" method="_on_body_entered"]
+[connection signal="body_exited" from="StackCollision" to="StackCollision" method="_on_body_exited"]

@@ -26,6 +26,7 @@ func shoot(target, status):
 	
 	get_node("../level").rotation = -angle
 	get_node("../ring").rotation = -angle
+	get_node("../other").rotation = -angle
 	
 	clone.vel = direction
 	clone.rotation = angle

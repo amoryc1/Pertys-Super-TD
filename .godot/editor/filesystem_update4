@@ -15,3 +15,6 @@ res://nodes/menu/SettingsMenu.gd
 res://globalvar.gd
 res://nodes/menu/menu.gd
 res://nodes/menu/debug/superperry.gd
+res://nodes/towers/particles/bullet.gd
+res://credits.txt
+res://nodes/menu/upgrades.gd

@@ -1,11 +1,40 @@
 extends Panel
 
 var towerPath = ""
+var lockedPath = -1
+
+# Checks upgrade values to determine if a path should be locked
+func check_values_for_lock(v1, v2, v3):
+	# Check if v1 v2 or v3 are bigger then 0 and apply that to the array
+	var valuearray = [false, false, false]
+	var count = 0
+	var falsevalue = -1
+	if v1 > 0: valuearray[0] = true
+	if v2 > 0: valuearray[1] = true
+	if v3 > 0: valuearray[2] = true
+	
+	var iteration = 0
+	for x in valuearray:
+		iteration += 1
+		if x: count += 1
+		else: falsevalue = iteration
+	if count >= 2: # Only 1 part of array should be false
+		return falsevalue
+
 
 func update_text(child, upg, tower, tier):
 	var updgLevel = get_node(towerPath).upgradeLevel1
 	if child == "upgrade2": updgLevel = get_node(towerPath).upgradeLevel2
 	if child == "upgrade3": updgLevel = get_node(towerPath).upgradeLevel3
+	
+	get_node(child + "/lock").visible = false
+	get_node(child + "/Button").disabled = false
+	
+	# Lock path
+	if child == "upgrade" + str(check_values_for_lock(get_node(towerPath).upgradeLevel1,get_node(towerPath).upgradeLevel2,get_node(towerPath).upgradeLevel3)):
+		get_node(child + "/lock").visible = true
+		get_node(child + "/Button").disabled = true
+	
 	
 	if updgLevel >= 3:
 		get_node(child + "/title").text = "Max Level"
@@ -57,7 +86,7 @@ func _on_texture_button1_pressed(): if get_node(towerPath).upgradeLevel1 < 3:
 	if GLOBALVAR_PTD.money >= cost:
 		get_node(towerPath).upgradeLevel1 += 1
 		GLOBALVAR_PTD.money -= cost
-		update_text("upgrade1", get_node(towerPath).upgradeLevel1, get_node(towerPath), 1)
+		open()
 
 func _on_texture_button2_pressed(): if get_node(towerPath).upgradeLevel2 < 3:
 	var cost = GLOBALVAR_PTD.tower_upgrades[get_node(towerPath).towerName][2][get_node(towerPath).upgradeLevel2+1]["cost"]
@@ -65,7 +94,7 @@ func _on_texture_button2_pressed(): if get_node(towerPath).upgradeLevel2 < 3:
 	if GLOBALVAR_PTD.money >= cost:
 		get_node(towerPath).upgradeLevel2 += 1
 		GLOBALVAR_PTD.money -= cost
-		update_text("upgrade2", get_node(towerPath).upgradeLevel2, get_node(towerPath), 2)
+		open()
 
 func _on_texture_button3_pressed(): if get_node(towerPath).upgradeLevel3 < 3:
 	var cost = GLOBALVAR_PTD.tower_upgrades[get_node(towerPath).towerName][3][get_node(towerPath).upgradeLevel3+1]["cost"]
@@ -73,7 +102,7 @@ func _on_texture_button3_pressed(): if get_node(towerPath).upgradeLevel3 < 3:
 	if GLOBALVAR_PTD.money >= cost:
 		get_node(towerPath).upgradeLevel3 += 1
 		GLOBALVAR_PTD.money -= cost
-		update_text("upgrade3", get_node(towerPath).upgradeLevel3, get_node(towerPath), 3)
+		open()
 
 func _process(delta): if visible:
 	if GLOBALVAR_PTD.money >= int($upgrade1/cost.text):$upgrade1/Sprite2D.self_modulate=Color8(255,255,255)

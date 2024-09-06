@@ -1,7 +1,7 @@
 extends Node
 
 
-var game_version = "beta 0.07 / 2024-09-04"
+var game_version = "beta 0.09 / 2024-09-06"
 
 var ticks_at_load_start = 0
 

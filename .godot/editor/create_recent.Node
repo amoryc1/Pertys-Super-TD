@@ -1,9 +1,9 @@
+Sprite2D
 CheckButton
 Label
 LightOccluder2D
 PointLight2D
 DirectionalLight2D
-Sprite2D
 GridContainer
 AnimationPlayer
 CanvasModulate
@@ -12,4 +12,3 @@ Node2D
 Camera2D
 AudioStreamPlayer
 Timer
-Panel

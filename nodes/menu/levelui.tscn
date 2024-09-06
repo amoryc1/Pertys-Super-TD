@@ -1096,7 +1096,6 @@ scale = Vector2(3, 3)
 texture_normal = SubResource("AtlasTexture_wdiu1")
 
 [node name="upgrades" type="Panel" parent="."]
-visible = false
 z_index = 1
 offset_left = 1317.0
 offset_top = -4.0
@@ -1245,6 +1244,15 @@ horizontal_alignment = 2
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="lock" type="Sprite2D" parent="upgrades/upgrade1"]
+visible = false
+position = Vector2(141, 231)
+scale = Vector2(16, 16)
+texture = ExtResource("10_b61uo")
+hframes = 20
+vframes = 20
+frame = 3
+
 [node name="upgrade2" type="Node2D" parent="upgrades"]
 position = Vector2(9, 241)
 
@@ -1347,6 +1355,15 @@ horizontal_alignment = 2
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="lock" type="Sprite2D" parent="upgrades/upgrade2"]
+visible = false
+position = Vector2(141, 231)
+scale = Vector2(16, 16)
+texture = ExtResource("10_b61uo")
+hframes = 20
+vframes = 20
+frame = 3
+
 [node name="upgrade3" type="Node2D" parent="upgrades"]
 position = Vector2(9, 505)
 
@@ -1443,6 +1460,15 @@ theme_override_font_sizes/font_size = 32
 text = "DESC"
 horizontal_alignment = 2
 autowrap_mode = 2
+
+[node name="lock" type="Sprite2D" parent="upgrades/upgrade3"]
+visible = false
+position = Vector2(141, 231)
+scale = Vector2(16, 16)
+texture = ExtResource("10_b61uo")
+hframes = 20
+vframes = 20
+frame = 3
 
 [node name="sell" type="Button" parent="upgrades"]
 layout_mode = 0

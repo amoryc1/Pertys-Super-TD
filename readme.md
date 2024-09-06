@@ -2,8 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+The format is based on [Keep a Changelog](htt ps://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+
+## [beta 0.08] - 2024-09-06
+
+### Added
+- Shadow for towers with a setting to control it
+- Lock to upgrade paths so only 2 of the 3 can be upgraded 
+
+
 
 
 ## [beta 0.08] - 2024-09-05

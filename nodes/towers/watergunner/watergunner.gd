@@ -66,6 +66,7 @@ else:
 			$ring.scale += Vector2(.25, .25)
 			$CollisionShape2D.shape.radius += 30
 			projectileSpeed += 150
+			ripStatus.append("fire")
 			upgradeAdded1[2] = true
 			sellValue += int(900 * 0.75)
 			print("upgrade1/3")

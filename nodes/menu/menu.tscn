@@ -3972,9 +3972,73 @@ offset_right = 735.0
 offset_bottom = 52.0
 text = "Gives 1 money on pop
 
-Spawns from nothing
+Spawns from FOAP
 Spawns into 1 Pink Perty, 1 Yellow Perty, 1 Green Perty, 1 Blue Perty and 1 Normal Perty"
 autowrap_mode = 2
+
+[node name="FOAP" type="Panel" parent="EncyclopediaMenu/pertylist/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="bg" type="Panel" parent="EncyclopediaMenu/pertylist/ScrollContainer/VBoxContainer/FOAP"]
+layout_mode = 0
+offset_left = -46.0
+offset_right = 754.0
+offset_bottom = 200.0
+
+[node name="Sprite2D" type="Sprite2D" parent="EncyclopediaMenu/pertylist/ScrollContainer/VBoxContainer/FOAP"]
+position = Vector2(131, 100)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("20_vmcsv")
+hframes = 10
+vframes = 10
+frame = 6
+
+[node name="title" type="Label" parent="EncyclopediaMenu/pertylist/ScrollContainer/VBoxContainer/FOAP"]
+layout_mode = 0
+offset_left = 3.0
+offset_right = 256.0
+offset_bottom = 23.0
+text = "Father Of All Pertys"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="desc" type="Label" parent="EncyclopediaMenu/pertylist/ScrollContainer/VBoxContainer/FOAP"]
+layout_mode = 0
+offset_left = 259.0
+offset_right = 735.0
+offset_bottom = 52.0
+text = "Gives 20 money on pop
+
+Spawns from nothing
+Spawns into 3 Rainbow Pertys"
+autowrap_mode = 2
+
+[node name="blank" type="Panel" parent="EncyclopediaMenu/pertylist/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="bg" type="Panel" parent="EncyclopediaMenu/pertylist/ScrollContainer/VBoxContainer/blank"]
+layout_mode = 0
+offset_left = -46.0
+offset_right = 754.0
+offset_bottom = 200.0
+
+[node name="blank2" type="Panel" parent="EncyclopediaMenu/pertylist/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="bg" type="Panel" parent="EncyclopediaMenu/pertylist/ScrollContainer/VBoxContainer/blank2"]
+layout_mode = 0
+offset_left = -46.0
+offset_right = 754.0
+offset_bottom = 200.0
+
+[node name="blank3" type="Panel" parent="EncyclopediaMenu/pertylist/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="bg" type="Panel" parent="EncyclopediaMenu/pertylist/ScrollContainer/VBoxContainer/blank3"]
+layout_mode = 0
+offset_left = -46.0
+offset_right = 754.0
+offset_bottom = 200.0
 
 [node name="statuslist" type="Panel" parent="EncyclopediaMenu"]
 visible = false

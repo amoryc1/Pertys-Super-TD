@@ -413,7 +413,7 @@ var tower_upgrades = {
 			},
 			3: {
 				"name": "Reinforced Frame",
-				"desc": "Reinforce the frame with steel, making water go faster and further",
+				"desc": "Reinforce the frame with steel, making water go faster and further and can remove 'Fire' status",
 				"cost": 900,
 				"sprite": "watergunner/upgrades.png", # Location in the assets/towers
 				"spriteFrame": 2,
@@ -495,6 +495,7 @@ var perty_stages = {
 	"yellow": ["res://nodes/enemies/YellowPerty.tscn", 3],
 	"pink": ["res://nodes/enemies/PinkPerty.tscn", 4],
 	"rainbow": ["res://nodes/enemies/RainbowPerty.tscn", 5],
+	"foap": ["res://nodes/enemies/FOAP.tscn", 8],
 	}
 
 

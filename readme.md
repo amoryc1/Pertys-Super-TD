@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - NEW TOWER: Watergunner, can only be placed in water and has a random color assigned to its floatie
+- New enemy type: Father of all Pertys. Meant to be the big boss at the end ill edit its values properly later
 - Shadow for towers with a setting to control it
 - Lock to upgrade paths so only 2 of the 3 can be upgraded 
 

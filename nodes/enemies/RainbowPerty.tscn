@@ -53,9 +53,9 @@ script = ExtResource("1_e2tme")
 [node name="Area2D" type="Area2D" parent="."]
 z_index = 30
 script = ExtResource("2_o4a11")
-speed = 3.5
-damage = 5
-enemyStage = 4
+speed = 4.0
+damage = 6
+enemyStage = 5
 spawns = {
 "blue": 1,
 "green": 1,

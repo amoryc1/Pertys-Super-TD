@@ -16,7 +16,7 @@ extends Area2D
 
 var ripStatus = []
 
-var travelTime = .5
+var travelTime = .75
 
 @export var canDetectCamo = false
 @export var canHitLead = false
@@ -53,20 +53,20 @@ else:
 	if get_parent().name == "towers":
 		# Recycle nearby litter to make more rulers allowing the use of 1 more
 		if upgradeLevel1 >= 1 and upgradeAdded1[0] == false:
-			$waittime.wait_time = 0.495
+			$waittime.wait_time = 0.5
 			upgradeAdded1[0] = true
 			sellValue += int(350 * 0.75)
 			print("upgrade1/1")
 		# Make oil rig to get more oil for more rulers. Allows use of 2 more.
 		if upgradeLevel1 >= 2 and upgradeAdded1[1] == false:
-			$waittime.wait_time = 0.245
+			$waittime.wait_time = 0.3
 			canHitLead = true
 			upgradeAdded1[1] = true
 			sellValue += int(700 * 0.75)
 			print("upgrade1/2")
 		# Discover a new element and use it for the creation of rulers. Allows use of 2 more
 		if upgradeLevel1 >= 3 and upgradeAdded1[2] == false:
-			$waittime.wait_time = 0.161
+			$waittime.wait_time = 0.2
 			upgradeAdded1[2] = true
 			sellValue += int(1300 * 0.75)
 			print("upgrade1/3")

@@ -29,7 +29,7 @@ var upgradeAdded3 = [false, false, false]
 
 
 var targetlist = [] # parent = "enemyspawner"
-var active = false
+@export var active = false
 var isMovingFromPurchase = false
 func _ready():
 	$waittime.wait_time = waittime

@@ -122,3 +122,23 @@ func _on_window_mode_pressed():
 func _on_show_debug_pressed():
 	get_node("../tapSFX").play()
 	GLOBALVAR_PTD.show_debug = $advanced/showDebug.button_pressed
+
+
+func _on_shadowmode_pressed() -> void:
+	get_node("../tapSFX").play()
+	if $graphics/shadow/mode.text == "Off":
+		$graphics/shadow/mode.text = "Fast"
+		GLOBALVAR_PTD.shadows_enabled = true
+		GLOBALVAR_PTD.shadow_level = "none"
+	elif $graphics/shadow/mode.text == "Fast":
+		$graphics/shadow/mode.text = "Fancy"
+		GLOBALVAR_PTD.shadows_enabled = true
+		GLOBALVAR_PTD.shadow_level = "pcf5"
+	elif $graphics/shadow/mode.text == "Fancy":
+		$graphics/shadow/mode.text = "Fabulous"
+		GLOBALVAR_PTD.shadows_enabled = true
+		GLOBALVAR_PTD.shadow_level = "pcf13"
+	elif $graphics/shadow/mode.text == "Fabulous":
+		$graphics/shadow/mode.text = "Off"
+		GLOBALVAR_PTD.shadows_enabled = false
+		GLOBALVAR_PTD.shadow_level = "none"

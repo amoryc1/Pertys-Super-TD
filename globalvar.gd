@@ -21,6 +21,11 @@ var master_volume = 1
 var level_win = {
 	"The Park": "no"
 }
+var shadows_enabled = true
+var shadow_level = "pcf5"
+
+
+
 var difficultys = ["no","Easy","Normal","Hard","Hardcore"]
 
 
@@ -403,6 +408,7 @@ var in_wave = false
 var wave_number = 1
 var won = false
 var estimated_time_for_spawns = 1 # Redwood Worker uses this
+var light_pos = Vector2.ZERO
 
 var mouse_hover_stack_collision = 0
 var mouse_hover_over_path = false
@@ -471,6 +477,8 @@ func save_data(filename):
 		"window_mode": window_mode,
 		"show_debug": show_debug,
 		"placed_towers": placed_towers,
+		"shadows_enabled": shadows_enabled,
+		"shadow_level": shadow_level
 	}
 	
 	var json_string = JSON.stringify(data)
@@ -503,6 +511,9 @@ func load_data(filename):
 		if "vsync_mode" in data: vsync_mode = data.vsync_mode
 		if "window_mode" in data: window_mode = data.window_mode
 		if "show_debug" in data: show_debug = data.show_debug
+		if "shadows_enabled" in data: shadows_enabled = data.shadows_enabled
+		if "shadow_level" in data: shadow_level = data.shadow_level
+		
 		
 		# Achievements
 		# Loop through all data in level_win dict and if it exists set the value

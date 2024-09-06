@@ -35,8 +35,11 @@ var maxBoomerangOn = 1
 var targetlist = [] # parent = "enemyspawner"
 var active = false
 var isMovingFromPurchase = false
+
 func _ready():
 	$waittime.wait_time = waittime
+
+
 
 func _process(_delta): if isMovingFromPurchase:
 	global_position = get_global_mouse_position()

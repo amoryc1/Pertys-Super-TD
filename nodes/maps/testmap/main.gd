@@ -17,3 +17,14 @@ extends Node2D
 # When wave 2 starts a little message will appear with "This is Wave 2!"
 
 var levelStats = [{ "levelName": "The Park", "difficulty": "Easy", "startingHealth": 5, "startingMoney": 10000, "cashMultiplier": 1, "events": {  } }, [["Normal", 1000, 0.02, []]], [["Normal", 20, 0.4, []], ["Blue", 3, 0.5, []]], [["Normal", 15, 0.3, []], ["Blue", 15, 0.4, []], ["Normal", 10, 0.1, []]], [["Blue", 10, 0.2, []], ["Blue", 3, 0.1, []], ["Normal", 25, 0.1, []], ["Green", 3, 0.5, []]], [["Blue", 10, 0.1, []]]]
+
+
+
+func _ready() -> void:
+	# Check sun pos for shaders
+	GLOBALVAR_PTD.light_pos = $sun.global_position
+	
+	$sun.shadow_enabled = GLOBALVAR_PTD.shadows_enabled
+	if GLOBALVAR_PTD.shadow_level == "none":$sun.shadow_filter = PointLight2D.SHADOW_FILTER_NONE
+	elif GLOBALVAR_PTD.shadow_level == "pcf5":$sun.shadow_filter = PointLight2D.SHADOW_FILTER_PCF5
+	elif GLOBALVAR_PTD.shadow_level == "pcf13":$sun.shadow_filter = PointLight2D.SHADOW_FILTER_PCF13

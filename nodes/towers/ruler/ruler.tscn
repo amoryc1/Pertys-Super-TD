@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bcbw1fd8t02ya"]
+[gd_scene load_steps=15 format=3 uid="uid://bcbw1fd8t02ya"]
 
 [ext_resource type="Script" path="res://nodes/towers/ruler/ruler.gd" id="1_qgutj"]
 [ext_resource type="Texture2D" uid="uid://c5k0w0ts7op73" path="res://assets/towers/ruler/ruler.png" id="2_n6va4"]
@@ -50,6 +50,9 @@ radius = 39.915
 font = ExtResource("6_tcgn0")
 font_size = 17
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ym57m"]
+polygon = PackedVector2Array(-35, 0, -27, -23, 0, -35, 24, -25, 35, 0, 25, 25, 0, 35, -25, 25)
+
 [node name="Tower" type="Area2D"]
 z_index = 10
 script = ExtResource("1_qgutj")
@@ -99,6 +102,9 @@ pivot_offset = Vector2(61, 64)
 text = "[0,0,0]"
 label_settings = SubResource("LabelSettings_pkqnl")
 horizontal_alignment = 1
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_ym57m")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

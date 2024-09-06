@@ -27,6 +27,18 @@ func _ready():
 	
 	$SettingsMenu/advanced/showDebug.button_pressed = GLOBALVAR_PTD.show_debug
 	
+	
+	if GLOBALVAR_PTD.shadow_level == "none" and GLOBALVAR_PTD.shadows_enabled == false:
+		$SettingsMenu/graphics/shadow/mode.text = "Off"
+	elif GLOBALVAR_PTD.shadow_level == "none" and GLOBALVAR_PTD.shadows_enabled == true:
+		$SettingsMenu/graphics/shadow/mode.text = "Fast"
+	elif GLOBALVAR_PTD.shadow_level == "pcf5":
+		$SettingsMenu/graphics/shadow/mode.text = "Fancy"
+	elif GLOBALVAR_PTD.shadow_level == "pcf13":
+		$SettingsMenu/graphics/shadow/mode.text = "Fabulous"
+	
+	
+	
 	if GLOBALVAR_PTD.window_mode == "Fullscreen":
 		$SettingsMenu/graphics/windowMode.text = "Window Mode: Fullscreen"
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)

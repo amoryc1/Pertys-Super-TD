@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://j887qkdp3sd8"]
+[gd_scene load_steps=15 format=3 uid="uid://j887qkdp3sd8"]
 
 [ext_resource type="Script" path="res://nodes/towers/redwoodworker/worker.gd" id="1_7ta4r"]
 [ext_resource type="Texture2D" uid="uid://d0557ul50bqgn" path="res://assets/towers/redwoodworker/redwoodworker.png" id="2_1isoo"]
@@ -52,6 +52,9 @@ radius = 76.1548
 font = ExtResource("5_q7rc0")
 font_size = 17
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hnb8i"]
+polygon = PackedVector2Array(-42, -41, 42, -41, 42, 42, -42, 42)
+
 [node name="Tower" type="Area2D"]
 z_index = 10
 script = ExtResource("1_7ta4r")
@@ -94,5 +97,8 @@ pivot_offset = Vector2(61, 64)
 text = "[0,0,0]"
 label_settings = SubResource("LabelSettings_b50ub")
 horizontal_alignment = 1
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_hnb8i")
 
 [connection signal="timeout" from="waittime" to="." method="_on_waittime_timeout"]

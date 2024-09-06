@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Global/ui.gd" id="1_m5h7i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2khs"]
-bg_color = Color(0.29, 0.29, 0.29, 0.686275)
+bg_color = Color(0.15, 0.15, 0.15, 0.243137)
 
 [node name="GlobalUI" type="CanvasLayer"]
 layer = 128
@@ -16,11 +16,12 @@ z_index = 4096
 anchors_preset = -1
 anchor_left = -0.100625
 anchor_bottom = 0.11
-offset_left = 990.0
-offset_top = 8.0
-offset_right = 1590.0
-offset_bottom = 31.0
+offset_left = 1491.0
+offset_top = 6.0
+offset_right = 1593.0
+offset_bottom = 29.0
+grow_horizontal = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_p2khs")
-text = "FPS: current"
+text = "Loading list..."
 horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true

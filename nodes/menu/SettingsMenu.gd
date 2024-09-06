@@ -48,37 +48,37 @@ func _on_sfx_slider_value_changed(value):
 
 func _on_maxFPS_pressed():
 	get_node("../tapSFX").play()
-	var newVal = int($advanced/maxFPS.text)
+	var newVal = int($graphics/maxFPS.text)
 	if newVal < 5: newVal = 5 # min 5 fps
-	$advanced/maxFPS.text = str(newVal)
+	$graphics/maxFPS.text = str(newVal)
 	
 	Engine.max_fps = newVal
 	GLOBALVAR_PTD.fps_cap = newVal
 
 func _on_vsync_pressed():
 	get_node("../tapSFX").play()
-	if $advanced/maxFPS/vsync.text == "VSync: Enabled":
-		$advanced/maxFPS/vsync.text = "VSync: Disabled"
+	if $graphics/maxFPS/vsync.text == "VSync: Enabled":
+		$graphics/maxFPS/vsync.text = "VSync: Disabled"
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 		GLOBALVAR_PTD.vsync_mode = "Disabled"
-	elif $advanced/maxFPS/vsync.text == "VSync: Disabled":
-		$advanced/maxFPS/vsync.text = "VSync: Adaptive"
+	elif $graphics/maxFPS/vsync.text == "VSync: Disabled":
+		$graphics/maxFPS/vsync.text = "VSync: Adaptive"
 		GLOBALVAR_PTD.vsync_mode = "Adaptive"
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ADAPTIVE)
-	elif $advanced/maxFPS/vsync.text == "VSync: Adaptive":
-		$advanced/maxFPS/vsync.text = "VSync: Mailbox"
+	elif $graphics/maxFPS/vsync.text == "VSync: Adaptive":
+		$graphics/maxFPS/vsync.text = "VSync: Mailbox"
 		GLOBALVAR_PTD.vsync_mode = "Mailbox"
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_MAILBOX)
-	elif $advanced/maxFPS/vsync.text == "VSync: Mailbox":
-		$advanced/maxFPS/vsync.text = "VSync: Enabled"
+	elif $graphics/maxFPS/vsync.text == "VSync: Mailbox":
+		$graphics/maxFPS/vsync.text = "VSync: Enabled"
 		GLOBALVAR_PTD.vsync_mode = "Enabled"
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 	else:
-		$advanced/maxFPS/vsync.text = "VSync: Enabled"
+		$graphics/maxFPS/vsync.text = "VSync: Enabled"
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 		GLOBALVAR_PTD.vsync_mode = "Enabled"
 	
-	print($advanced/maxFPS/vsync.text)
+	print($graphics/maxFPS/vsync.text)
 
 # Menus
 func openMenu(mName, bName):

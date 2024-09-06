@@ -13,7 +13,7 @@ func _ready():
 		GLOBALVAR_PTD.load_data(GLOBALVAR_PTD.chosen_save_file)
 	
 	Engine.max_fps = GLOBALVAR_PTD.fps_cap
-	$SettingsMenu/advanced/maxFPS.text = str(GLOBALVAR_PTD.fps_cap)
+	$SettingsMenu/graphics/maxFPS.text = str(GLOBALVAR_PTD.fps_cap)
 	
 	
 	# achivements
@@ -36,16 +36,16 @@ func _ready():
 	
 	
 	if GLOBALVAR_PTD.vsync_mode == "Enabled":
-		$SettingsMenu/advanced/maxFPS/vsync.text = "VSync: Enabled"
+		$SettingsMenu/graphics/maxFPS/vsync.text = "VSync: Enabled"
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 	elif GLOBALVAR_PTD.vsync_mode == "Disabled":
-		$SettingsMenu/advanced/maxFPS/vsync.text = "VSync: Disabled"
+		$SettingsMenu/graphics/maxFPS/vsync.text = "VSync: Disabled"
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 	elif GLOBALVAR_PTD.vsync_mode == "Adaptive":
-		$SettingsMenu/advanced/maxFPS/vsync.text = "VSync: Adaptive"
+		$SettingsMenu/graphics/maxFPS/vsync.text = "VSync: Adaptive"
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ADAPTIVE)
 	elif GLOBALVAR_PTD.vsync_mode == "Mailbox":
-		$SettingsMenu/advanced/maxFPS/vsync.text = "VSync: Mailbox"
+		$SettingsMenu/graphics/maxFPS/vsync.text = "VSync: Mailbox"
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_MAILBOX)
 	
 	$SettingsMenu/sounds/masterSlider.value = GLOBALVAR_PTD.master_volume

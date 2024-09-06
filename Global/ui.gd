@@ -27,10 +27,11 @@ func _process(_delta):
 		var current_memory = OS.get_static_memory_usage()
 		var peak_memory = OS.get_static_memory_peak_usage()
 		
-		$debug/text.text = str(Engine.get_frames_per_second()) + " FPS"
+		$debug/text.text = str(Engine.get_frames_per_second()) + "/" + str(GLOBALVAR_PTD.fps_cap) + " FPS"
+		$debug/text.text += "\nVSync mode: " + GLOBALVAR_PTD.vsync_mode
 		
 		$debug/text.text += "\nOS: " + str(os_name)
-		$debug/text.text += "\n" + processor_name + " (L. Cores | " + str(logical_core_count) + ")"
+		$debug/text.text += "\n" + processor_name + " (" + str(logical_core_count) + " L. Cores)"
 		
 		$debug/text.text += "\nMemory Used: " + str(human_readable_size(current_memory)) + " / " + str(human_readable_size(peak_memory)) 
 		

@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
-## [beta 0.08] - 2024-09-06
+## [beta 0.09] - 2024-09-06
 
 ### Added
 - NEW TOWER: Watergunner, can only be placed in water and has a random color assigned to its floatie

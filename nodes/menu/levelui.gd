@@ -7,7 +7,8 @@ func _process(_delta):
 	$stats/wave.text = "Wave "+str(get_node("../enemyspawner").wave)
 
 
-
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("f1"): visible = !visible
 
 func _on_startwave_pressed():
 	GLOBALVAR_PTD.in_wave = true

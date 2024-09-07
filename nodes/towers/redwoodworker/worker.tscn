@@ -9,6 +9,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ewv5f"]
 radius = 0.01
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hnb8i"]
+polygon = PackedVector2Array(-42, -41, 42, -41, 42, 42, -42, 42)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_omqyp"]
 atlas = ExtResource("2_1isoo")
 region = Rect2(0, 0, 128, 128)
@@ -52,9 +55,6 @@ radius = 47.9082
 font = ExtResource("5_q7rc0")
 font_size = 17
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hnb8i"]
-polygon = PackedVector2Array(-42, -41, 42, -41, 42, 42, -42, 42)
-
 [node name="Tower" type="Area2D"]
 z_index = 10
 script = ExtResource("1_7ta4r")
@@ -64,6 +64,9 @@ towerName = "Redwood Worker"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ewv5f")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_hnb8i")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 z_index = -1
@@ -97,9 +100,6 @@ pivot_offset = Vector2(61, 64)
 text = "[0,0,0]"
 label_settings = SubResource("LabelSettings_b50ub")
 horizontal_alignment = 1
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource("OccluderPolygon2D_hnb8i")
 
 [node name="other" type="Node2D" parent="."]
 

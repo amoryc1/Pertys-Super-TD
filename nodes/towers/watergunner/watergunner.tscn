@@ -12,6 +12,9 @@
 resource_local_to_scene = true
 radius = 160.0
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_61vly"]
+polygon = PackedVector2Array(-35, 0, -27, -23, 0, -35, 24, -25, 35, 0, 25, 25, 0, 35, -25, 25)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_8k81g"]
 atlas = ExtResource("2_vwvtf")
 region = Rect2(0, 0, 128, 128)
@@ -48,9 +51,6 @@ radius = 36.0
 font = ExtResource("6_y3jko")
 font_size = 17
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_61vly"]
-polygon = PackedVector2Array(-35, 0, -27, -23, 0, -35, 24, -25, 35, 0, 25, 25, 0, 35, -25, 25)
-
 [node name="Tower" type="Area2D"]
 z_index = 10
 script = ExtResource("1_j128j")
@@ -63,6 +63,9 @@ towerName = "Watergunner"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_isf4x")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_61vly")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 z_index = 3
@@ -101,13 +104,13 @@ text = "[0,0,0]"
 label_settings = SubResource("LabelSettings_pkqnl")
 horizontal_alignment = 1
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource("OccluderPolygon2D_61vly")
-
 [node name="other" type="Node2D" parent="."]
 
 [node name="floatie" type="Sprite2D" parent="other"]
 texture = ExtResource("7_ytu6f")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+modulate = Color(1, 0.383333, 0, 1)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

@@ -8,6 +8,7 @@ var isAnimated = false
 var trueParent = ""
 
 var targetlist = []
+var ripStatus = []
 
 func _ready():
 	if isAnimated:
@@ -24,6 +25,10 @@ func _process(delta):
 			var enemy = get_node_or_null(targetlist[0])
 			if enemy:
 				enemy.health -= damage
+				
+				for x in ripStatus:
+					if enemy.status.has(x):
+						enemy.status.erase(x)
 				
 				targetlist.erase(targetlist[0])
 				piercing -= 1

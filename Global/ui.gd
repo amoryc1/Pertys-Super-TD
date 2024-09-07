@@ -5,6 +5,7 @@ var logical_core_count = 0
 var processor_name = "Hi!"
 var os_name = "TempleOS"
 
+
 # Bless ChatGPT
 func human_readable_size(size: int):
 	var units = ["B", "KiB", "MiB", "GiB", "TiB"] # I dont think this game is using terabytes of ram... if it is im surprised you have terabytes of ram
@@ -15,6 +16,19 @@ func human_readable_size(size: int):
 		index += 1
 	
 	return str(size) + " " + units[index]
+	
+func capture_screenshot():
+	# Get the viewport's texture
+	var image_texture = get_viewport().get_texture()
+
+	# Extract the image from the texture
+	var image = image_texture.get_image()
+
+	# Save the image as a PNG in the user:// folder
+	var file_name = "pertystd_screenshot_" + str(int(Time.get_unix_time_from_system())) + ".png"
+	image.save_png(OS.get_user_data_dir() + "/" + file_name)
+
+	print("Screenshot saved as: " + OS.get_user_data_dir() + "/" + file_name)
 
 func _ready():
 	load_time = Time.get_ticks_msec() - GLOBALVAR_PTD.ticks_at_load_start
@@ -53,3 +67,6 @@ func _input(event):
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 	if Input.is_action_just_pressed("debugvis"):
 		GLOBALVAR_PTD.show_debug = !GLOBALVAR_PTD.show_debug
+	
+	if Input.is_action_just_pressed("f12"):
+		capture_screenshot()

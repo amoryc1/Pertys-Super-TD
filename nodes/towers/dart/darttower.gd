@@ -31,10 +31,20 @@ var upgradeAdded3 = [false, false, false]
 var targetlist = [] # parent = "enemyspawner"
 @export var active = false
 var isMovingFromPurchase = false
+
+var raycast_spot_obs = false
+var raycast_recent_pos = null
+
+func check_raycast(pos: Vector2) -> bool:
+	$RayCast2D.target_position = pos - global_position
+	if $RayCast2D.is_colliding():
+		if $RayCast2D.get_collider().blocks_attack:
+			return true
+	
+	return false
+
 func _ready():
 	$waittime.wait_time = waittime
-	
-	
 
 func _process(_delta): if isMovingFromPurchase:
 	global_position = get_global_mouse_position()
@@ -42,6 +52,9 @@ else:
 	$level.visible = GLOBALVAR_PTD.show_debug
 	$level.text = "[" + str(upgradeLevel1) + ", " + str(upgradeLevel2) + ", " + str(upgradeLevel3) + "]"
 	
+	if raycast_recent_pos != null:
+		if raycast_recent_pos:
+			raycast_spot_obs = check_raycast(raycast_recent_pos.global_position)
 	
 	# Prevent a bug upgrading ALL stats
 	if get_parent().name == "towers":
@@ -50,6 +63,7 @@ else:
 			projectilePiercing += 2 # 3
 			upgradeAdded1[0] = true
 			sellValue += int(175 * 0.75)
+			$otherrotate/upgrade11.visible = true
 			print("upgrade1/1")
 		# Can pierce 4 more Pertys and can pop Metal Pertys. Does 3 more damage
 		if upgradeLevel1 >= 2 and upgradeAdded1[1] == false:
@@ -58,6 +72,7 @@ else:
 			canHitLead = true
 			upgradeAdded1[1] = true
 			sellValue += int(525 * 0.75)
+			$otherrotate/upgrade12.visible = true
 			print("upgrade1/2")
 		# Pierces 15 Pertys and does 6 more damage
 		if upgradeLevel1 >= 3 and upgradeAdded1[2] == false:
@@ -65,6 +80,7 @@ else:
 			projectileDamage += 6 # 10
 			upgradeAdded1[2] = true
 			sellValue += int(1450 * 0.75)
+			$otherrotate/upgrade13.visible = true
 			print("upgrade1/3")
 		
 		
@@ -75,6 +91,7 @@ else:
 			$ring.scale += Vector2(.3, .3) # 2.8, 2.8
 			upgradeAdded2[0] = true
 			sellValue += int(125 * 0.75)
+			$otherrotate/upgrade21.visible = true
 			print("upgrade2/1")
 		# Even more range and can see camo Pertys
 		if upgradeLevel2 >= 2 and upgradeAdded2[1] == false:
@@ -83,6 +100,7 @@ else:
 			canDetectCamo = true
 			upgradeAdded2[1] = true
 			sellValue += int(420 * 0.75)
+			$otherrotate/upgrade22.visible = true
 			print("upgrade2/2")
 		# A ton more range. Thrown pencils also move slightly faster
 		if upgradeLevel2 >= 3 and upgradeAdded2[2] == false:
@@ -91,6 +109,7 @@ else:
 			projectileSpeed += 48
 			upgradeAdded2[2] = true
 			sellValue += int(800 * 0.75)
+			$otherrotate/upgrade23.visible = true
 			print("upgrade2/3")
 		
 		# Throws pencils quicker and more frequently
@@ -106,6 +125,7 @@ else:
 			$waittime.wait_time -= 0.25 # 0.25
 			upgradeAdded3[1] = true
 			sellValue += int(540 * 0.75)
+			$otherrotate/upgrade32.visible = true
 			print("upgrade3/2")
 		# Throws an RPP instead of a pencil which are extremely fast. Also deals more damage since they are that fast
 		if upgradeLevel3 >= 3 and upgradeAdded3[2] == false:
@@ -114,6 +134,7 @@ else:
 			canHitLead = true
 			upgradeAdded3[2] = true
 			sellValue += int(1400 * 0.75)
+			$other/upgrade33.visible = true
 			print("upgrade3/3")
 
 
@@ -126,7 +147,11 @@ func _on_area_entered(area):
 		if !canDetectCamo and area.status.has("camo"): canHit = false
 		elif !canHitLead and area.status.has("metal"): canHit = false
 		
-		if canHit: 
+		raycast_recent_pos = area
+		raycast_spot_obs = check_raycast(raycast_recent_pos.global_position)
+		if raycast_spot_obs: canHit = false
+		
+		if canHit:
 			targetlist.append(area.get_path())
 
 func _on_area_exited(area):

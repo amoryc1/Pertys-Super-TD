@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [beta 0.10] - 2024-09-07
+
+### Added
+- F1 Hotkey to show/hide the level ui
+- F12 Hotkey to save a screenshot in the same directory as your save file
+- System to change tower sprites depending on what upgrade they have (only works on Pencil Tower rn)
+- Obsticles block attacks (the ones in The Park dont have that property but it works) though it is probably really badly optimised as it checks a RayCast2D every frame. so that aint good
+
 
 ## [beta 0.09] - 2024-09-06
 

@@ -30,6 +30,18 @@ var upgradeAdded3 = [false, false, false]
 var targetlist = [] # parent = "enemyspawner"
 var active = false
 var isMovingFromPurchase = false
+
+var raycast_spot_obs = false
+var raycast_recent_pos = null
+
+func check_raycast(pos: Vector2) -> bool:
+	$RayCast2D.target_position = pos - global_position
+	if $RayCast2D.is_colliding():
+		if $RayCast2D.get_collider().blocks_attack:
+			return true
+	
+	return false
+
 func _ready():
 	$waittime.wait_time = waittime
 
@@ -39,6 +51,10 @@ else:
 	$level.visible = GLOBALVAR_PTD.show_debug
 	if GLOBALVAR_PTD.show_debug:
 		$level.text = "[" + str(upgradeLevel1) + ", " + str(upgradeLevel2) + ", " + str(upgradeLevel3) + "]"
+	
+	if raycast_recent_pos != null:
+		if raycast_recent_pos:
+			raycast_spot_obs = check_raycast(raycast_recent_pos.global_position)
 	
 	# Prevent a bug upgrading ALL stats
 	if get_parent().name == "towers":
@@ -110,6 +126,10 @@ func _on_area_entered(area):
 		var canHit = true
 		if !canDetectCamo and area.status.has("camo"): canHit = false
 		elif !canHitLead and area.status.has("metal"): canHit = false
+		
+		raycast_recent_pos = area
+		raycast_spot_obs = check_raycast(raycast_recent_pos.global_position)
+		if raycast_spot_obs: canHit = false
 		
 		if canHit: 
 			targetlist.append(area.get_path())

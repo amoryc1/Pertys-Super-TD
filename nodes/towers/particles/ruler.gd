@@ -22,7 +22,8 @@ func _ready():
 	tween.play()
 
 func remove():
-	get_node(trueParent).hasBoomerangOn += 1
+	if get_node_or_null(trueParent):
+		get_node(trueParent).hasBoomerangOn += 1
 	queue_free()
 
 func _process(delta):

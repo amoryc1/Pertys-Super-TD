@@ -32,12 +32,29 @@ var glueLevelCount = 3
 var targetlist = [] # parent = "enemyspawner"
 var active = false
 var isMovingFromPurchase = false
+
+var raycast_spot_obs = false
+var raycast_recent_pos = null
+
+func check_raycast(pos: Vector2) -> bool:
+	$RayCast2D.target_position = pos - global_position
+	if $RayCast2D.is_colliding():
+		if $RayCast2D.get_collider().blocks_attack:
+			return true
+	
+	return false
+
 func _ready():
 	$waittime.wait_time = waittime
 
 func _process(_delta): if isMovingFromPurchase:
 	global_position = get_global_mouse_position()
 else:
+	
+		if raycast_recent_pos != null:
+			if raycast_recent_pos:
+				raycast_spot_obs = check_raycast(raycast_recent_pos.global_position)
+			
 		if get_parent().name == "towers":
 			$level.visible = GLOBALVAR_PTD.show_debug
 			if GLOBALVAR_PTD.show_debug:
@@ -121,6 +138,10 @@ func _on_area_entered(area):
 		var canHit = true
 		if !canDetectCamo and area.status.has("camo"):canHit = false
 		if !canHitLead and not area.status.has("metal"): canHit = false
+		
+		raycast_recent_pos = area
+		raycast_spot_obs = check_raycast(raycast_recent_pos.global_position)
+		if raycast_spot_obs: canHit = false
 		
 		if canHit:
 			if not (area.status.has("glue")) and not (area.status.has("hot")):

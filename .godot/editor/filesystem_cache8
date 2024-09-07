@@ -1,19 +1,19 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1725726967
+::res://::1725740921
 credits.txt::TextFile::-1::1725628158::0::1::::<><>::
 default_bus_layout.tres::AudioBusLayout::7814591074560372517::1725225241::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1725656563::0::1::::<><>::
 globalvar.gd::GDScript::-1::1725707014::0::1::::<>Node<>::
 icon.png::CompressedTexture2D::21984029082390997::1725287860::1725287861::1::::<><>::
-readme.md::TextFile::-1::1725717256::0::1::::<><>::
+readme.md::TextFile::-1::1725734056::0::1::::<><>::
 ::res://assets/::1725540267
 ::res://assets/enemies/::1725655996
 enemies.png::CompressedTexture2D::6537953534044028731::1725653874::1725655996::1::::<><>::
 particles.png::CompressedTexture2D::1173307991425694940::1725541632::1725541634::1::::<><>::
-::res://assets/maps/::1725727152
+::res://assets/maps/::1725740931
 obstacles.png::CompressedTexture2D::6508023608535246813::1725633268::1725633269::1::::<><>::
 tilemap.png::CompressedTexture2D::1619459729226478280::1725706348::1725706351::1::::<><>::
-tile_set.tres::TileSet::9154111254708895210::1725727152::0::1::::<><>::uid://xcqjaq3s2y05::::res://assets/maps/tilemap.png
+tile_set.tres::TileSet::9154111254708895210::1725740931::0::1::::<><>::uid://xcqjaq3s2y05::::res://assets/maps/tilemap.png
 ::res://assets/towers/::1725641986
 particles.png::CompressedTexture2D::3476128465963849021::1725641985::1725641986::1::::<><>::
 ::res://assets/towers/flamethrower/::1725393432
@@ -22,8 +22,8 @@ upgrades.png::CompressedTexture2D::6770499096320595871::1725392241::1725393432::
 ::res://assets/towers/glue/::1725394044
 glue.png::CompressedTexture2D::1925674562054163262::1720115557::1720614625::1::::<><>::
 upgrades.png::CompressedTexture2D::949973874097062736::1725393802::1725393804::1::::<><>::
-::res://assets/towers/normal/::1725734444
-cosmetics.png::CompressedTexture2D::3732158058743530092::1725734491::1725734492::1::::<><>::
+::res://assets/towers/normal/::1725734492
+cosmetics.png::CompressedTexture2D::3732158058743530092::1725741150::1725741153::1::::<><>::
 normal.png::CompressedTexture2D::3436772459072844999::1725623762::1725622270::1::::<><>::
 upgrades.png::CompressedTexture2D::4663334959665950448::1725716294::1725716830::1::::<><>::
 ::res://assets/towers/redwoodworker/::1725394328
@@ -86,16 +86,16 @@ sun.png::CompressedTexture2D::218349437718070236::1725622549::1725622551::1::::<
 ::res://assets/ui/summary/::1725529312
 loss.png::CompressedTexture2D::7678185856556718707::1725477451::1725477623::1::::<><>::
 win.png::CompressedTexture2D::2162146398905965177::1725484053::1725529312::1::::<><>::
-::res://font/::1725727152
+::res://font/::1725740931
 coolvetica rg.otf::FontFile::5864723493147876667::1721498734::1721498734::1::::<><>::
-Normal_LabelSettings.tres::LabelSettings::7851187538887425507::1725727152::0::1::::<><>::uid://bqn5qcu0iu4yn::::res://font/Retro Gaming.ttf
+Normal_LabelSettings.tres::LabelSettings::7851187538887425507::1725740931::0::1::::<><>::uid://bqn5qcu0iu4yn::::res://font/Retro Gaming.ttf
 Retro Gaming.ttf::FontFile::3538129312280053873::1719591233::1721498520::1::::<><>::
 small_pixel.ttf::FontFile::2415591351960636718::1725108021::1725137646::1::::<><>::
 Small_smallpixel_LabelSettings.tres::LabelSettings::307533545720552836::1725108117::0::1::::<><>::uid://baoeo3040amly::::res://font/small_pixel.ttf
-Title_LabelSettings.tres::LabelSettings::4152312567643067963::1725727152::0::1::::<><>::uid://bqn5qcu0iu4yn::::res://font/Retro Gaming.ttf
-::res://Global/::1725734446
+Title_LabelSettings.tres::LabelSettings::4152312567643067963::1725740931::0::1::::<><>::uid://bqn5qcu0iu4yn::::res://font/Retro Gaming.ttf
+::res://Global/::1725740932
 ui.gd::GDScript::-1::1725707217::0::1::::<>CanvasLayer<>::
-ui.tscn::PackedScene::6261606783462029228::1725734446::0::1::::<><>::res://Global/ui.gd
+ui.tscn::PackedScene::6261606783462029228::1725740932::0::1::::<><>::res://Global/ui.gd
 ::res://mouse/::1724839970
 mouse.png::CompressedTexture2D::1864198273833619144::1721508404::1721508414::1::::<><>::
 mouseFrame2.png::CompressedTexture2D::3988163683376967143::1724839005::1724839970::1::::<><>::
@@ -138,23 +138,23 @@ controlnode.gd::GDScript::-1::1719674465::0::1::::<>Node2D<>::
 enemyspawner.gd::GDScript::-1::1725638572::0::1::::<>Node2D<>::
 mouseHoverPath.gd::GDScript::-1::1725455238::0::1::::<>TileMap<>::
 obstacleOptions.gd::GDScript::-1::1725632804::0::1::::<>StaticBody2D<>::
-::res://nodes/maps/testmap/::1725734445
+::res://nodes/maps/testmap/::1725740931
 bg.gd::GDScript::-1::1719951368::0::1::::<>TileMap<>::
 main.gd::GDScript::-1::1725728752::0::1::::<>Node2D<>::
-main.tscn::PackedScene::8367612920302041912::1725734445::0::1::::<><>::res://nodes/maps/global/enemyspawner.gd<>res://nodes/maps/testmap/main.gd<>uid://ddopo0p0fyxle::::res://nodes/menu/levelui.tscn<>uid://dsxph5k1i5bk0::::res://music/level/level1.ogg<>uid://d3ok40omar3wg::::res://assets/maps/tile_set.tres<>res://nodes/maps/global/mouseHoverPath.gd<>uid://52miaaddp78p::::res://assets/ui/summary/win.png<>res://nodes/maps/global/obstacleOptions.gd<>uid://cyysgy5eop2a0::::res://assets/maps/obstacles.png<>uid://b0fn8moe1cdwt::::res://font/Title_LabelSettings.tres<>uid://bqn5qcu0iu4yn::::res://font/Retro Gaming.ttf<>uid://dhnmum0lmy5n8::::res://assets/ui/summary/loss.png<>uid://bhkqtynrawxc8::::res://assets/ui/icons.png<>uid://dd1gh66efhjg::::res://assets/ui/shaders/sun.png
-::res://nodes/menu/::1725734446
+main.tscn::PackedScene::8367612920302041912::1725740931::0::1::::<><>::res://nodes/maps/global/enemyspawner.gd<>res://nodes/maps/testmap/main.gd<>uid://ddopo0p0fyxle::::res://nodes/menu/levelui.tscn<>uid://dsxph5k1i5bk0::::res://music/level/level1.ogg<>uid://d3ok40omar3wg::::res://assets/maps/tile_set.tres<>res://nodes/maps/global/mouseHoverPath.gd<>uid://52miaaddp78p::::res://assets/ui/summary/win.png<>res://nodes/maps/global/obstacleOptions.gd<>uid://cyysgy5eop2a0::::res://assets/maps/obstacles.png<>uid://b0fn8moe1cdwt::::res://font/Title_LabelSettings.tres<>uid://bqn5qcu0iu4yn::::res://font/Retro Gaming.ttf<>uid://dhnmum0lmy5n8::::res://assets/ui/summary/loss.png<>uid://bhkqtynrawxc8::::res://assets/ui/icons.png<>uid://dd1gh66efhjg::::res://assets/ui/shaders/sun.png
+::res://nodes/menu/::1725740931
 EncyclopediaMenu.gd::GDScript::-1::1725642880::0::1::::<>Panel<>::
 levelui.gd::GDScript::-1::1725706618::0::1::::<>CanvasLayer<>::
-levelui.tscn::PackedScene::7399666963955760070::1725734446::0::1::::<><>::res://nodes/menu/levelui.gd<>uid://e0jh3ckblci4::::res://assets/ui/stats.png<>res://nodes/menu/towers.gd<>res://nodes/menu/placetower.gd<>uid://dvv3wv4u2fafm::::res://assets/ui/panelframes.png<>uid://b5ovrlqtmu3qd::::res://assets/ui/bg1.png<>res://nodes/menu/debug/superperry.gd<>uid://bo72e1fwe01n4::::res://assets/towers/normal/normal.png<>uid://d0557ul50bqgn::::res://assets/towers/redwoodworker/redwoodworker.png<>uid://bhkqtynrawxc8::::res://assets/ui/icons.png<>uid://bqn5qcu0iu4yn::::res://font/Retro Gaming.ttf<>uid://2o2tw76tf5h7::::res://assets/towers/glue/glue.png<>uid://cvhf0pyotf3qe::::res://Global/ui.tscn<>uid://dqattgkkgfsux::::res://assets/towers/flamethrower/flamethrower.png<>uid://bpr4lfemmviqv::::res://assets/towers/particles.png<>uid://c5k0w0ts7op73::::res://assets/towers/ruler/ruler.png<>uid://dp6l0fv0n161v::::res://assets/towers/watergunner/watergunner.png<>res://nodes/menu/upgrades.gd<>uid://c6fnlictfwxwu::::res://assets/ui/buttons/arrow.png<>uid://crxku4m7exa3d::::res://assets/towers/watergunner/floatie.png<>res://nodes/menu/timescale.gd<>uid://duwqathcb0xlw::::res://assets/ui/buttons/speedup.png<>uid://nsf6wevfx2b1::::res://assets/towers/glue/upgrades.png<>uid://bg0w0uq4el2li::::res://assets/ui/buttons/sell.png<>uid://cn4c5l33bs1io::::res://music/sfx/error.ogg
+levelui.tscn::PackedScene::7399666963955760070::1725740931::0::1::::<><>::res://nodes/menu/levelui.gd<>uid://e0jh3ckblci4::::res://assets/ui/stats.png<>res://nodes/menu/towers.gd<>res://nodes/menu/placetower.gd<>uid://dvv3wv4u2fafm::::res://assets/ui/panelframes.png<>uid://b5ovrlqtmu3qd::::res://assets/ui/bg1.png<>res://nodes/menu/debug/superperry.gd<>uid://bo72e1fwe01n4::::res://assets/towers/normal/normal.png<>uid://d0557ul50bqgn::::res://assets/towers/redwoodworker/redwoodworker.png<>uid://bhkqtynrawxc8::::res://assets/ui/icons.png<>uid://bqn5qcu0iu4yn::::res://font/Retro Gaming.ttf<>uid://2o2tw76tf5h7::::res://assets/towers/glue/glue.png<>uid://cvhf0pyotf3qe::::res://Global/ui.tscn<>uid://dqattgkkgfsux::::res://assets/towers/flamethrower/flamethrower.png<>uid://bpr4lfemmviqv::::res://assets/towers/particles.png<>uid://c5k0w0ts7op73::::res://assets/towers/ruler/ruler.png<>uid://dp6l0fv0n161v::::res://assets/towers/watergunner/watergunner.png<>res://nodes/menu/upgrades.gd<>uid://c6fnlictfwxwu::::res://assets/ui/buttons/arrow.png<>uid://crxku4m7exa3d::::res://assets/towers/watergunner/floatie.png<>res://nodes/menu/timescale.gd<>uid://duwqathcb0xlw::::res://assets/ui/buttons/speedup.png<>uid://nsf6wevfx2b1::::res://assets/towers/glue/upgrades.png<>uid://bg0w0uq4el2li::::res://assets/ui/buttons/sell.png<>uid://cn4c5l33bs1io::::res://music/sfx/error.ogg
 loading_screen.tscn::PackedScene::4789188413372466729::1725537899::0::1::::<><>::uid://bqn5qcu0iu4yn::::res://font/Retro Gaming.ttf
 menu.gd::GDScript::-1::1725627296::0::1::::<>Node2D<>::
-menu.tscn::PackedScene::1297867149194175107::1725734445::0::1::::<><>::res://nodes/menu/menu.gd<>uid://bm5v0bhh6vkyn::::res://music/other/menu.ogg<>uid://bqn5qcu0iu4yn::::res://font/Retro Gaming.ttf<>uid://cvhf0pyotf3qe::::res://Global/ui.tscn<>uid://d3ok40omar3wg::::res://assets/maps/tile_set.tres<>res://nodes/menu/SettingsMenu.gd<>uid://cetdtigqylbhs::::res://assets/ui/other/sliderface.png<>uid://b0fn8moe1cdwt::::res://font/Title_LabelSettings.tres<>uid://dj4f586fw1yk6::::res://font/Normal_LabelSettings.tres<>uid://0du834wr0hml::::res://music/sfx/click.ogg<>uid://cps6ey1uyqeql::::res://font/coolvetica rg.otf<>uid://byw3o5skajpug::::res://assets/ui/other/spinningegg.png<>uid://knnbydw85704::::res://music/sfx/fan.ogg<>uid://c3owtove8bqdp::::res://music/sfx/voice_sans.ogg<>uid://b5yy58aqnjs0i::::res://assets/ui/levelframes/testlevelFrame.png<>uid://cah6h6440ntlp::::res://nodes/menu/loading_screen.tscn<>uid://em8bdwags5a3::::res://font/Small_smallpixel_LabelSettings.tres<>uid://rkvfcq4ndfq::::res://assets/ui/other/trophies.png<>res://nodes/menu/EncyclopediaMenu.gd<>uid://dsrbnm0fxn2us::::res://assets/ui/encyclopedia/enemies.png<>uid://c80ymu3jql2tn::::res://assets/ui/encyclopedia/status.png<>uid://c0e3nvlcko56::::res://assets/ui/encyclopedia/towers.png<>uid://b7o7pe7rqyghk::::res://assets/towers/normal/upgrades.png
+menu.tscn::PackedScene::1297867149194175107::1725740931::0::1::::<><>::res://nodes/menu/menu.gd<>uid://bm5v0bhh6vkyn::::res://music/other/menu.ogg<>uid://bqn5qcu0iu4yn::::res://font/Retro Gaming.ttf<>uid://cvhf0pyotf3qe::::res://Global/ui.tscn<>uid://d3ok40omar3wg::::res://assets/maps/tile_set.tres<>res://nodes/menu/SettingsMenu.gd<>uid://cetdtigqylbhs::::res://assets/ui/other/sliderface.png<>uid://b0fn8moe1cdwt::::res://font/Title_LabelSettings.tres<>uid://dj4f586fw1yk6::::res://font/Normal_LabelSettings.tres<>uid://0du834wr0hml::::res://music/sfx/click.ogg<>uid://cps6ey1uyqeql::::res://font/coolvetica rg.otf<>uid://byw3o5skajpug::::res://assets/ui/other/spinningegg.png<>uid://knnbydw85704::::res://music/sfx/fan.ogg<>uid://c3owtove8bqdp::::res://music/sfx/voice_sans.ogg<>uid://b5yy58aqnjs0i::::res://assets/ui/levelframes/testlevelFrame.png<>uid://cah6h6440ntlp::::res://nodes/menu/loading_screen.tscn<>uid://em8bdwags5a3::::res://font/Small_smallpixel_LabelSettings.tres<>uid://rkvfcq4ndfq::::res://assets/ui/other/trophies.png<>res://nodes/menu/EncyclopediaMenu.gd<>uid://dsrbnm0fxn2us::::res://assets/ui/encyclopedia/enemies.png<>uid://c80ymu3jql2tn::::res://assets/ui/encyclopedia/status.png<>uid://c0e3nvlcko56::::res://assets/ui/encyclopedia/towers.png<>uid://b7o7pe7rqyghk::::res://assets/towers/normal/upgrades.png
 placetower.gd::GDScript::-1::1725633899::0::1::::<>Button<>::
 scrollingEnemies.gd::GDScript::-1::1720124067::0::1::::<>Node2D<>::
 SettingsMenu.gd::GDScript::-1::1725627133::0::1::::<>Panel<>::
 timescale.gd::GDScript::-1::1725376685::0::1::::<>Panel<>::
 titlescreen.gd::GDScript::-1::1725454137::0::1::::<>Node2D<>::
-titlescreen.tscn::PackedScene::1303578890159566402::1725734445::0::1::::<><>::res://nodes/menu/titlescreen.gd<>uid://cah6h6440ntlp::::res://nodes/menu/loading_screen.tscn
+titlescreen.tscn::PackedScene::1303578890159566402::1725740931::0::1::::<><>::res://nodes/menu/titlescreen.gd<>uid://cah6h6440ntlp::::res://nodes/menu/loading_screen.tscn
 towers.gd::GDScript::-1::1725637642::0::1::::<>Control<>::
 towerslist.gd::GDScript::-1::1725451242::0::1::::<>Panel<>::
 upgradePath.gd::GDScript::-1::1725295609::0::1::::<>Panel<>::
@@ -162,24 +162,24 @@ upgrades.gd::GDScript::-1::1725630344::0::1::::<>Panel<>::
 ::res://nodes/menu/debug/::1725727541
 superperry.gd::GDScript::-1::1725727541::0::1::::<>Node2D<>::
 ::res://nodes/towers/::1725635217
-::res://nodes/towers/dart/::1725734446
+::res://nodes/towers/dart/::1725740932
 darttower.gd::GDScript::-1::1725734264::0::1::::<>Area2D<>::
-darttower.tscn::PackedScene::4745496830759535806::1725734446::0::1::::<><>::res://nodes/towers/dart/darttower.gd<>uid://bo72e1fwe01n4::::res://assets/towers/normal/normal.png<>res://nodes/towers/global/shootenemy.gd<>uid://b21hiwh2ohg4c::::res://assets/ui/ring.png<>res://nodes/towers/global/StackCollision.gd<>uid://bqn5qcu0iu4yn::::res://font/Retro Gaming.ttf<>uid://btf5dlh6kl04w::::res://assets/towers/normal/cosmetics.png
-::res://nodes/towers/flamethrower/::1725734447
+darttower.tscn::PackedScene::4745496830759535806::1725740932::0::1::::<><>::res://nodes/towers/dart/darttower.gd<>uid://bo72e1fwe01n4::::res://assets/towers/normal/normal.png<>res://nodes/towers/global/shootenemy.gd<>uid://b21hiwh2ohg4c::::res://assets/ui/ring.png<>res://nodes/towers/global/StackCollision.gd<>uid://bqn5qcu0iu4yn::::res://font/Retro Gaming.ttf<>uid://btf5dlh6kl04w::::res://assets/towers/normal/cosmetics.png
+::res://nodes/towers/flamethrower/::1725740932
 flamethrower.gd::GDScript::-1::1725733845::0::1::::<>Area2D<>::
-flamethrower.tscn::PackedScene::4531520022555821206::1725734447::0::1::::<><>::res://nodes/towers/flamethrower/flamethrower.gd<>uid://dqattgkkgfsux::::res://assets/towers/flamethrower/flamethrower.png<>res://nodes/towers/global/shootenemy.gd<>uid://b21hiwh2ohg4c::::res://assets/ui/ring.png<>res://nodes/towers/global/StackCollision.gd<>uid://bqn5qcu0iu4yn::::res://font/Retro Gaming.ttf
+flamethrower.tscn::PackedScene::4531520022555821206::1725740932::0::1::::<><>::res://nodes/towers/flamethrower/flamethrower.gd<>uid://dqattgkkgfsux::::res://assets/towers/flamethrower/flamethrower.png<>res://nodes/towers/global/shootenemy.gd<>uid://b21hiwh2ohg4c::::res://assets/ui/ring.png<>res://nodes/towers/global/StackCollision.gd<>uid://bqn5qcu0iu4yn::::res://font/Retro Gaming.ttf
 ::res://nodes/towers/global/::1725727777
 shootenemy.gd::GDScript::-1::1725727777::0::1::::<>Node2D<>::
 StackCollision.gd::GDScript::-1::1725633853::0::1::::<>Area2D<>::
-::res://nodes/towers/glue/::1725734447
+::res://nodes/towers/glue/::1725740932
 gluetower.gd::GDScript::-1::1725733845::0::1::::<>Area2D<>::
-gluetower.tscn::PackedScene::4084641370158853161::1725734447::0::1::::<><>::res://nodes/towers/glue/gluetower.gd<>uid://2o2tw76tf5h7::::res://assets/towers/glue/glue.png<>res://nodes/towers/global/shootenemy.gd<>uid://b21hiwh2ohg4c::::res://assets/ui/ring.png<>res://nodes/towers/global/StackCollision.gd<>uid://bqn5qcu0iu4yn::::res://font/Retro Gaming.ttf
-::res://nodes/towers/particles/::1725733924
+gluetower.tscn::PackedScene::4084641370158853161::1725740932::0::1::::<><>::res://nodes/towers/glue/gluetower.gd<>uid://2o2tw76tf5h7::::res://assets/towers/glue/glue.png<>res://nodes/towers/global/shootenemy.gd<>uid://b21hiwh2ohg4c::::res://assets/ui/ring.png<>res://nodes/towers/global/StackCollision.gd<>uid://bqn5qcu0iu4yn::::res://font/Retro Gaming.ttf
+::res://nodes/towers/particles/::1725740932
 bullet.gd::GDScript::-1::1725628158::0::1::::<>Area2D<>::
-dart.tscn::PackedScene::559443375562236229::1725619428::0::1::::<><>::res://nodes/towers/particles/bullet.gd<>uid://bpr4lfemmviqv::::res://assets/towers/particles.png
-firewall4.tscn::PackedScene::3326221688591886331::1725540701::0::1::::<><>::res://nodes/towers/particles/firewall.gd<>uid://bpr4lfemmviqv::::res://assets/towers/particles.png
-firewall.gd::GDScript::-1::1725569526::0::1::::<>Area2D<>::
-firewall.tscn::PackedScene::3013278359795866770::1725619857::0::1::::<><>::res://nodes/towers/particles/firewall.gd<>uid://bpr4lfemmviqv::::res://assets/towers/particles.png
+dart.tscn::PackedScene::559443375562236229::1725740932::0::1::::<><>::res://nodes/towers/particles/bullet.gd<>uid://bpr4lfemmviqv::::res://assets/towers/particles.png
+firewall4.tscn::PackedScene::3326221688591886331::1725740932::0::1::::<><>::res://nodes/towers/particles/firewall.gd<>uid://bpr4lfemmviqv::::res://assets/towers/particles.png
+firewall.gd::GDScript::-1::1725735144::0::1::::<>Area2D<>::
+firewall.tscn::PackedScene::3013278359795866770::1725740932::0::1::::<><>::res://nodes/towers/particles/firewall.gd<>uid://bpr4lfemmviqv::::res://assets/towers/particles.png
 glue.gd::GDScript::-1::1725569551::0::1::::<>Area2D<>::
 glue.tscn::PackedScene::2370587508273402407::1725539130::0::1::::<><>::res://nodes/towers/particles/glue.gd<>uid://bpr4lfemmviqv::::res://assets/towers/particles.png
 gold.gd::GDScript::-1::1725452151::0::1::::<>Area2D<>::
@@ -192,12 +192,12 @@ superduperglue.tscn::PackedScene::56731813023617190::1725539121::0::1::::<><>::r
 superglue.tscn::PackedScene::1145409665664465688::1725539111::0::1::::<><>::res://nodes/towers/particles/glue.gd<>uid://bpr4lfemmviqv::::res://assets/towers/particles.png
 water.gd::GDScript::-1::1725717554::0::1::::<>Area2D<>::
 water.tscn::PackedScene::7041229842569977350::1725715802::0::1::::<><>::res://nodes/towers/particles/water.gd<>uid://bpr4lfemmviqv::::res://assets/towers/particles.png
-::res://nodes/towers/redwoodworker/::1725733050
+::res://nodes/towers/redwoodworker/::1725740932
 worker.gd::GDScript::-1::1725455495::0::1::::<>Area2D<>::
-worker.tscn::PackedScene::701885720771633279::1725733050::0::1::::<><>::res://nodes/towers/redwoodworker/worker.gd<>uid://d0557ul50bqgn::::res://assets/towers/redwoodworker/redwoodworker.png<>uid://b21hiwh2ohg4c::::res://assets/ui/ring.png<>res://nodes/towers/global/StackCollision.gd<>uid://bqn5qcu0iu4yn::::res://font/Retro Gaming.ttf
-::res://nodes/towers/ruler/::1725734447
+worker.tscn::PackedScene::701885720771633279::1725740932::0::1::::<><>::res://nodes/towers/redwoodworker/worker.gd<>uid://d0557ul50bqgn::::res://assets/towers/redwoodworker/redwoodworker.png<>uid://b21hiwh2ohg4c::::res://assets/ui/ring.png<>res://nodes/towers/global/StackCollision.gd<>uid://bqn5qcu0iu4yn::::res://font/Retro Gaming.ttf
+::res://nodes/towers/ruler/::1725740932
 ruler.gd::GDScript::-1::1725733845::0::1::::<>Area2D<>::
-ruler.tscn::PackedScene::2530245221982553076::1725734447::0::1::::<><>::res://nodes/towers/ruler/ruler.gd<>uid://c5k0w0ts7op73::::res://assets/towers/ruler/ruler.png<>res://nodes/towers/global/shootenemy.gd<>uid://b21hiwh2ohg4c::::res://assets/ui/ring.png<>res://nodes/towers/global/StackCollision.gd<>uid://bqn5qcu0iu4yn::::res://font/Retro Gaming.ttf
-::res://nodes/towers/watergunner/::1725734447
+ruler.tscn::PackedScene::2530245221982553076::1725740932::0::1::::<><>::res://nodes/towers/ruler/ruler.gd<>uid://c5k0w0ts7op73::::res://assets/towers/ruler/ruler.png<>res://nodes/towers/global/shootenemy.gd<>uid://b21hiwh2ohg4c::::res://assets/ui/ring.png<>res://nodes/towers/global/StackCollision.gd<>uid://bqn5qcu0iu4yn::::res://font/Retro Gaming.ttf
+::res://nodes/towers/watergunner/::1725740932
 watergunner.gd::GDScript::-1::1725733845::0::1::::<>Area2D<>::
-watergunner.tscn::PackedScene::6018714721583208619::1725734447::0::1::::<><>::res://nodes/towers/watergunner/watergunner.gd<>uid://dp6l0fv0n161v::::res://assets/towers/watergunner/watergunner.png<>res://nodes/towers/global/shootenemy.gd<>uid://b21hiwh2ohg4c::::res://assets/ui/ring.png<>res://nodes/towers/global/StackCollision.gd<>uid://bqn5qcu0iu4yn::::res://font/Retro Gaming.ttf<>uid://crxku4m7exa3d::::res://assets/towers/watergunner/floatie.png
+watergunner.tscn::PackedScene::6018714721583208619::1725740932::0::1::::<><>::res://nodes/towers/watergunner/watergunner.gd<>uid://dp6l0fv0n161v::::res://assets/towers/watergunner/watergunner.png<>res://nodes/towers/global/shootenemy.gd<>uid://b21hiwh2ohg4c::::res://assets/ui/ring.png<>res://nodes/towers/global/StackCollision.gd<>uid://bqn5qcu0iu4yn::::res://font/Retro Gaming.ttf<>uid://crxku4m7exa3d::::res://assets/towers/watergunner/floatie.png

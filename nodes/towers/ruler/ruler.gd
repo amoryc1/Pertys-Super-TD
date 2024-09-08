@@ -70,20 +70,22 @@ else:
 		if upgradeLevel1 >= 1 and upgradeAdded1[0] == false:
 			$waittime.wait_time = 0.5
 			upgradeAdded1[0] = true
-			sellValue += int(350 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][1][1]["cost"] * 0.75)
+			$other/upgrade11.visible = true
 			print("upgrade1/1")
 		# Make oil rig to get more oil for more rulers. Allows use of 2 more.
 		if upgradeLevel1 >= 2 and upgradeAdded1[1] == false:
 			$waittime.wait_time = 0.3
 			canHitLead = true
 			upgradeAdded1[1] = true
-			sellValue += int(700 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][1][2]["cost"] * 0.75)
+			$other/upgrade12.visible = true
 			print("upgrade1/2")
 		# Discover a new element and use it for the creation of rulers. Allows use of 2 more
 		if upgradeLevel1 >= 3 and upgradeAdded1[2] == false:
 			$waittime.wait_time = 0.2
 			upgradeAdded1[2] = true
-			sellValue += int(1300 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][1][3]["cost"] * 0.75)
 			print("upgrade1/3")
 		
 		
@@ -92,21 +94,23 @@ else:
 			projectileDamage += 1 # 2
 			projectilePiercing += 3 # 6
 			upgradeAdded2[0] = true
-			sellValue += int(400 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][2][1]["cost"] * 0.75)
+			$otherrotate/upgrade21.visible = true
 			print("upgrade2/1")
 		# Hide a razorblade in the ruler to make it hurt more and more durable
 		if upgradeLevel2 >= 2 and upgradeAdded2[1] == false:
 			projectileDamage += 2 # 4
 			projectilePiercing += 6 # 12
 			upgradeAdded2[1] = true
-			sellValue += int(750 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][2][2]["cost"] * 0.75)
 			print("upgrade2/2")
 		# Dip the ruler in a hot liquid. Has more pierce and can hit Metal pertys
 		if upgradeLevel2 >= 3 and upgradeAdded2[2] == false:
 			canHitLead = true
 			projectilePiercing += 12 # 24
 			upgradeAdded2[2] = true
-			sellValue += int(1200 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][2][3]["cost"] * 0.75)
+			$otherrotate/upgrade23.visible = true
 			print("upgrade2/3")
 		
 		# Rulers can travel further and increased tower range
@@ -115,7 +119,7 @@ else:
 			$ring.scale += Vector2(0.225, 0.225)
 			travelTime += .1
 			upgradeAdded3[0] = true
-			sellValue += int(300 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][3][1]["cost"] * 0.75)
 			print("upgrade3/1")
 		# Expose the ruler to turbo radiation making it faster, go further and more tower range
 		if upgradeLevel3 >= 2 and upgradeAdded3[1] == false:
@@ -123,7 +127,8 @@ else:
 			$ring.scale += Vector2(0.225, 0.225)
 			projectileSpeed += 32 # 10
 			upgradeAdded3[1] = true
-			sellValue += int(650 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][3][2]["cost"] * 0.75)
+			$otherrotate/upgrade32.visible = true
 			print("upgrade3/2")
 		# Change tower genetics to throw the ruler further and a lot faster
 		if upgradeLevel3 >= 3 and upgradeAdded3[2] == false:
@@ -132,7 +137,8 @@ else:
 			projectileSpeed += 80 # 15
 			travelTime += .2
 			upgradeAdded3[2] = true
-			sellValue += int(1337 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][3][3]["cost"] * 0.75)
+			$otherrotate/upgrade33.visible = true
 			print("upgrade3/3")
 
 

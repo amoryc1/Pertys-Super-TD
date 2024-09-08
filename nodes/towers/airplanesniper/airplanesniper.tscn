@@ -1,0 +1,144 @@
+[gd_scene load_steps=17 format=3 uid="uid://c1kdy1wboah3"]
+
+[ext_resource type="Script" path="res://nodes/towers/airplanesniper/airplanesniper.gd" id="1_vsm6e"]
+[ext_resource type="Texture2D" uid="uid://dgsgfxs2lxqfl" path="res://assets/towers/airplanesniper/paperairplane.png" id="2_mvnll"]
+[ext_resource type="Texture2D" uid="uid://dtxdw0au6r51o" path="res://assets/towers/airplanesniper/camo.png" id="3_fu1ny"]
+[ext_resource type="Script" path="res://nodes/towers/global/shootenemy.gd" id="3_s05km"]
+[ext_resource type="Texture2D" uid="uid://b21hiwh2ohg4c" path="res://assets/ui/ring.png" id="4_d7p4h"]
+[ext_resource type="Script" path="res://nodes/towers/global/StackCollision.gd" id="5_fnwhr"]
+[ext_resource type="FontFile" uid="uid://bqn5qcu0iu4yn" path="res://font/Retro Gaming.ttf" id="6_hrtuv"]
+[ext_resource type="Texture2D" uid="uid://dorcia7n43nrj" path="res://assets/towers/airplanesniper/cosmetics.png" id="8_udy7y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_isf4x"]
+resource_local_to_scene = true
+radius = 1657.75
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_61vly"]
+polygon = PackedVector2Array(-35, 0, -27, -23, 0, -35, 24, -25, 35, 0, 25, 25, 0, 35, -25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldyoj"]
+atlas = ExtResource("2_mvnll")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dr65x"]
+atlas = ExtResource("2_mvnll")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0atwn"]
+atlas = ExtResource("2_mvnll")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ndj0y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldyoj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dr65x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0atwn")
+}],
+"loop": false,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ybiqf"]
+radius = 36.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_pkqnl"]
+font = ExtResource("6_hrtuv")
+font_size = 17
+
+[node name="Tower" type="Area2D"]
+z_index = 10
+script = ExtResource("1_vsm6e")
+waittime = 1.7
+cost = 450
+sellValue = 225
+projectileSpeed = 650
+towerName = "Airplane Sniper"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_isf4x")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_61vly")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+rotation = 4.71238
+scale = Vector2(1.1, 1.1)
+sprite_frames = SubResource("SpriteFrames_ndj0y")
+
+[node name="camo" type="Sprite2D" parent="sprite"]
+texture = ExtResource("3_fu1ny")
+hframes = 5
+
+[node name="waittime" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="shootenemy" type="Node2D" parent="."]
+script = ExtResource("3_s05km")
+weaponType = "particles/airplane"
+
+[node name="ring" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.360784)
+z_index = 25
+scale = Vector2(999, 999)
+texture = ExtResource("4_d7p4h")
+
+[node name="StackCollision" type="Area2D" parent="."]
+script = ExtResource("5_fnwhr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StackCollision"]
+shape = SubResource("CircleShape2D_ybiqf")
+debug_color = Color(0.7, 0, 0, 0.419608)
+
+[node name="level" type="Label" parent="."]
+visible = false
+offset_left = -61.0
+offset_top = -64.0
+offset_right = 61.0
+offset_bottom = -42.0
+rotation = -1.57079
+pivot_offset = Vector2(61, 64)
+text = "[0,0,0]"
+label_settings = SubResource("LabelSettings_pkqnl")
+horizontal_alignment = 1
+
+[node name="other" type="Node2D" parent="."]
+
+[node name="otherrotate" type="Node2D" parent="."]
+
+[node name="upgrade11" type="Sprite2D" parent="otherrotate"]
+visible = false
+z_index = 5
+rotation = -1.57079
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("8_udy7y")
+hframes = 3
+vframes = 3
+
+[node name="upgrade12" type="Sprite2D" parent="otherrotate"]
+visible = false
+z_index = 5
+rotation = -1.57079
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("8_udy7y")
+hframes = 3
+vframes = 3
+frame = 1
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+modulate = Color(1, 0.383333, 0, 1)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="waittime" to="shootenemy" method="_on_waittime_timeout"]
+[connection signal="area_entered" from="StackCollision" to="StackCollision" method="_on_area_entered"]
+[connection signal="area_exited" from="StackCollision" to="StackCollision" method="_on_area_exited"]
+[connection signal="body_entered" from="StackCollision" to="StackCollision" method="_on_body_entered"]
+[connection signal="body_exited" from="StackCollision" to="StackCollision" method="_on_body_exited"]

@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://ba6a4gson7kto"]
+
+[ext_resource type="Script" path="res://nodes/towers/particles/airplane.gd" id="1_ma2fd"]
+[ext_resource type="Texture2D" uid="uid://bpr4lfemmviqv" path="res://assets/towers/particles.png" id="2_0i7c0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvrmh"]
+size = Vector2(36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w26d8"]
+atlas = ExtResource("2_0i7c0")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hylxs"]
+atlas = ExtResource("2_0i7c0")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0rll"]
+atlas = ExtResource("2_0i7c0")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_slp4s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w26d8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hylxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0rll")
+}],
+"loop": false,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="airplane" type="Area2D"]
+z_index = 8
+script = ExtResource("1_ma2fd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.57079
+texture = ExtResource("2_0i7c0")
+hframes = 20
+vframes = 20
+frame = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fvrmh")
+
+[node name="explode" type="AnimatedSprite2D" parent="."]
+visible = false
+rotation = 1.57079
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_slp4s")
+offset = Vector2(0, 1)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_finished" from="explode" to="." method="_on_explode_animation_finished"]

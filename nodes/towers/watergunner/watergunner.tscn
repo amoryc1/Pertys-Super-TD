@@ -83,6 +83,8 @@ script = ExtResource("3_1nroj")
 weaponType = "particles/water"
 
 [node name="ring" type="Sprite2D" parent="."]
+visible = false
+z_index = 25
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_uiupx")
 
@@ -99,6 +101,7 @@ offset_left = -61.0
 offset_top = -64.0
 offset_right = 61.0
 offset_bottom = -42.0
+rotation = -1.57079
 pivot_offset = Vector2(61, 64)
 text = "[0,0,0]"
 label_settings = SubResource("LabelSettings_pkqnl")

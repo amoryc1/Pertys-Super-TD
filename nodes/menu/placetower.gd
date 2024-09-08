@@ -33,6 +33,8 @@ func _input(_event): if visible:
 			
 			get_node("../../../../towers").add_child(clone)
 			
+			clone.rotation_degrees = 90
+			
 			if clone.cost <= GLOBALVAR_PTD.money:
 				clone.active = false
 				clone.find_child("ring").visible = true

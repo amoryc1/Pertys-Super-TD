@@ -1,7 +1,7 @@
 extends Node
 
 
-var game_version = "beta 0.10 / 2024-09-07"
+var game_version = "[beta 0.11] - 2024-09-08"
 
 var ticks_at_load_start = 0
 
@@ -36,7 +36,8 @@ var placed_towers = {
 	"Redwood Worker": 0,
 	"Flamethrower": 0,
 	"Ruler Tower": 0,
-	"Watergunner": 0
+	"Watergunner": 0,
+	"Airplane Sniper": 0,
 }
 
 var tower_upgrades = {
@@ -122,14 +123,14 @@ var tower_upgrades = {
 			},
 			2: {
 				"name": "Super Strong Glue",
-				"desc": "Glue soaks through 5 more perty layers and reduces their speed to 25%",
+				"desc": "Glue soaks through 5 more perty layers and reduces their speed to 50%",
 				"cost": 800,
 				"sprite": "glue/upgrades.png", # Location in the assets/towers
 				"spriteFrame": 1,
 			},
 			3: {
 				"name": "Omega Glue",
-				"desc": "Glue soaks through all perty layers and slows them down to 10% their normal speed",
+				"desc": "Glue soaks through all perty layers and slows them down to 33% their normal speed",
 				"cost": 1500,
 				"sprite": "glue/upgrades.png", # Location in the assets/towers
 				"spriteFrame": 2,
@@ -466,6 +467,77 @@ var tower_upgrades = {
 			}
 		},
 	},
+	"Airplane Sniper": {
+		1: { # tier 1 upgrades
+			1: {
+				"name": "Infrared Goggles",
+				"desc": "Put on some goggles to detect camo enemies",
+				"cost": 450,
+				"sprite": "airplanesniper/upgrades.png", # Location in the assets/towers
+				"spriteFrame": 0,
+			},
+			2: {
+				"name": "Improved Accuracy",
+				"desc": "Thrown Paper Airplanes travel quicker",
+				"cost": 425,
+				"sprite": "airplanesniper/upgrades.png", # Location in the assets/towers
+				"spriteFrame": 1,
+			},
+			3: {
+				"name": "Trickshot",
+				"desc": "Thrown Paper Airplanes travel even faster and are thrown more frequently",
+				"cost": 800,
+				"sprite": "airplanesniper/upgrades.png", # Location in the assets/towers
+				"spriteFrame": 2,
+			}
+		},
+		2: { # tier 2 upgrades
+			1: {
+				"name": "Sharp Edges",
+				"desc": "Paper Airplanes gain +1 pierce and +2 damage",
+				"cost": 400,
+				"sprite": "airplanesniper/upgrades.png", # Location in the assets/towers
+				"spriteFrame": 3,
+			},
+			2: {
+				"name": "Larger Sheets",
+				"desc": "Use larger sheets of paper to increase the Airplanes size and pierce",
+				"cost": 600,
+				"sprite": "airplanesniper/upgrades.png", # Location in the assets/towers
+				"spriteFrame": 4,
+			},
+			3: {
+				"name": "Explosive Tip",
+				"desc": "Small explosion on impact dealing 1 damage to the effected enemies",
+				"cost": 1300,
+				"sprite": "airplanesniper/upgrades.png", # Location in the assets/towers
+				"spriteFrame": 5,
+			}
+		},
+		3: { # tier 3 upgrades
+			1: {
+				"name": "Fast Throwing",
+				"desc": "Throw more frequently",
+				"cost": 450,
+				"sprite": "airplanesniper/upgrades.png", # Location in the assets/towers
+				"spriteFrame": 6,
+			},
+			2: {
+				"name": "Even Faster Throwing",
+				"desc": "Throw even more frequently",
+				"cost": 700,
+				"sprite": "airplanesniper/upgrades.png", # Location in the assets/towers
+				"spriteFrame": 7,
+			},
+			3: {
+				"name": "Crazy Fast Throwing",
+				"desc": "Throw Paper Airplanes incredibly fast",
+				"cost": 1300,
+				"sprite": "airplanesniper/upgrades.png", # Location in the assets/towers
+				"spriteFrame": 8,
+			}
+		},
+	}
 }
 
 

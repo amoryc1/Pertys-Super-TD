@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bygvpgi5h0jw8"]
+[gd_scene load_steps=16 format=3 uid="uid://bygvpgi5h0jw8"]
 
 [ext_resource type="Script" path="res://nodes/towers/glue/gluetower.gd" id="1_co6dj"]
 [ext_resource type="Texture2D" uid="uid://2o2tw76tf5h7" path="res://assets/towers/glue/glue.png" id="2_d8jux"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b21hiwh2ohg4c" path="res://assets/ui/ring.png" id="4_2xakp"]
 [ext_resource type="Script" path="res://nodes/towers/global/StackCollision.gd" id="5_tuivf"]
 [ext_resource type="FontFile" uid="uid://bqn5qcu0iu4yn" path="res://font/Retro Gaming.ttf" id="6_cr3c7"]
+[ext_resource type="Texture2D" uid="uid://1ftvq6j851xt" path="res://assets/towers/glue/cosmetics.png" id="7_iqmyv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ewv5f"]
 radius = 200.0
@@ -83,6 +84,7 @@ weaponType = "particles/glue"
 
 [node name="ring" type="Sprite2D" parent="."]
 visible = false
+z_index = 25
 scale = Vector2(1.55, 1.55)
 texture = ExtResource("4_2xakp")
 
@@ -100,12 +102,107 @@ offset_left = -61.0
 offset_top = -64.0
 offset_right = 61.0
 offset_bottom = -42.0
+rotation = -1.57079
 pivot_offset = Vector2(61, 64)
 text = "[0,0,0]"
 label_settings = SubResource("LabelSettings_q1u6q")
 horizontal_alignment = 1
 
 [node name="other" type="Node2D" parent="."]
+
+[node name="otherrotate" type="Node2D" parent="."]
+
+[node name="upgrade11" type="Sprite2D" parent="otherrotate"]
+visible = false
+z_index = 5
+rotation = -1.57079
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("7_iqmyv")
+hframes = 3
+vframes = 3
+
+[node name="upgrade12" type="Sprite2D" parent="otherrotate"]
+visible = false
+z_index = 5
+rotation = -1.57079
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("7_iqmyv")
+hframes = 3
+vframes = 3
+frame = 1
+
+[node name="upgrade13" type="Sprite2D" parent="otherrotate"]
+visible = false
+z_index = 5
+rotation = -1.57079
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("7_iqmyv")
+hframes = 3
+vframes = 3
+frame = 2
+
+[node name="upgrade21" type="Sprite2D" parent="otherrotate"]
+visible = false
+z_index = 5
+rotation = -1.57079
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("7_iqmyv")
+hframes = 3
+vframes = 3
+frame = 3
+
+[node name="upgrade22" type="Sprite2D" parent="otherrotate"]
+visible = false
+z_index = 5
+rotation = -1.57079
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("7_iqmyv")
+hframes = 3
+vframes = 3
+frame = 4
+
+[node name="upgrade23" type="Sprite2D" parent="otherrotate"]
+visible = false
+z_index = 5
+rotation = -1.57079
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("7_iqmyv")
+hframes = 3
+vframes = 3
+frame = 5
+
+[node name="upgrade31" type="Sprite2D" parent="otherrotate"]
+visible = false
+z_index = 5
+position = Vector2(2.27374e-13, 0)
+rotation = -1.5708
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("7_iqmyv")
+hframes = 3
+vframes = 3
+frame = 6
+
+[node name="upgrade32" type="Sprite2D" parent="otherrotate"]
+visible = false
+z_index = 5
+position = Vector2(2.27374e-13, 0)
+rotation = -1.5708
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("7_iqmyv")
+hframes = 3
+vframes = 3
+frame = 7
+
+[node name="upgrade33" type="Sprite2D" parent="otherrotate"]
+visible = false
+z_index = 5
+position = Vector2(2.27374e-13, 0)
+rotation = -1.5708
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("7_iqmyv")
+hframes = 3
+vframes = 3
+frame = 8
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 modulate = Color(1, 0.383333, 0, 1)

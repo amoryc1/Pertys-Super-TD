@@ -62,7 +62,7 @@ else:
 		if upgradeLevel1 >= 1 and upgradeAdded1[0] == false:
 			projectilePiercing += 2 # 3
 			upgradeAdded1[0] = true
-			sellValue += int(175 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][1][1]["cost"] * 0.75)
 			$otherrotate/upgrade11.visible = true
 			print("upgrade1/1")
 		# Can pierce 4 more Pertys and can pop Metal Pertys. Does 3 more damage
@@ -71,7 +71,7 @@ else:
 			projectileDamage += 3 #4
 			canHitLead = true
 			upgradeAdded1[1] = true
-			sellValue += int(525 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][1][2]["cost"] * 0.75)
 			$otherrotate/upgrade12.visible = true
 			print("upgrade1/2")
 		# Pierces 15 Pertys and does 6 more damage
@@ -79,7 +79,7 @@ else:
 			projectilePiercing += 15 # 22
 			projectileDamage += 6 # 10
 			upgradeAdded1[2] = true
-			sellValue += int(1450 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][1][3]["cost"] * 0.75)
 			$otherrotate/upgrade13.visible = true
 			print("upgrade1/3")
 		
@@ -90,7 +90,7 @@ else:
 			$CollisionShape2D.shape.radius += 40 # 180
 			$ring.scale += Vector2(.3, .3) # 2.8, 2.8
 			upgradeAdded2[0] = true
-			sellValue += int(125 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][2][1]["cost"] * 0.75)
 			$otherrotate/upgrade21.visible = true
 			print("upgrade2/1")
 		# Even more range and can see camo Pertys
@@ -99,7 +99,7 @@ else:
 			$ring.scale += Vector2(.3, .3) # 3.4, 3.4
 			canDetectCamo = true
 			upgradeAdded2[1] = true
-			sellValue += int(420 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][2][2]["cost"] * 0.75)
 			$otherrotate/upgrade22.visible = true
 			print("upgrade2/2")
 		# A ton more range. Thrown pencils also move slightly faster
@@ -108,7 +108,7 @@ else:
 			$ring.scale += Vector2(.45, .45) # 4.3, 4.3
 			projectileSpeed += 48
 			upgradeAdded2[2] = true
-			sellValue += int(800 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][2][3]["cost"] * 0.75)
 			$otherrotate/upgrade23.visible = true
 			print("upgrade2/3")
 		
@@ -117,14 +117,14 @@ else:
 			projectileSpeed += 32 # 22
 			$waittime.wait_time -= 0.25 # 0.5
 			upgradeAdded3[0] = true
-			sellValue += int(130 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][3][1]["cost"] * 0.75)
 			print("upgrade3/1")
 		# Using a robot arm, this tower can throw pencils super duper fast and make new pencils super quick
 		if upgradeLevel3 >= 2 and upgradeAdded3[1] == false:
 			projectileSpeed += 80 # 27
 			$waittime.wait_time -= 0.25 # 0.25
 			upgradeAdded3[1] = true
-			sellValue += int(540 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][3][2]["cost"] * 0.75)
 			$otherrotate/upgrade32.visible = true
 			print("upgrade3/2")
 		# Throws an RPP instead of a pencil which are extremely fast. Also deals more damage since they are that fast
@@ -133,7 +133,7 @@ else:
 			projectileDamage += 2 # 3
 			canHitLead = true
 			upgradeAdded3[2] = true
-			sellValue += int(1400 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][3][3]["cost"] * 0.75)
 			$other/upgrade33.visible = true
 			print("upgrade3/3")
 

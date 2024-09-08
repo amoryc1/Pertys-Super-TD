@@ -64,21 +64,24 @@ else:
 			if upgradeLevel1 >= 1 and upgradeAdded1[0] == false:
 				glueLevelCount += 3 # 6
 				upgradeAdded1[0] = true
-				sellValue += int(300 * 0.75)
+				sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][1][1]["cost"] * 0.75)
+				$otherrotate/upgrade11.visible = true
 				print("upgrade1/1")
 			# Glue soaks through 5 more perty layers and reduces there speed even more
 			if upgradeLevel1 >= 2 and upgradeAdded1[1] == false:
 				glueLevelCount += 5 # 11
 				$shootenemy.weapon = load("res://nodes/towers/particles/superglue.tscn")
 				upgradeAdded1[1] = true
-				sellValue += int(800 * 0.75)
+				sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][1][2]["cost"] * 0.75)
+				$otherrotate/upgrade12.visible = true
 				print("upgrade1/2")
 			#  Glue soaks through all perty layers and slows them down to 10% their normal speed
 			if upgradeLevel1 >= 3 and upgradeAdded1[2] == false:
 				glueLevelCount += 99999999 # should be infinite but there will probably be a bug knowing my code
 				$shootenemy.weapon = load("res://nodes/towers/particles/superduperglue.tscn")
 				upgradeAdded1[2] = true
-				sellValue += int(1500 * 0.75)
+				sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][1][3]["cost"] * 0.75)
+				$otherrotate/upgrade13.visible = true
 				print("upgrade1/3")
 			
 			# Fires Glue at a faster rate and move faster
@@ -86,28 +89,32 @@ else:
 				$waittime.wait_time -= 0.2 #0.8
 				projectileSpeed += 160 # 25
 				upgradeAdded2[0] = true
-				sellValue += int(250 * 0.75)
+				sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][2][1]["cost"] * 0.75)
+				$otherrotate/upgrade21.visible = true
 				print("upgrade2/1")
 			# Super fast fire rate and move faster
 			if upgradeLevel2 >= 2 and upgradeAdded2[1] == false:
 				$waittime.wait_time -= 0.2 # 0.6
 				projectileSpeed += 160 # 35
 				upgradeAdded2[1] = true
-				sellValue += int(550 * 0.75)
+				sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][2][2]["cost"] * 0.75)
+				$otherrotate/upgrade22.visible = true
 				print("upgrade2/2")
 			# Give the tube steroids to enable it to fire 4x faster and move faster
 			if upgradeLevel2 >= 3 and upgradeAdded2[2] == false:
 				$waittime.wait_time -= 0.5 # 0.1
 				projectileSpeed += 160 # 45
 				upgradeAdded2[2] = true
-				sellValue += int(1000 * 0.75)
+				sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][2][3]["cost"] * 0.75)
+				$otherrotate/upgrade23.visible = true
 				print("upgrade2/3")
 			
 			# Glue deals 1 damage
 			if upgradeLevel3 >= 1 and upgradeAdded3[0] == false:
 				projectileDamage += 1 # 1
 				upgradeAdded3[0] = true
-				sellValue += int(200 * 0.75)
+				sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][3][1]["cost"] * 0.75)
+				$otherrotate/upgrade31.visible = true
 				print("upgrade3/1")
 			# Glue deals 4 more damage and +1 piercing
 			if upgradeLevel3 >= 2 and upgradeAdded3[1] == false:
@@ -115,7 +122,8 @@ else:
 				glueLevelCount += 1 # 2 (so piercing works)
 				projectilePiercing += 1 # 2 
 				upgradeAdded3[1] = true
-				sellValue += int(400 * 0.75)
+				sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][3][2]["cost"] * 0.75)
+				$otherrotate/upgrade32.visible = true
 				print("upgrade3/2")
 			# Glue deals 8 more damage and +3 piercing
 			if upgradeLevel3 >= 3 and upgradeAdded3[2] == false:
@@ -123,7 +131,8 @@ else:
 				glueLevelCount += 3 # 5 (so piercing works)
 				projectilePiercing += 3 # 5 
 				upgradeAdded3[2] = true
-				sellValue += int(800 * 0.75)
+				sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][3][3]["cost"] * 0.75)
+				$otherrotate/upgrade33.visible = true
 				print("upgrade3/3")
 		
 		

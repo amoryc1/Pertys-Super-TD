@@ -53,9 +53,9 @@ func _ready():
 
 func _process(_delta):
 	var speedEffect = 1
-	if status.has("glue") and !status.has("hot"): speedEffect = 0.5
-	if status.has("glue2") and !status.has("hot"): speedEffect = 0.25
-	if status.has("glue3") and !status.has("hot"): speedEffect = 0.1
+	if status.has("glue") and !status.has("hot"): speedEffect = 0.75
+	if status.has("glue2") and !status.has("hot"): speedEffect = 0.5
+	if status.has("glue3") and !status.has("hot"): speedEffect = 0.3
 	
 	if speedEffect != 1 and !appliedGlue:
 		speed *= speedEffect
@@ -86,10 +86,18 @@ func _process(_delta):
 					var clone = load(GLOBALVAR_PTD.perty_stages[key][0]).instantiate()
 					clone.progress = get_parent().progress + (n * 0.69)
 					clone.name = "ENEMYCOPY_" + str(key)
-					if glueLevel > 0: # Applies glue to multiple layers
-						var area2dNode = clone.find_child("Area2D")
-						area2dNode.status.append("glue")
-						area2dNode.glueLevel = glueLevel-1
+					
+					
+					if glueLevel == 0: 
+						if "glue" in status:
+							status.erase("glue")
+						if "glue2" in status:
+							status.erase("glue2")
+						if "glue3" in status:
+							status.erase("glue3")
+					
+					clone.get_child(0).status = status
+					
 					get_node("../..").add_child(clone)
 					get_parent().queue_free()
 		else:

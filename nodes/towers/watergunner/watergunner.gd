@@ -66,7 +66,7 @@ else:
 			$CollisionShape2D.shape.radius += 30
 			projectileSpeed += 100
 			upgradeAdded1[0] = true
-			sellValue += int(300 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][1][1]["cost"] * 0.75)
 			print("upgrade1/1")
 		# Presses on the trigger lighter to make water go further and faster... somehow
 		if upgradeLevel1 >= 2 and upgradeAdded1[1] == false:
@@ -74,7 +74,7 @@ else:
 			$CollisionShape2D.shape.radius += 30
 			projectileSpeed += 100
 			upgradeAdded1[1] = true
-			sellValue += int(600 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][1][2]["cost"] * 0.75)
 			print("upgrade1/2")
 		# Reinforce the frame with steel, making water go faster and further
 		if upgradeLevel1 >= 3 and upgradeAdded1[2] == false:
@@ -83,7 +83,7 @@ else:
 			projectileSpeed += 150
 			ripStatus.append("fire")
 			upgradeAdded1[2] = true
-			sellValue += int(900 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][1][3]["cost"] * 0.75)
 			print("upgrade1/3")
 		
 		
@@ -92,19 +92,19 @@ else:
 		if upgradeLevel2 >= 1 and upgradeAdded2[0] == false:
 			$waittime.wait_time -= 0.1 # 0.4
 			upgradeAdded2[0] = true
-			sellValue += int(425 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][2][1]["cost"] * 0.75)
 			print("upgrade2/1")
 		# Increase pressure in the pistol to fire it faster
 		if upgradeLevel2 >= 2 and upgradeAdded2[1] == false:
 			$waittime.wait_time -= 0.15 # 0.25
 			upgradeAdded2[1] = true
-			sellValue += int(650 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][2][2]["cost"] * 0.75)
 			print("upgrade2/2")
 		# Mod the pistol to automate firing further decreasing wait times
 		if upgradeLevel2 >= 3 and upgradeAdded2[2] == false:
 			$waittime.wait_time -= 0.15 # 0.1
 			upgradeAdded2[2] = true
-			sellValue += int(1100 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][2][3]["cost"] * 0.75)
 			print("upgrade2/3")
 		
 		# Condense water to hurt more and have pierce multiple enemies
@@ -112,21 +112,21 @@ else:
 			projectileDamage += 1
 			projectilePiercing += 2
 			upgradeAdded3[0] = true
-			sellValue += int(450 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][3][1]["cost"] * 0.75)
 			print("upgrade3/1")
 		# Embue your water with acid to deal more damage and pierce more enemies
 		if upgradeLevel3 >= 2 and upgradeAdded3[1] == false:
 			projectileDamage += 2
 			projectilePiercing += 2
 			upgradeAdded3[1] = true
-			sellValue += int(700 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][3][2]["cost"] * 0.75)
 			print("upgrade3/2")
 		# Use lava instead of water to deal more damage and piercing
 		if upgradeLevel3 >= 3 and upgradeAdded3[2] == false:
 			projectileDamage += 3
 			projectilePiercing += 2
 			upgradeAdded3[2] = true
-			sellValue += int(1300 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][3][3]["cost"] * 0.75)
 			print("upgrade3/3")
 
 

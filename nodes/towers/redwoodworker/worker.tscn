@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://j887qkdp3sd8"]
+[gd_scene load_steps=16 format=3 uid="uid://j887qkdp3sd8"]
 
 [ext_resource type="Script" path="res://nodes/towers/redwoodworker/worker.gd" id="1_7ta4r"]
 [ext_resource type="Texture2D" uid="uid://d0557ul50bqgn" path="res://assets/towers/redwoodworker/redwoodworker.png" id="2_1isoo"]
 [ext_resource type="Texture2D" uid="uid://b21hiwh2ohg4c" path="res://assets/ui/ring.png" id="4_rtrpb"]
 [ext_resource type="Script" path="res://nodes/towers/global/StackCollision.gd" id="5_mxq52"]
 [ext_resource type="FontFile" uid="uid://bqn5qcu0iu4yn" path="res://font/Retro Gaming.ttf" id="5_q7rc0"]
+[ext_resource type="Texture2D" uid="uid://b48h2uwdei28" path="res://assets/towers/redwoodworker/cosmetics.png" id="6_7o1h6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ewv5f"]
 radius = 0.01
@@ -70,7 +71,7 @@ occluder = SubResource("OccluderPolygon2D_hnb8i")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 z_index = -1
-rotation = 4.71239
+rotation = 4.71238
 scale = Vector2(1.1, 1.1)
 sprite_frames = SubResource("SpriteFrames_ndj0y")
 
@@ -79,6 +80,7 @@ wait_time = 0.5
 
 [node name="ring" type="Sprite2D" parent="."]
 visible = false
+z_index = 25
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("4_rtrpb")
 
@@ -96,12 +98,63 @@ offset_left = -61.0
 offset_top = -64.0
 offset_right = 61.0
 offset_bottom = -42.0
+rotation = 4.71238
 pivot_offset = Vector2(61, 64)
 text = "[0,0,0]"
 label_settings = SubResource("LabelSettings_b50ub")
 horizontal_alignment = 1
 
 [node name="other" type="Node2D" parent="."]
+
+[node name="upgrade11" type="Sprite2D" parent="other"]
+visible = false
+z_index = 5
+rotation = -1.57079
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("6_7o1h6")
+hframes = 3
+vframes = 3
+
+[node name="upgrade12" type="Sprite2D" parent="other"]
+visible = false
+z_index = 5
+rotation = -1.57079
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("6_7o1h6")
+hframes = 3
+vframes = 3
+frame = 1
+
+[node name="upgrade13" type="Sprite2D" parent="other"]
+visible = false
+z_index = 5
+rotation = -1.57079
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("6_7o1h6")
+hframes = 3
+vframes = 3
+frame = 2
+
+[node name="upgrade23" type="Sprite2D" parent="other"]
+visible = false
+z_index = 5
+rotation = -1.57079
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("6_7o1h6")
+hframes = 3
+vframes = 3
+frame = 5
+
+[node name="upgrade31" type="Sprite2D" parent="other"]
+visible = false
+z_index = 5
+position = Vector2(2.27374e-13, 0)
+rotation = -1.57079
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("6_7o1h6")
+hframes = 3
+vframes = 3
+frame = 6
 
 [connection signal="timeout" from="waittime" to="." method="_on_waittime_timeout"]
 [connection signal="area_entered" from="StackCollision" to="StackCollision" method="_on_area_entered"]

@@ -61,20 +61,23 @@ else:
 		# lter cantisters to only allow pure oxygen. Fireball is larger when in contact and lasts longer
 		if upgradeLevel1 >= 1 and upgradeAdded1[0] == false:
 			upgradeAdded1[0] = true
-			sellValue += int(700 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][1][1]["cost"] * 0.75)
+			$otherrotate/upgrade11.visible = true
 			print("upgrade1/1")
 		# Apply gunpowder to the flame to increase size and duration
 		if upgradeLevel1 >= 2 and upgradeAdded1[1] == false:
 			canHitLead = true
 			upgradeAdded1[1] = true
-			sellValue += int(1200 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][1][2]["cost"] * 0.75)
+			$otherrotate/upgrade12.visible = true
 			print("upgrade1/2")
 		# Attach a small necluar generator to the canister. A very large area of effect and deals more damage
 		if upgradeLevel1 >= 3 and upgradeAdded1[2] == false:
 			$shootenemy.weapon = load("res://nodes/towers/particles/firewall4.tscn")
 			projectileDamage += 2 # 5
 			upgradeAdded1[2] = true
-			sellValue += int(2000 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][1][3]["cost"] * 0.75)
+			$otherrotate/upgrade13.visible = true
 			print("upgrade1/3")
 		
 		
@@ -82,19 +85,22 @@ else:
 		if upgradeLevel2 >= 1 and upgradeAdded2[0] == false:
 			projectileDamage += 5 # 8
 			upgradeAdded2[0] = true
-			sellValue += int(800 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][2][1]["cost"] * 0.75)
+			$other/upgrade21.visible = true
 			print("upgrade2/1")
 		# Infuses the flame with a molten metal to increase damage by 10
 		if upgradeLevel2 >= 2 and upgradeAdded2[1] == false:
 			projectileDamage += 10 # 18
 			upgradeAdded2[1] = true
-			sellValue += int(1400 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][2][2]["cost"] * 0.75)
+			$otherrotate/upgrade22.visible = true
 			print("upgrade2/2")
 		# Get a new mix from the heavens, increasing damage by 15
 		if upgradeLevel2 >= 3 and upgradeAdded2[2] == false:
 			projectileDamage += 15 # 33
 			upgradeAdded2[2] = true
-			sellValue += int(2000 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][2][3]["cost"] * 0.75)
+			$other/upgrade23.visible = true
 			print("upgrade2/3")
 		
 		# Increase the heat of the flame causing it to reach further. Higher detection range
@@ -102,19 +108,22 @@ else:
 			$CollisionShape2D.shape.radius += 60
 			$ring.scale += Vector2(0.95, 0.95)
 			upgradeAdded3[0] = true
-			sellValue += int(600 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][3][1]["cost"] * 0.75)
+			$other/upgrade31.visible = true
 			print("upgrade3/1")
 		# Apply a gel to the flame to heat it, melting of the 'Metal' status of a Perty.
 		if upgradeLevel3 >= 2 and upgradeAdded3[1] == false:
 			ripStatus.append("metal")
 			upgradeAdded3[1] = true
-			sellValue += int(800 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][3][2]["cost"] * 0.75)
+			$other/upgrade32.visible = true
 			print("upgrade3/2")
 		# Apply more gel, stripping of the 'Camo' status of a Perty.
 		if upgradeLevel3 >= 3 and upgradeAdded3[2] == false:
 			ripStatus.append("camo")
 			upgradeAdded3[2] = true
-			sellValue += int(1250 * 0.75)
+			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][3][3]["cost"] * 0.75)
+			$other/upgrade33.visible = true
 			print("upgrade3/3")
 
 

@@ -5,6 +5,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
+## [beta 0.11] - 2024-09-08
+
+# I have school starting tommorow so updates are slowing down after today
+
+### Added
+- NEW TOWER: Airplane Sniper, has infinite range and a randomly assigned camo pattern from 5 choices
+- Upgrade sprites for: Glue Gunner, Flamethrower, Ruler, Redwood Worker
+
+### Changes
+- Changed all ring sprite z_index to be 25 instead of 0 to appear above most objects
+- Towers now face down when being placed
+- Upgrade sell value is now automatically calculated (might cause a crash for one or two upgrades if i forgot a bracket or smth)
+
+### Fixes
+- All status effects now transfer over to child enemies not just glue1
+
+### Balancing
+- Glue effect nerfed from 0.5x, 0.25x, 0.1x to 0.75x, 0.5x, 0.3x
+
+### Removed
+- 'Upgrades' folder and its contents inside Redwood Worker which wasnt being used
+
+
+
+
 ## [beta 0.10] - 2024-09-07
 
 ### Added
@@ -12,6 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - F12 Hotkey to save a screenshot in the same directory as your save file
 - System to change tower sprites depending on what upgrade they have (only works on Pencil Tower rn)
 - Obsticles block attacks (the ones in The Park dont have that property but it works) though it is probably really badly optimised as it checks a RayCast2D every frame. so that aint good
+
 
 
 ## [beta 0.09] - 2024-09-06
@@ -28,6 +55,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixes
 - StackCollision now detects for contact with other StackCollision nodes to prevent tower stacking (hopefully for real this time)
 - Mouse icon now reverts back to normal if a tower was not successfully placed
+
 
 
 ## [beta 0.08] - 2024-09-05

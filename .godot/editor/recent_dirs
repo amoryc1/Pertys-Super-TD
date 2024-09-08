@@ -1,3 +1,5 @@
+res://assets/towers
+res://assets/towers/airplanesniper
 C:/Users/Leo/Desktop/Godot/Games/exe/PertyGames
 res://nodes/enemies
 res://assets/towers/watergunner
@@ -5,7 +7,6 @@ res://nodes/towers/watergunner
 res://nodes/maps/global
 C:/Users/Leo/Desktop/Godot/Games
 res://assets/enemies
-res://assets/towers
 C:/Users/Leo/Desktop/Godot/Games/PertysGames
 res://assets/towers/ruler
 res://nodes/menu
@@ -19,4 +20,3 @@ res://assets/ui/other
 res://assets/ui/leveleditor
 res://mouse
 res://nodes/leveleditor
-res://Global

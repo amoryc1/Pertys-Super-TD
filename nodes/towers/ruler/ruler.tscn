@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bcbw1fd8t02ya"]
+[gd_scene load_steps=16 format=3 uid="uid://bcbw1fd8t02ya"]
 
 [ext_resource type="Script" path="res://nodes/towers/ruler/ruler.gd" id="1_qgutj"]
 [ext_resource type="Texture2D" uid="uid://c5k0w0ts7op73" path="res://assets/towers/ruler/ruler.png" id="2_n6va4"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b21hiwh2ohg4c" path="res://assets/ui/ring.png" id="4_yitba"]
 [ext_resource type="Script" path="res://nodes/towers/global/StackCollision.gd" id="5_qrp8k"]
 [ext_resource type="FontFile" uid="uid://bqn5qcu0iu4yn" path="res://font/Retro Gaming.ttf" id="6_tcgn0"]
+[ext_resource type="Texture2D" uid="uid://edxl4p54xvdk" path="res://assets/towers/ruler/cosmetics.png" id="7_04sng"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_isf4x"]
 resource_local_to_scene = true
@@ -74,6 +75,8 @@ z_index = -1
 rotation = 4.71238
 scale = Vector2(1.1, 1.1)
 sprite_frames = SubResource("SpriteFrames_ndj0y")
+frame = 3
+frame_progress = 1.0
 
 [node name="waittime" type="Timer" parent="."]
 wait_time = 0.5
@@ -84,6 +87,7 @@ weaponType = "particles/ruler"
 
 [node name="ring" type="Sprite2D" parent="."]
 visible = false
+z_index = 25
 scale = Vector2(1.575, 1.575)
 texture = ExtResource("4_yitba")
 
@@ -101,15 +105,75 @@ offset_left = -61.0
 offset_top = -64.0
 offset_right = 61.0
 offset_bottom = -42.0
+rotation = -1.57079
 pivot_offset = Vector2(61, 64)
 text = "[0,0,0]"
 label_settings = SubResource("LabelSettings_pkqnl")
 horizontal_alignment = 1
 
-[node name="other" type="Node2D" parent="."]
-
 [node name="RayCast2D" type="RayCast2D" parent="."]
 modulate = Color(1, 0.383333, 0, 1)
+
+[node name="other" type="Node2D" parent="."]
+
+[node name="upgrade11" type="Sprite2D" parent="other"]
+visible = false
+z_index = 5
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("7_04sng")
+hframes = 3
+vframes = 3
+
+[node name="upgrade12" type="Sprite2D" parent="other"]
+visible = false
+z_index = 5
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("7_04sng")
+hframes = 3
+vframes = 3
+frame = 1
+
+[node name="otherrotate" type="Node2D" parent="."]
+
+[node name="upgrade21" type="Sprite2D" parent="otherrotate"]
+visible = false
+z_index = 5
+rotation = -1.57079
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("7_04sng")
+hframes = 3
+vframes = 3
+frame = 3
+
+[node name="upgrade23" type="Sprite2D" parent="otherrotate"]
+visible = false
+z_index = 5
+rotation = -1.57079
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("7_04sng")
+hframes = 3
+vframes = 3
+frame = 5
+
+[node name="upgrade32" type="Sprite2D" parent="otherrotate"]
+visible = false
+z_index = 5
+rotation = -1.5708
+texture = ExtResource("7_04sng")
+hframes = 3
+vframes = 3
+frame = 7
+
+[node name="upgrade33" type="Sprite2D" parent="otherrotate"]
+visible = false
+z_index = 5
+position = Vector2(-4.54747e-13, 0)
+rotation = -1.5708
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("7_04sng")
+hframes = 3
+vframes = 3
+frame = 8
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

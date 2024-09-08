@@ -1,7 +1,10 @@
+AnimatedSprite2D
+Sprite2D
+CPUParticles2D
+Node2D
+Line2D
 PointLight2D
 RayCast2D
-Sprite2D
-Node2D
 CollisionShape2D
 StaticBody2D
 Area2D
@@ -9,6 +12,3 @@ CheckButton
 Label
 LightOccluder2D
 DirectionalLight2D
-GridContainer
-AnimationPlayer
-CanvasModulate

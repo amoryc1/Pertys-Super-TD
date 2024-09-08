@@ -3722,6 +3722,422 @@ theme_override_fonts/font = ExtResource("2_eimta")
 theme_override_font_sizes/font_size = 32
 text = ">"
 
+[node name="Airplane Sniper" type="Panel" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="bg" type="Panel" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper"]
+layout_mode = 0
+offset_left = -46.0
+offset_right = 1553.0
+offset_bottom = 281.0
+
+[node name="Sprite2D" type="Sprite2D" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper"]
+position = Vector2(131, 152)
+scale = Vector2(2, 2)
+texture = ExtResource("22_74qi1")
+hframes = 10
+vframes = 10
+frame = 7
+
+[node name="title" type="Label" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper"]
+layout_mode = 0
+offset_left = 3.0
+offset_right = 256.0
+offset_bottom = 23.0
+text = "Watergunner (0 Placed)"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="desc" type="Label" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper"]
+layout_mode = 0
+offset_left = 259.0
+offset_right = 733.0
+offset_bottom = 75.0
+text = "Offensive Tower. Throws a Paper Airplane from any distance as long as the path is not blocked."
+autowrap_mode = 2
+
+[node name="basestats" type="Label" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper"]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 30.0
+offset_right = 572.0
+offset_bottom = 281.0
+text = "
+Cost: 450
+Time to fire: 1.7s
+Damage per shot: 1
+Pierce per shot: 1
+Projectile speed: 650
+Range: inf
+Can hit Metal: No
+Can see Camo: No"
+vertical_alignment = 2
+
+[node name="upgrades" type="Panel" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper"]
+layout_mode = 0
+offset_left = 735.0
+offset_right = 1554.0
+offset_bottom = 281.0
+
+[node name="1" type="Panel" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades"]
+layout_mode = 0
+offset_right = 819.0
+offset_bottom = 280.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yxge3")
+
+[node name="title" type="Label" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/1"]
+layout_mode = 0
+offset_left = -130.0
+offset_top = 198.0
+offset_right = -10.0
+offset_bottom = 221.0
+text = "Upgrade Path 1"
+autowrap_mode = 2
+
+[node name="1" type="Panel" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/1"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 813.0
+offset_bottom = 92.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_stnen")
+
+[node name="Sprite2D" type="Sprite2D" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/1/1"]
+position = Vector2(45, 45)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("23_x1f0u")
+hframes = 3
+vframes = 3
+
+[node name="title" type="Label" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/1/1"]
+layout_mode = 0
+offset_left = 93.0
+offset_right = 809.0
+offset_bottom = 23.0
+text = "Upgrade 1 (cost)"
+autowrap_mode = 2
+
+[node name="desc" type="Label" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/1/1"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 24.0
+offset_right = 809.0
+offset_bottom = 89.0
+text = "the description"
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="2" type="Panel" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/1"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 94.0
+offset_right = 813.0
+offset_bottom = 184.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ae4ba")
+
+[node name="Sprite2D" type="Sprite2D" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/1/2"]
+position = Vector2(45, 45)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("23_x1f0u")
+hframes = 3
+vframes = 3
+
+[node name="title" type="Label" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/1/2"]
+layout_mode = 0
+offset_left = 93.0
+offset_right = 809.0
+offset_bottom = 23.0
+text = "Upgrade 1 (cost)"
+autowrap_mode = 2
+
+[node name="desc" type="Label" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/1/2"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 24.0
+offset_right = 809.0
+offset_bottom = 89.0
+text = "the description"
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="3" type="Panel" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/1"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 186.0
+offset_right = 813.0
+offset_bottom = 276.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_651rc")
+
+[node name="Sprite2D" type="Sprite2D" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/1/3"]
+position = Vector2(45, 45)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("23_x1f0u")
+hframes = 3
+vframes = 3
+
+[node name="title" type="Label" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/1/3"]
+layout_mode = 0
+offset_left = 93.0
+offset_right = 809.0
+offset_bottom = 23.0
+text = "Upgrade 1 (cost)"
+autowrap_mode = 2
+
+[node name="desc" type="Label" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/1/3"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 24.0
+offset_right = 809.0
+offset_bottom = 89.0
+text = "the description"
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="2" type="Panel" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades"]
+visible = false
+layout_mode = 0
+offset_right = 819.0
+offset_bottom = 280.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yxge3")
+
+[node name="title" type="Label" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/2"]
+layout_mode = 0
+offset_left = -130.0
+offset_top = 198.0
+offset_right = -10.0
+offset_bottom = 221.0
+text = "Upgrade Path 2"
+autowrap_mode = 2
+
+[node name="1" type="Panel" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/2"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 813.0
+offset_bottom = 92.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xr2bo")
+
+[node name="Sprite2D" type="Sprite2D" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/2/1"]
+position = Vector2(45, 45)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("23_x1f0u")
+hframes = 3
+vframes = 3
+
+[node name="title" type="Label" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/2/1"]
+layout_mode = 0
+offset_left = 93.0
+offset_right = 809.0
+offset_bottom = 23.0
+text = "Upgrade 1 (cost)"
+
+[node name="desc" type="Label" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/2/1"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 24.0
+offset_right = 809.0
+offset_bottom = 89.0
+text = "the description"
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="2" type="Panel" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/2"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 94.0
+offset_right = 813.0
+offset_bottom = 184.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ob2d1")
+
+[node name="Sprite2D" type="Sprite2D" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/2/2"]
+position = Vector2(45, 45)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("23_x1f0u")
+hframes = 3
+vframes = 3
+
+[node name="title" type="Label" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/2/2"]
+layout_mode = 0
+offset_left = 93.0
+offset_right = 809.0
+offset_bottom = 23.0
+text = "Upgrade 1 (cost)"
+
+[node name="desc" type="Label" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/2/2"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 24.0
+offset_right = 809.0
+offset_bottom = 89.0
+text = "the description"
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="3" type="Panel" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/2"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 186.0
+offset_right = 813.0
+offset_bottom = 276.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wkujg")
+
+[node name="Sprite2D" type="Sprite2D" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/2/3"]
+position = Vector2(45, 45)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("23_x1f0u")
+hframes = 3
+vframes = 3
+
+[node name="title" type="Label" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/2/3"]
+layout_mode = 0
+offset_left = 93.0
+offset_right = 809.0
+offset_bottom = 23.0
+text = "Upgrade 1 (cost)"
+
+[node name="desc" type="Label" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/2/3"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 24.0
+offset_right = 809.0
+offset_bottom = 89.0
+text = "the description"
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="3" type="Panel" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades"]
+visible = false
+layout_mode = 0
+offset_right = 819.0
+offset_bottom = 280.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yxge3")
+
+[node name="title" type="Label" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/3"]
+layout_mode = 0
+offset_left = -130.0
+offset_top = 198.0
+offset_right = -10.0
+offset_bottom = 221.0
+text = "Upgrade Path 3"
+
+[node name="1" type="Panel" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/3"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 813.0
+offset_bottom = 92.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lc6n0")
+
+[node name="Sprite2D" type="Sprite2D" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/3/1"]
+position = Vector2(45, 45)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("23_x1f0u")
+hframes = 3
+vframes = 3
+
+[node name="title" type="Label" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/3/1"]
+layout_mode = 0
+offset_left = 93.0
+offset_right = 809.0
+offset_bottom = 23.0
+text = "Upgrade 1 (cost)"
+
+[node name="desc" type="Label" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/3/1"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 24.0
+offset_right = 809.0
+offset_bottom = 89.0
+text = "the description"
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="2" type="Panel" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/3"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 94.0
+offset_right = 813.0
+offset_bottom = 184.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_v5q8t")
+
+[node name="Sprite2D" type="Sprite2D" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/3/2"]
+position = Vector2(45, 45)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("23_x1f0u")
+hframes = 3
+vframes = 3
+
+[node name="title" type="Label" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/3/2"]
+layout_mode = 0
+offset_left = 93.0
+offset_right = 809.0
+offset_bottom = 23.0
+text = "Upgrade 1 (cost)"
+
+[node name="desc" type="Label" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/3/2"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 24.0
+offset_right = 809.0
+offset_bottom = 89.0
+text = "the description"
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="3" type="Panel" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/3"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 186.0
+offset_right = 813.0
+offset_bottom = 276.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_o2fbe")
+
+[node name="Sprite2D" type="Sprite2D" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/3/3"]
+position = Vector2(45, 45)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("23_x1f0u")
+hframes = 3
+vframes = 3
+
+[node name="title" type="Label" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/3/3"]
+layout_mode = 0
+offset_left = 93.0
+offset_right = 809.0
+offset_bottom = 23.0
+text = "Upgrade 1 (cost)"
+
+[node name="desc" type="Label" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/upgrades/3/3"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 24.0
+offset_right = 809.0
+offset_bottom = 89.0
+text = "the description"
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="pathup" type="Button" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper"]
+layout_mode = 0
+offset_left = 612.0
+offset_top = 193.0
+offset_right = 652.0
+offset_bottom = 297.0
+rotation = -1.57079
+theme_override_fonts/font = ExtResource("2_eimta")
+theme_override_font_sizes/font_size = 32
+text = ">"
+
+[node name="pathdown" type="Button" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper"]
+layout_mode = 0
+offset_left = 716.0
+offset_top = 228.0
+offset_right = 756.0
+offset_bottom = 332.0
+rotation = 1.57079
+theme_override_fonts/font = ExtResource("2_eimta")
+theme_override_font_sizes/font_size = 32
+text = ">"
+
 [node name="blank" type="Panel" parent="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -4328,3 +4744,5 @@ bus = &"SFX"
 [connection signal="pressed" from="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Ruler Tower/pathdown" to="EncyclopediaMenu" method="_on_pathdown_pressed" binds= [&"Ruler Tower"]]
 [connection signal="pressed" from="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Watergunner/pathup" to="EncyclopediaMenu" method="_on_pathup_pressed" binds= [&"Watergunner"]]
 [connection signal="pressed" from="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Watergunner/pathdown" to="EncyclopediaMenu" method="_on_pathdown_pressed" binds= [&"Watergunner"]]
+[connection signal="pressed" from="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/pathup" to="EncyclopediaMenu" method="_on_pathup_pressed" binds= [&"Airplane Sniper"]]
+[connection signal="pressed" from="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/pathdown" to="EncyclopediaMenu" method="_on_pathdown_pressed" binds= [&"Airplane Sniper"]]

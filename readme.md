@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [beta 0.11] - 2024-09-08
 
-# I have school starting tommorow so updates are slowing down after today
+- I have school starting tommorow so updates are slowing down after today
 
 ### Added
 - NEW TOWER: Airplane Sniper, has infinite range and a randomly assigned camo pattern from 5 choices

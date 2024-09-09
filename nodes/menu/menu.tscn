@@ -1044,17 +1044,17 @@ label_settings = ExtResource("8_tbi7o")
 [node name="thepark" type="Button" parent="levelSelectMenu"]
 z_index = 1
 layout_mode = 0
-offset_left = 33.0
-offset_top = 318.0
-offset_right = 504.0
-offset_bottom = 408.0
+offset_left = 610.0
+offset_top = 83.0
+offset_right = 1081.0
+offset_bottom = 173.0
 theme_override_fonts/font = ExtResource("2_eimta")
 theme_override_font_sizes/font_size = 64
 text = "The Park"
 
 [node name="Sprite2D" type="Sprite2D" parent="levelSelectMenu/thepark"]
 z_index = -1
-position = Vector2(232, -118)
+position = Vector2(-293, 154)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("14_ogly1")
 

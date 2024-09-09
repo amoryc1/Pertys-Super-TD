@@ -1033,7 +1033,7 @@ texture = ExtResource("15_5au15")
 centered = false
 hframes = 3
 
-[node name="camo" type="Sprite2D" parent="units/list/airplanesniper"]
+[node name="camo" type="Sprite2D" parent="units/list/airplanesniper/Sprite2D"]
 texture = ExtResource("16_e73gx")
 centered = false
 hframes = 5

@@ -12,7 +12,6 @@ var difficultyName = "Normal"
 var currentStatus = []
 var cashMultiplier = 1
 
-
 var pertyType = "Normal"
 var pertyTypeImageFrame = 0
 
@@ -24,10 +23,44 @@ var currentWaveArray = [
 		"startingHealth": 100,
 		"startingMoney": 200,
 		"cashMultiplier": 1,
-		"events": {}
+		"events": {
+			1: {}
+		}
 	},
 	[]
 ]
+
+func update_event_list():
+	# Sort out events
+	
+	if $bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/enable/yeaCheckbox.button_pressed:
+		# Earn money
+		if $bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney/activeCheckbox.button_pressed:
+			var earn_amt = int($bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney/amountLineedit.text)
+			var on_start_val = $bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney/onstartCheckbox.button_pressed
+			var overwrite_val = $bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney/overwriteCheckbox.button_pressed
+			var multiplier_effect = $bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney/multieffectCheckbox.button_pressed
+			currentWaveArray[0]["events"][currentWave]["earn_money"] = {}
+			currentWaveArray[0]["events"][currentWave]["earn_money"]["active"] = true
+			currentWaveArray[0]["events"][currentWave]["earn_money"]["amount"] = earn_amt
+			currentWaveArray[0]["events"][currentWave]["earn_money"]["on_start"] = on_start_val
+			currentWaveArray[0]["events"][currentWave]["earn_money"]["overwrite"] = overwrite_val
+			currentWaveArray[0]["events"][currentWave]["earn_money"]["multipler_effect"] = multiplier_effect
+		else:
+			currentWaveArray[0]["events"][currentWave]["earn_money"] = {"active":false}
+	
+		# Show Message
+		if $bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/showmessage/activeCheckbox.button_pressed:
+			var on_start_val = $bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/showmessage/onstartCheckbox.button_pressed
+			var message_val = $bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/showmessage/messageTextedit.text
+			currentWaveArray[0]["events"][currentWave]["show_message"] = {}
+			currentWaveArray[0]["events"][currentWave]["show_message"]["active"] = true
+			currentWaveArray[0]["events"][currentWave]["show_message"]["on_start"] = on_start_val
+			currentWaveArray[0]["events"][currentWave]["show_message"]["message"] = message_val
+		else:
+			currentWaveArray[0]["events"][currentWave]["show_message"] = {"active":false}
+	else:
+		currentWaveArray[0]["events"][currentWave] = {}
 
 func _on_set_pressed():
 	# turn to ints
@@ -52,7 +85,7 @@ func _on_set_pressed():
 	
 	# Show menu in list
 	
-	var menuClone = $bottombar/waves/list/example
+	var menuClone = $bottombar/waves/list/ScrollContainer/VBoxContainer/example
 	
 	# If spawntime or spawnamount = 0 then change it to a low value to not break anything.
 	# (a value of 0 shouldnt but i want to be safe)
@@ -73,19 +106,21 @@ func _on_set_pressed():
 	
 	var menuClone2 = menuClone.duplicate()
 	menuClone2.name = str(spawnpartID)
-	menuClone2.position.y = 8 + (len(currentWaveArray[currentWave]) * 64)
-	$bottombar/waves/list.add_child(menuClone2)
+	$bottombar/waves/list/ScrollContainer/VBoxContainer.add_child(menuClone2)
 	
 	menuClone2.visible = true
 	
+	update_event_list()
 	# Add to the array
 	
 	currentWaveArray[0]["difficulty"] = difficultyName
 	currentWaveArray[0]["startingHealth"] = startingHealth
 	currentWaveArray[0]["startingMoney"] = startingMoney
 	currentWaveArray[0]["cashMultiplier"] = cashMultiplier
-	currentWaveArray[0]["events"] = {}
 	currentWaveArray[0]["levelName"] = $bottombar/levelname.text
+	# currentWaveArray[0]["events"] sorted up there ^
+	
+
 	
 	currentWaveArray[currentWave].append([
 			pertyType, int($bottombar/spawnamount.text), float($bottombar/spawntime.text), currentStatus
@@ -111,6 +146,7 @@ func _on_pertytype_pressed():
 
 # Shows the save array text
 func _on_showsave_pressed():
+	$bottombar/saveArrayMenu/copyToClipboard.text = "Copy to clipboard"
 	var x = !$bottombar/saveArrayMenu.visible
 	$bottombar/saveArrayMenu.visible = x
 	if x: $bottombar/showsave.text = "Hide save"
@@ -125,48 +161,12 @@ func _on_howtouse_pressed():
 	else: $bottombar/howtouse.text = "Show How to use"
 
 
-# perty type menu logic
-func changePertyType(i): # i = perty name (lowercase) e.g. normal, blue, green...
-	pertyType = i.capitalize()
-	
-	pertyTypeImageFrame = GLOBALVAR_PTD.perty_stages[pertyType][1]
-	
-	$bottombar/pertytypeMenu/normal.button_pressed = false
-	$bottombar/pertytypeMenu/blue.button_pressed = false
-	$bottombar/pertytypeMenu/green.button_pressed = false
-	$bottombar/pertytypeMenu/yellow.button_pressed = false
-	$bottombar/pertytypeMenu/pink.button_pressed = false
-	$bottombar/pertytypeMenu/rainbow.button_pressed = false
-	
-	get_node("bottombar/pertytypeMenu/" + i).button_pressed = true
-
-func _on_normal_pressed():
-	changePertyType("normal")
-	
-func _on_blue_pressed():
-	changePertyType("blue")
-	
-func _on_green_pressed():
-	changePertyType("green")
-	
-func _on_yellow_pressed():
-	changePertyType("yellow")
-	
-func _on_pink_pressed():
-	changePertyType("pink")
-
-func _on_rainbow_pressed():
-	changePertyType("rainbow")
-
-
-
-
 # Change wave view
 func updatePertyList():
 	$sfx/clickSFX.play()
 	var i = currentWave
 	$bottombar/waves/wavenumber.text = "Wave " + str(i)
-	for x in $bottombar/waves/list.get_children():
+	for x in $bottombar/waves/list/ScrollContainer/VBoxContainer.get_children():
 		if x.name != "example":
 			var y = int(x.get_child(0).text) # 0 = wave number
 			if y == i: x.visible = true
@@ -175,7 +175,60 @@ func updatePertyList():
 	# extend array if the new wave is a bigger value then the max wave
 	if waveCount < currentWave:
 		currentWaveArray.append([])
+		currentWaveArray[0]["events"][currentWave] = {}
 		waveCount += 1
+	
+	# eventpanel
+			
+	if len(currentWaveArray[0]["events"][currentWave]) > 0:
+		$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/enable/yeaCheckbox.button_pressed = true
+		$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney.visible = true
+		$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/showmessage.visible = true
+		
+		if currentWaveArray[0]["events"][currentWave].has("earn_money"):
+			if currentWaveArray[0]["events"][currentWave]["earn_money"]["active"]:
+				$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney/activeCheckbox.button_pressed = true
+			else:
+				$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney/activeCheckbox.button_pressed = false
+			
+			if currentWaveArray[0]["events"][currentWave]["earn_money"].has("amount"):
+				$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney/amountLineedit.text = str(currentWaveArray[0]["events"][currentWave]["earn_money"]["amount"])
+			else:
+				$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney/amountLineedit.text = ""
+			if currentWaveArray[0]["events"][currentWave]["earn_money"].has("on_start"):
+				$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney/onstartCheckbox.button_pressed = true
+			else:
+				$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney/onstartCheckbox.button_pressed = false
+			if currentWaveArray[0]["events"][currentWave]["earn_money"].has("overwrite"):
+				$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney/overwriteCheckbox.button_pressed = true
+			else:
+				$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney/overwriteCheckbox.button_pressed = false
+			if currentWaveArray[0]["events"][currentWave]["earn_money"].has("multipler_effect"):
+				$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney/multieffectCheckbox.button_pressed = true
+			else:
+				$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney/multieffectCheckbox.button_pressed = false
+
+		if currentWaveArray[0]["events"][currentWave].has("show_message"):
+			if currentWaveArray[0]["events"][currentWave]["show_message"]["active"]:
+				$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/showmessage/activeCheckbox.button_pressed = true
+			else:
+				$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/showmessage/activeCheckbox.button_pressed = false
+			
+			if currentWaveArray[0]["events"][currentWave]["show_message"].has("message"):
+				$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/showmessage/messageTextedit.text = currentWaveArray[0]["events"][currentWave]["show_message"]["message"]
+			else:
+				$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/showmessage/messageTextedit.text = ""
+			if currentWaveArray[0]["events"][currentWave]["show_message"].has("on_start"):
+				$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/showmessage/onstartCheckbox.button_pressed = true
+			else:
+				$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/showmessage/onstartCheckbox.button_pressed = false
+
+	else:
+		$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/enable/yeaCheckbox.button_pressed = false
+		$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney.visible = false
+		$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/showmessage.visible = false
+
+		
 
 # Update perty list when something is deleted.
 # FUCK THIS
@@ -189,7 +242,7 @@ func updatePertyListOnDelete(deletedID):
 			var intName = int(x.get_child(1).text)
 			if intName > deletedID:
 				x.get_child(0).text = str(intName - 1)
-				x.position.y = 8 + ((intName - 1) * 64)
+				x.position.y = 8 + ((intName - 2) * 64)
 			elif intName == deletedID:
 				print("How the hell is this here? I've gone insane trying to fix a bug but its still here??? HELP ME")
 	
@@ -216,3 +269,29 @@ func _on_goback_pressed():
 	
 	await get_tree().create_timer(0.02).timeout
 	get_tree().change_scene_to_file(path)
+
+
+func _on_copy_to_clipboard_pressed() -> void:
+	DisplayServer.clipboard_set($bottombar/saveArrayMenu/TextEdit.text)
+	$bottombar/saveArrayMenu/copyToClipboard.text = "Copied!"
+
+
+func _on_pertychosen_pressed(extra_arg_0: String) -> void:
+	pertyType = extra_arg_0.capitalize()
+	
+	pertyTypeImageFrame = GLOBALVAR_PTD.perty_stages[extra_arg_0][1]
+	
+	for x in $bottombar/pertytypeMenu.get_children():
+		x.button_pressed = false
+
+	get_node("bottombar/pertytypeMenu/" + extra_arg_0).button_pressed = true
+
+
+func _on_events_pressed() -> void:
+	$bottombar/waves/eventpanel.visible = !$bottombar/waves/eventpanel.visible
+
+
+func _on_yea_checkbox_pressed() -> void:
+	var x = $bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/enable/yeaCheckbox.button_pressed
+	$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney.visible = x
+	$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/showmessage.visible = x

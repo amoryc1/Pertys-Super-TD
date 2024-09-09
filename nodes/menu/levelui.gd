@@ -17,8 +17,9 @@ func _on_startwave_pressed():
 	
 	var estT = 0
 	var array = get_node("../").levelStats[get_node("../enemyspawner").wave]
-	print(array)
+	
 	for x in array:
-		estT += (x[2] * x[1])
+		if typeof(x) != TYPE_DICTIONARY: # The Dictionairy would be the events list
+			estT += (x[2] * x[1])
 
 	GLOBALVAR_PTD.estimated_time_for_spawns = estT

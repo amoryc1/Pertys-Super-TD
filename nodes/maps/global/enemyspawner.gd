@@ -78,8 +78,9 @@ func _process(_delta):
 func _on_enemytimer_timeout():
 	if spawningEnemy:
 		get_tree().root.title = get_parent().levelStats[0]["levelName"] + " / " + get_parent().levelStats[0]["difficulty"] + " / Wave " + str(wave)
-
+		
 		var waveArray = get_node("..").levelStats[wave]
+		
 		var x = waveArray[wavePartID]
 		
 		# spawn_perty(GLOBALVAR_PTD.pertyStages["blue"][0])
@@ -89,7 +90,7 @@ func _on_enemytimer_timeout():
 		if spawnCount == 0 and wavePartID != len(waveArray) and !spawning:
 			get_node("../enemytimer").wait_time = x[2]
 			spawnCount = x[1]
-
+			
 			spawning = true
 
 		if spawnCount > 0 and spawning == true:

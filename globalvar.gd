@@ -1,7 +1,7 @@
 extends Node
 
 
-var game_version = "[beta 0.11] - 2024-09-08"
+var game_version = "[beta 0.12] - 2024-09-09"
 
 var ticks_at_load_start = 0
 
@@ -567,9 +567,8 @@ var perty_stages = {
 	"yellow": ["res://nodes/enemies/YellowPerty.tscn", 3],
 	"pink": ["res://nodes/enemies/PinkPerty.tscn", 4],
 	"rainbow": ["res://nodes/enemies/RainbowPerty.tscn", 5],
-	"foap": ["res://nodes/enemies/FOAP.tscn", 8],
+	"foap": ["res://nodes/enemies/FOAP.tscn", 7],
 	}
-
 
 func end_game(level_difficulty, level_name, win):
 	if win: # Only update achievement on win

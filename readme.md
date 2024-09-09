@@ -6,6 +6,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [beta 0.12] - 2024-09-09
+
+### Added
+- Way to add events at the start of a wave (like a text box appearing) inside the level editor. But are not functional yet
+
+### Changes
+- Some code in the level editor (whatever i was on while making that id like rn)
+- Camo layer of Airplane Sniper now shows behind the hand layer
+- You can now scroll the enemy list in the level editor
+
+### Fixes
+- Airplane Sniper is now fully red if unable to be purchased
+
+
+
+
 ## [beta 0.11] - 2024-09-08
 
 - I have school starting tommorow so updates are slowing down after today

@@ -73,6 +73,7 @@ scale = Vector2(1.1, 1.1)
 sprite_frames = SubResource("SpriteFrames_ndj0y")
 
 [node name="camo" type="Sprite2D" parent="sprite"]
+show_behind_parent = true
 texture = ExtResource("3_fu1ny")
 hframes = 5
 

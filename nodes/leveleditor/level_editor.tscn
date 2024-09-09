@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://da1g6oajl8rkt"]
+[gd_scene load_steps=56 format=3 uid="uid://da1g6oajl8rkt"]
 
 [ext_resource type="Script" path="res://nodes/leveleditor/level_editor.gd" id="1_15cr8"]
 [ext_resource type="AudioStream" uid="uid://ciaver1d0t26" path="res://music/other/leveleditor.ogg" id="1_qccpx"]
@@ -50,12 +50,15 @@ region = Rect2(256, 0, 128, 128)
 atlas = ExtResource("3_jww38")
 region = Rect2(384, 0, 128, 128)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3tpv"]
-bg_color = Color(0.295867, 0.295867, 0.295866, 1)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_d10nh"]
 atlas = ExtResource("8_mlbn2")
 region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3tpv"]
+bg_color = Color(0.295867, 0.295867, 0.295866, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mogqt"]
+bg_color = Color(0.362829, 0.362829, 0.362829, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i1skp"]
 bg_color = Color(0.1444, 0.219007, 0.38, 1)
@@ -79,34 +82,6 @@ region = Rect2(96, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2xw1g"]
 atlas = ExtResource("7_rv6en")
 region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1sdh"]
-bg_color = Color(0.443697, 0.00773203, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_218dy"]
-bg_color = Color(0.332429, 0.153348, 0.263924, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jp700"]
-atlas = ExtResource("14_r7abh")
-region = Rect2(0, 0, 313, 223)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k8ftt"]
-atlas = ExtResource("14_r7abh")
-region = Rect2(313, 0, 313, 223)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_6ioje"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jp700")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k8ftt")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nc52t"]
 bg_color = Color(0.0638665, 0.262898, 0.214771, 1)
@@ -134,6 +109,38 @@ region = Rect2(256, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_u4jg7"]
 atlas = ExtResource("11_1u64q")
 region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5fw1"]
+atlas = ExtResource("11_1u64q")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1sdh"]
+bg_color = Color(0.45, 0.45, 0.45, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_218dy"]
+bg_color = Color(0.332429, 0.153348, 0.263924, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp700"]
+atlas = ExtResource("14_r7abh")
+region = Rect2(0, 0, 313, 223)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8ftt"]
+atlas = ExtResource("14_r7abh")
+region = Rect2(313, 0, 313, 223)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ioje"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jp700")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8ftt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="LevelEditor" type="Node2D"]
 script = ExtResource("1_15cr8")
@@ -370,51 +377,59 @@ offset_top = 84.0
 offset_right = 1013.0
 offset_bottom = 784.0
 
-[node name="example" type="Panel" parent="bottombar/waves/list"]
-visible = false
+[node name="ScrollContainer" type="ScrollContainer" parent="bottombar/waves/list"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 994.0
-offset_bottom = 71.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_f3tpv")
+offset_right = 1004.0
+offset_bottom = 691.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="bottombar/waves/list/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 68
+
+[node name="example" type="Panel" parent="bottombar/waves/list/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
 script = ExtResource("7_kqawx")
 
-[node name="wavenumber" type="Label" parent="bottombar/waves/list/example"]
+[node name="wavenumber" type="Label" parent="bottombar/waves/list/ScrollContainer/VBoxContainer/example"]
+z_index = 1
 layout_mode = 0
-offset_left = 843.0
-offset_right = 987.0
+offset_left = 771.0
+offset_right = 915.0
 offset_bottom = 8.0
-scale = Vector2(0.75, 0.75)
+scale = Vector2(1.5, 1.5)
 text = "-1"
 label_settings = ExtResource("8_i0wbw")
 horizontal_alignment = 2
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="id" type="Label" parent="bottombar/waves/list/example"]
+[node name="id" type="Label" parent="bottombar/waves/list/ScrollContainer/VBoxContainer/example"]
+z_index = 1
 layout_mode = 0
-offset_left = 843.0
-offset_top = 7.0
-offset_right = 987.0
-offset_bottom = 15.0
-scale = Vector2(0.75, 0.75)
+offset_left = 771.0
+offset_top = 13.0
+offset_right = 915.0
+offset_bottom = 21.0
+scale = Vector2(1.5, 1.5)
 text = "0"
 label_settings = ExtResource("8_i0wbw")
 horizontal_alignment = 2
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="title" type="Label" parent="bottombar/waves/list/example"]
+[node name="title" type="Label" parent="bottombar/waves/list/ScrollContainer/VBoxContainer/example"]
+z_index = 1
 layout_mode = 0
 offset_left = 69.0
-offset_top = 16.0
+offset_top = 17.0
 offset_right = 277.0
-offset_bottom = 47.0
+offset_bottom = 48.0
 text = "Normal Perty"
 label_settings = ExtResource("7_21c34")
 
-[node name="status" type="Label" parent="bottombar/waves/list/example"]
+[node name="status" type="Label" parent="bottombar/waves/list/ScrollContainer/VBoxContainer/example"]
+z_index = 1
 layout_mode = 0
 offset_left = 5.0
 offset_top = 21.0
@@ -424,7 +439,8 @@ text = "[]"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="time" type="Label" parent="bottombar/waves/list/example"]
+[node name="time" type="Label" parent="bottombar/waves/list/ScrollContainer/VBoxContainer/example"]
+z_index = 1
 layout_mode = 0
 offset_left = 331.0
 offset_top = 1.0
@@ -433,14 +449,15 @@ offset_bottom = 32.0
 text = "0.1s"
 label_settings = ExtResource("7_21c34")
 
-[node name="icon" type="Sprite2D" parent="bottombar/waves/list/example/time"]
+[node name="icon" type="Sprite2D" parent="bottombar/waves/list/ScrollContainer/VBoxContainer/example/time"]
 position = Vector2(-14, 15)
 scale = Vector2(1.01563, 1.01563)
 texture = ExtResource("8_mlbn2")
 hframes = 3
 frame = 1
 
-[node name="amount" type="Label" parent="bottombar/waves/list/example"]
+[node name="amount" type="Label" parent="bottombar/waves/list/ScrollContainer/VBoxContainer/example"]
+z_index = 1
 layout_mode = 0
 offset_left = 331.0
 offset_top = 32.0
@@ -449,32 +466,40 @@ offset_bottom = 63.0
 text = "20x"
 label_settings = ExtResource("7_21c34")
 
-[node name="icon" type="Sprite2D" parent="bottombar/waves/list/example/amount"]
+[node name="icon" type="Sprite2D" parent="bottombar/waves/list/ScrollContainer/VBoxContainer/example/amount"]
 position = Vector2(-14, 14)
 scale = Vector2(1.01563, 1.01563)
 texture = ExtResource("8_mlbn2")
 hframes = 3
 
-[node name="pertyIcon" type="Sprite2D" parent="bottombar/waves/list/example"]
+[node name="pertyIcon" type="Sprite2D" parent="bottombar/waves/list/ScrollContainer/VBoxContainer/example"]
+z_index = 1
 position = Vector2(31.5, 31.5)
 scale = Vector2(1.01563, 1.01563)
 texture = ExtResource("11_1u64q")
 hframes = 10
 vframes = 10
 
-[node name="trash" type="TextureButton" parent="bottombar/waves/list/example"]
+[node name="trash" type="TextureButton" parent="bottombar/waves/list/ScrollContainer/VBoxContainer/example"]
 visible = false
+z_index = 1
 layout_mode = 0
 offset_left = 952.0
 offset_right = 984.0
 offset_bottom = 32.0
 texture_normal = SubResource("AtlasTexture_d10nh")
 
+[node name="bg" type="Panel" parent="bottombar/waves/list/ScrollContainer/VBoxContainer/example"]
+layout_mode = 0
+offset_right = 1013.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f3tpv")
+
 [node name="wavenumber" type="Label" parent="bottombar/waves"]
 layout_mode = 0
-offset_left = 2.0
+offset_left = 67.0
 offset_top = 10.0
-offset_right = 1006.0
+offset_right = 675.0
 offset_bottom = 72.0
 text = "Wave 1"
 label_settings = ExtResource("8_teqbe")
@@ -483,21 +508,204 @@ horizontal_alignment = 1
 [node name="left" type="Button" parent="bottombar/waves"]
 layout_mode = 0
 offset_left = 11.0
-offset_top = 17.0
+offset_top = 15.0
 offset_right = 66.0
-offset_bottom = 69.0
+offset_bottom = 67.0
 text = "<"
 
 [node name="right" type="Button" parent="bottombar/waves"]
 layout_mode = 0
-offset_left = 933.0
-offset_top = 19.0
-offset_right = 988.0
-offset_bottom = 71.0
+offset_left = 677.0
+offset_top = 15.0
+offset_right = 732.0
+offset_bottom = 67.0
 text = ">"
+
+[node name="events" type="Button" parent="bottombar/waves"]
+layout_mode = 0
+offset_left = 749.0
+offset_top = 15.0
+offset_right = 990.0
+offset_bottom = 67.0
+theme_override_fonts/font = ExtResource("2_gn0rb")
+theme_override_font_sizes/font_size = 32
+text = "Events"
+
+[node name="eventpanel" type="Panel" parent="bottombar/waves"]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_top = 84.0
+offset_right = 1013.0
+offset_bottom = 784.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mogqt")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="bottombar/waves/eventpanel"]
+layout_mode = 0
+offset_right = 1032.0
+offset_bottom = 690.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="bottombar/waves/eventpanel/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 160
+
+[node name="enable" type="Panel" parent="bottombar/waves/eventpanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="bg" type="Panel" parent="bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/enable"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 1033.0
+offset_bottom = 160.0
+
+[node name="title" type="Label" parent="bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/enable"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 204.0
+offset_bottom = 59.0
+theme_override_font_sizes/font_size = 32
+text = "Enable events for this wave?"
+
+[node name="yeaCheckbox" type="CheckBox" parent="bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/enable"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 67.0
+offset_right = 107.0
+offset_bottom = 106.0
+theme_override_fonts/font = ExtResource("2_gn0rb")
+theme_override_font_sizes/font_size = 24
+text = "yea"
+
+[node name="updateevents" type="Button" parent="bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/enable"]
+layout_mode = 0
+offset_left = 681.0
+offset_top = 38.0
+offset_right = 968.0
+offset_bottom = 124.0
+text = "Update Events"
+
+[node name="earnmoney" type="Panel" parent="bottombar/waves/eventpanel/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="bg" type="Panel" parent="bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 1033.0
+offset_bottom = 160.0
+
+[node name="title" type="Label" parent="bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 204.0
+offset_bottom = 59.0
+theme_override_font_sizes/font_size = 32
+text = "Earn Money"
+
+[node name="activeCheckbox" type="CheckBox" parent="bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 67.0
+offset_right = 107.0
+offset_bottom = 106.0
+theme_override_fonts/font = ExtResource("2_gn0rb")
+theme_override_font_sizes/font_size = 24
+text = "Active"
+
+[node name="multieffectCheckbox" type="CheckBox" parent="bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 67.0
+offset_right = 471.0
+offset_bottom = 106.0
+theme_override_fonts/font = ExtResource("2_gn0rb")
+theme_override_font_sizes/font_size = 24
+text = "Changes with multiplier"
+
+[node name="onstartCheckbox" type="CheckBox" parent="bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 115.0
+offset_right = 189.0
+offset_bottom = 154.0
+theme_override_fonts/font = ExtResource("2_gn0rb")
+theme_override_font_sizes/font_size = 24
+text = "On Wave Start"
+
+[node name="overwriteCheckbox" type="CheckBox" parent="bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 115.0
+offset_right = 434.0
+offset_bottom = 154.0
+theme_override_fonts/font = ExtResource("2_gn0rb")
+theme_override_font_sizes/font_size = 24
+text = "Overwrite Default"
+
+[node name="amountLineedit" type="LineEdit" parent="bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney"]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 21.0
+offset_right = 431.0
+offset_bottom = 52.0
+placeholder_text = "Amount (int)"
+virtual_keyboard_type = 2
+
+[node name="showmessage" type="Panel" parent="bottombar/waves/eventpanel/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="bg" type="Panel" parent="bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/showmessage"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 1033.0
+offset_bottom = 160.0
+
+[node name="title" type="Label" parent="bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/showmessage"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 204.0
+offset_bottom = 59.0
+theme_override_font_sizes/font_size = 32
+text = "Show Message"
+
+[node name="activeCheckbox" type="CheckBox" parent="bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/showmessage"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 67.0
+offset_right = 107.0
+offset_bottom = 106.0
+theme_override_fonts/font = ExtResource("2_gn0rb")
+theme_override_font_sizes/font_size = 24
+text = "Active"
+
+[node name="onstartCheckbox" type="CheckBox" parent="bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/showmessage"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 115.0
+offset_right = 189.0
+offset_bottom = 154.0
+theme_override_fonts/font = ExtResource("2_gn0rb")
+theme_override_font_sizes/font_size = 24
+text = "On Wave Start"
+
+[node name="messageTextedit" type="TextEdit" parent="bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/showmessage"]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 21.0
+offset_right = 657.0
+offset_bottom = 148.0
+placeholder_text = "Message (str)"
 
 [node name="statusMenu" type="Panel" parent="bottombar"]
 visible = false
+z_index = 2
 layout_mode = 0
 offset_left = 547.0
 offset_top = 96.0
@@ -611,8 +819,97 @@ offset_bottom = 36.0
 theme_override_fonts/font = ExtResource("7_wwdt0")
 text = "+25 HP to Perty"
 
+[node name="pertytypeMenu" type="Panel" parent="bottombar"]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_left = 546.0
+offset_top = 220.0
+offset_right = 998.0
+offset_bottom = 781.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nc52t")
+
+[node name="normal" type="CheckButton" parent="bottombar/pertytypeMenu"]
+layout_mode = 0
+offset_top = -7.0
+offset_right = 904.0
+offset_bottom = 65.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("7_wwdt0")
+theme_override_font_sizes/font_size = 44
+button_pressed = true
+text = "Normal"
+icon = SubResource("AtlasTexture_4rvp5")
+
+[node name="blue" type="CheckButton" parent="bottombar/pertytypeMenu"]
+layout_mode = 0
+offset_top = 25.0
+offset_right = 904.0
+offset_bottom = 97.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("7_wwdt0")
+theme_override_font_sizes/font_size = 44
+text = "Blue"
+icon = SubResource("AtlasTexture_sclxd")
+
+[node name="green" type="CheckButton" parent="bottombar/pertytypeMenu"]
+layout_mode = 0
+offset_top = 57.0
+offset_right = 904.0
+offset_bottom = 129.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("7_wwdt0")
+theme_override_font_sizes/font_size = 44
+text = "Green"
+icon = SubResource("AtlasTexture_1xmii")
+
+[node name="yellow" type="CheckButton" parent="bottombar/pertytypeMenu"]
+layout_mode = 0
+offset_top = 89.0
+offset_right = 904.0
+offset_bottom = 161.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("7_wwdt0")
+theme_override_font_sizes/font_size = 44
+text = "Yellow"
+icon = SubResource("AtlasTexture_7igvu")
+
+[node name="pink" type="CheckButton" parent="bottombar/pertytypeMenu"]
+layout_mode = 0
+offset_top = 121.0
+offset_right = 904.0
+offset_bottom = 193.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("7_wwdt0")
+theme_override_font_sizes/font_size = 44
+text = "Pink"
+icon = SubResource("AtlasTexture_6o5ep")
+
+[node name="rainbow" type="CheckButton" parent="bottombar/pertytypeMenu"]
+layout_mode = 0
+offset_top = 153.0
+offset_right = 904.0
+offset_bottom = 225.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("7_wwdt0")
+theme_override_font_sizes/font_size = 44
+text = "Rainbow"
+icon = SubResource("AtlasTexture_u4jg7")
+
+[node name="foap" type="CheckButton" parent="bottombar/pertytypeMenu"]
+layout_mode = 0
+offset_top = 185.0
+offset_right = 904.0
+offset_bottom = 257.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("7_wwdt0")
+theme_override_font_sizes/font_size = 44
+text = "FoaP"
+icon = SubResource("AtlasTexture_o5fw1")
+
 [node name="saveArrayMenu" type="Panel" parent="bottombar"]
 visible = false
+z_index = 5
 layout_mode = 0
 offset_left = -5.0
 offset_top = -1.0
@@ -622,27 +919,24 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_d1sdh")
 
 [node name="TextEdit" type="TextEdit" parent="bottombar/saveArrayMenu"]
 layout_mode = 0
-offset_left = 120.0
-offset_top = 145.0
-offset_right = 1538.0
-offset_bottom = 737.0
+offset_left = 46.0
+offset_top = 129.0
+offset_right = 1613.0
+offset_bottom = 721.0
 editable = false
 wrap_mode = 1
 
-[node name="copydisclaimer" type="Label" parent="bottombar/saveArrayMenu"]
+[node name="copyToClipboard" type="Button" parent="bottombar/saveArrayMenu"]
 layout_mode = 0
-offset_left = 27.0
-offset_top = 25.0
-offset_right = 1626.0
-offset_bottom = 90.0
-text = "Right Click over this text box and save it somewhere
-safe. I have not implemented a system to do that yet."
-label_settings = ExtResource("7_21c34")
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_left = 48.0
+offset_top = 728.0
+offset_right = 417.0
+offset_bottom = 774.0
+text = "Copy to Clipboard"
 
 [node name="howToUseMenu" type="Panel" parent="bottombar"]
 visible = false
+z_index = 5
 layout_mode = 0
 offset_left = -5.0
 offset_top = -1.0
@@ -907,82 +1201,6 @@ theme_override_font_sizes/font_size = 64
 text = "1"
 horizontal_alignment = 1
 
-[node name="pertytypeMenu" type="Panel" parent="bottombar"]
-visible = false
-layout_mode = 0
-offset_left = 546.0
-offset_top = 220.0
-offset_right = 998.0
-offset_bottom = 781.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_nc52t")
-
-[node name="normal" type="CheckButton" parent="bottombar/pertytypeMenu"]
-layout_mode = 0
-offset_top = -7.0
-offset_right = 904.0
-offset_bottom = 65.0
-scale = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("7_wwdt0")
-theme_override_font_sizes/font_size = 44
-button_pressed = true
-text = "Normal"
-icon = SubResource("AtlasTexture_4rvp5")
-
-[node name="blue" type="CheckButton" parent="bottombar/pertytypeMenu"]
-layout_mode = 0
-offset_top = 25.0
-offset_right = 904.0
-offset_bottom = 97.0
-scale = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("7_wwdt0")
-theme_override_font_sizes/font_size = 44
-text = "Blue"
-icon = SubResource("AtlasTexture_sclxd")
-
-[node name="green" type="CheckButton" parent="bottombar/pertytypeMenu"]
-layout_mode = 0
-offset_top = 57.0
-offset_right = 904.0
-offset_bottom = 129.0
-scale = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("7_wwdt0")
-theme_override_font_sizes/font_size = 44
-text = "Green"
-icon = SubResource("AtlasTexture_1xmii")
-
-[node name="yellow" type="CheckButton" parent="bottombar/pertytypeMenu"]
-layout_mode = 0
-offset_top = 89.0
-offset_right = 904.0
-offset_bottom = 161.0
-scale = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("7_wwdt0")
-theme_override_font_sizes/font_size = 44
-text = "Yellow"
-icon = SubResource("AtlasTexture_7igvu")
-
-[node name="pink" type="CheckButton" parent="bottombar/pertytypeMenu"]
-layout_mode = 0
-offset_top = 121.0
-offset_right = 904.0
-offset_bottom = 193.0
-scale = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("7_wwdt0")
-theme_override_font_sizes/font_size = 44
-text = "Pink"
-icon = SubResource("AtlasTexture_6o5ep")
-
-[node name="rainbow" type="CheckButton" parent="bottombar/pertytypeMenu"]
-layout_mode = 0
-offset_top = 153.0
-offset_right = 904.0
-offset_bottom = 225.0
-scale = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("7_wwdt0")
-theme_override_font_sizes/font_size = 44
-text = "Rainbow"
-icon = SubResource("AtlasTexture_u4jg7")
-
 [node name="GlobalUI" parent="." instance=ExtResource("17_ol6ix")]
 
 [node name="sfx" type="Node2D" parent="."]
@@ -1005,14 +1223,19 @@ bus = &"SFX"
 [connection signal="pressed" from="bottombar/goback" to="." method="_on_goback_pressed"]
 [connection signal="pressed" from="bottombar/status" to="." method="_on_status_pressed"]
 [connection signal="pressed" from="bottombar/pertytype" to="." method="_on_pertytype_pressed"]
-[connection signal="pressed" from="bottombar/waves/list/example/trash" to="bottombar/waves/list/example" method="_on_trash_pressed"]
+[connection signal="pressed" from="bottombar/waves/list/ScrollContainer/VBoxContainer/example/trash" to="bottombar/waves/list/ScrollContainer/VBoxContainer/example" method="_on_trash_pressed"]
 [connection signal="pressed" from="bottombar/waves/left" to="." method="_on_left_pressed"]
 [connection signal="pressed" from="bottombar/waves/right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="bottombar/waves/events" to="." method="_on_events_pressed"]
+[connection signal="pressed" from="bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/enable/yeaCheckbox" to="." method="_on_yea_checkbox_pressed"]
+[connection signal="pressed" from="bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/enable/updateevents" to="." method="update_event_list"]
+[connection signal="pressed" from="bottombar/pertytypeMenu/normal" to="." method="_on_pertychosen_pressed" binds= ["normal"]]
+[connection signal="pressed" from="bottombar/pertytypeMenu/blue" to="." method="_on_pertychosen_pressed" binds= ["blue"]]
+[connection signal="pressed" from="bottombar/pertytypeMenu/green" to="." method="_on_pertychosen_pressed" binds= ["green"]]
+[connection signal="pressed" from="bottombar/pertytypeMenu/yellow" to="." method="_on_pertychosen_pressed" binds= ["yellow"]]
+[connection signal="pressed" from="bottombar/pertytypeMenu/pink" to="." method="_on_pertychosen_pressed" binds= ["pink"]]
+[connection signal="pressed" from="bottombar/pertytypeMenu/rainbow" to="." method="_on_pertychosen_pressed" binds= ["rainbow"]]
+[connection signal="pressed" from="bottombar/pertytypeMenu/foap" to="." method="_on_pertychosen_pressed" binds= ["foap"]]
+[connection signal="pressed" from="bottombar/saveArrayMenu/copyToClipboard" to="." method="_on_copy_to_clipboard_pressed"]
 [connection signal="pressed" from="bottombar/howToUseMenu/left" to="bottombar/howToUseMenu" method="_on_left_pressed"]
 [connection signal="pressed" from="bottombar/howToUseMenu/right" to="bottombar/howToUseMenu" method="_on_right_pressed"]
-[connection signal="pressed" from="bottombar/pertytypeMenu/normal" to="." method="_on_normal_pressed"]
-[connection signal="pressed" from="bottombar/pertytypeMenu/blue" to="." method="_on_blue_pressed"]
-[connection signal="pressed" from="bottombar/pertytypeMenu/green" to="." method="_on_green_pressed"]
-[connection signal="pressed" from="bottombar/pertytypeMenu/yellow" to="." method="_on_yellow_pressed"]
-[connection signal="pressed" from="bottombar/pertytypeMenu/pink" to="." method="_on_pink_pressed"]
-[connection signal="pressed" from="bottombar/pertytypeMenu/rainbow" to="." method="_on_rainbow_pressed"]

@@ -1,11 +1,11 @@
 Panel
+Label
+Button
 VBoxContainer
 ScrollContainer
-Button
 TextEdit
 LineEdit
 CheckBox
-Label
 AnimatedSprite2D
 Sprite2D
 CPUParticles2D

@@ -23,3 +23,13 @@ func _on_startwave_pressed():
 			estT += (x[2] * x[1])
 
 	GLOBALVAR_PTD.estimated_time_for_spawns = estT
+
+
+func _on_pausegame_pressed() -> void:
+	$settingspanel.visible = !$settingspanel.visible
+	if $settingspanel.visible: 
+		$pausegame.texture_normal.region = Rect2(32, 32, 32, 32)
+		$pausegame.self_modulate = Color8(255,255,255)
+	else: 
+		$pausegame.texture_normal.region = Rect2(0, 32, 32, 32)
+		$pausegame.self_modulate = Color8(255,255,255,151)

@@ -18,10 +18,10 @@ func _ready():
 	
 	# achivements
 	# Bronze -> Silver -> Gold -> Diamond
-	if GLOBALVAR_PTD.level_win["The Park"] == "Easy": $achievementRack/winTestMap.frame = 1
-	if GLOBALVAR_PTD.level_win["The Park"] == "Normal": $achievementRack/winTestMap.frame = 2
-	if GLOBALVAR_PTD.level_win["The Park"] == "Hard": $achievementRack/winTestMap.frame = 3
-	if GLOBALVAR_PTD.level_win["The Park"] == "Hardcore": $achievementRack/winTestMap.frame = 4
+	if GLOBALVAR_PTD.level_win["The Park"][0] == "Easy": $achievementRack/winTestMap.frame = 1
+	if GLOBALVAR_PTD.level_win["The Park"][0] == "Normal": $achievementRack/winTestMap.frame = 2
+	if GLOBALVAR_PTD.level_win["The Park"][0] == "Hard": $achievementRack/winTestMap.frame = 3
+	if GLOBALVAR_PTD.level_win["The Park"][0] == "Hardcore": $achievementRack/winTestMap.frame = 4
 	
 	
 	
@@ -154,18 +154,6 @@ func _on_achievements_pressed():
 
 func _on_achievements_mouse_entered(): $Achievements.scale = Vector2(1.1, 1.1)
 func _on_achievements_mouse_exited(): $Achievements.scale = Vector2(1, 1)
-
-
-func _on_testlevel_pressed():
-	var loadingScreenPath = get_node("LoadingScreen")
-	var path = "res://nodes/maps/testmap/main.tscn"
-	
-	loadingScreenPath.show()
-	loadingScreenPath.find_child("nodepath").text = "Path: " + path
-	
-	await get_tree().create_timer(0.02).timeout
-	chosen_level(path)
-
 
 func _on_x_pressed():
 	$tapSFX.play()

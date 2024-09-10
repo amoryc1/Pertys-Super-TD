@@ -121,13 +121,9 @@ func _on_set_pressed():
 	# currentWaveArray[0]["events"] sorted up there ^
 	
 
-	
-	currentWaveArray[currentWave].append([
-			pertyType, int($bottombar/spawnamount.text), float($bottombar/spawntime.text), currentStatus
-		]
-	)
-	
-	
+	var array_to_give = [pertyType, int($bottombar/spawnamount.text), float($bottombar/spawntime.text), currentStatus]
+	currentWaveArray[currentWave].append(array_to_give)
+	menuClone2.array_for_this_node = array_to_give
 	
 	spawnpartID += 1
 
@@ -227,26 +223,6 @@ func updatePertyList():
 		$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/enable/yeaCheckbox.button_pressed = false
 		$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/earnmoney.visible = false
 		$bottombar/waves/eventpanel/ScrollContainer/VBoxContainer/showmessage.visible = false
-
-		
-
-# Update perty list when something is deleted.
-# FUCK THIS
-# HELP ME THIS WONT WORK
-# IF YOU ARE SEEING THIS IN GODOT ENGINE JUST MAKE THE 'bottombar/waves/list/example/trash' NODE VISIBLE TO SEE HOW BROKEN THIS SHIT IS
-func updatePertyListOnDelete(deletedID):
-
-	for x in $bottombar/waves/list.get_children():
-		var y = int(x.get_child(0).text) # 0 = wave number
-		if x.name != "example" and y == currentWave and x.name != "_Hey_ Good job looking at my code! Have you gouged your eyes out yet?_": 
-			var intName = int(x.get_child(1).text)
-			if intName > deletedID:
-				x.get_child(0).text = str(intName - 1)
-				x.position.y = 8 + ((intName - 2) * 64)
-			elif intName == deletedID:
-				print("How the hell is this here? I've gone insane trying to fix a bug but its still here??? HELP ME")
-	
-	#updatePertyList()
 
 func _on_right_pressed():
 	currentWave += 1

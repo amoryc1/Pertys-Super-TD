@@ -1,7 +1,7 @@
 extends Node
 
 
-var game_version = "[beta 0.12] - 2024-09-09"
+var game_version = "[beta 0.13] - 2024-09-10"
 
 var ticks_at_load_start = 0
 
@@ -18,8 +18,8 @@ var window_mode = "Windowed"
 var music_volume = 1
 var sfx_volume = 1
 var master_volume = 1
-var level_win = {
-	"The Park": "no"
+var level_win = { # Difficulty, [wave, ["tower name", pos, upgrades], ["tower name", pos, upgrades]]
+	"The Park": ["no", []]
 }
 var shadows_enabled = true
 var shadow_level = "pcf5"
@@ -572,11 +572,11 @@ var perty_stages = {
 
 func end_game(level_difficulty, level_name, win):
 	if win: # Only update achievement on win
-		var current_in_array = difficultys.find(level_win[level_name])
+		var current_in_array = difficultys.find(level_win[level_name][0])
 		var new_in_array = difficultys.find(level_difficulty)
 		
 		if new_in_array > current_in_array:
-			level_win[level_name] = level_difficulty
+			level_win[level_name][0] = level_difficulty
 		
 	save_data(chosen_save_file)
 	
@@ -610,7 +610,7 @@ func save_data(filename):
 		"master_volume": master_volume,
 		"music_volume": music_volume,
 		"sfx_volume": sfx_volume,
-		"last_save": str(Time.get_datetime_dict_from_system()),
+		"game_version": game_version,
 		"fps_cap": fps_cap,
 		"vsync_mode": vsync_mode,
 		"level_win": level_win,

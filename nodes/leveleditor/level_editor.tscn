@@ -50,12 +50,12 @@ region = Rect2(256, 0, 128, 128)
 atlas = ExtResource("3_jww38")
 region = Rect2(384, 0, 128, 128)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3tpv"]
+bg_color = Color(0.295867, 0.295867, 0.295866, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_d10nh"]
 atlas = ExtResource("8_mlbn2")
 region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3tpv"]
-bg_color = Color(0.295867, 0.295867, 0.295866, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mogqt"]
 bg_color = Color(0.362829, 0.362829, 0.362829, 1)
@@ -392,10 +392,11 @@ layout_mode = 2
 script = ExtResource("7_kqawx")
 
 [node name="wavenumber" type="Label" parent="bottombar/waves/list/ScrollContainer/VBoxContainer/example"]
+visible = false
 z_index = 1
 layout_mode = 0
-offset_left = 771.0
-offset_right = 915.0
+offset_left = 691.0
+offset_right = 835.0
 offset_bottom = 8.0
 scale = Vector2(1.5, 1.5)
 text = "-1"
@@ -405,11 +406,12 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="id" type="Label" parent="bottombar/waves/list/ScrollContainer/VBoxContainer/example"]
+visible = false
 z_index = 1
 layout_mode = 0
-offset_left = 771.0
+offset_left = 691.0
 offset_top = 13.0
-offset_right = 915.0
+offset_right = 835.0
 offset_bottom = 21.0
 scale = Vector2(1.5, 1.5)
 text = "0"
@@ -431,13 +433,14 @@ label_settings = ExtResource("7_21c34")
 [node name="status" type="Label" parent="bottombar/waves/list/ScrollContainer/VBoxContainer/example"]
 z_index = 1
 layout_mode = 0
-offset_left = 5.0
-offset_top = 21.0
-offset_right = 985.0
-offset_bottom = 59.0
+offset_left = 461.0
+offset_top = 1.0
+offset_right = 945.0
+offset_bottom = 64.0
 text = "[]"
 horizontal_alignment = 2
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="time" type="Label" parent="bottombar/waves/list/ScrollContainer/VBoxContainer/example"]
 z_index = 1
@@ -480,20 +483,41 @@ texture = ExtResource("11_1u64q")
 hframes = 10
 vframes = 10
 
-[node name="trash" type="TextureButton" parent="bottombar/waves/list/ScrollContainer/VBoxContainer/example"]
-visible = false
-z_index = 1
-layout_mode = 0
-offset_left = 952.0
-offset_right = 984.0
-offset_bottom = 32.0
-texture_normal = SubResource("AtlasTexture_d10nh")
-
 [node name="bg" type="Panel" parent="bottombar/waves/list/ScrollContainer/VBoxContainer/example"]
 layout_mode = 0
 offset_right = 1013.0
 offset_bottom = 64.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_f3tpv")
+
+[node name="down" type="Button" parent="bottombar/waves/list/ScrollContainer/VBoxContainer/example"]
+layout_mode = 0
+offset_left = 1071.0
+offset_top = 33.0
+offset_right = 1097.0
+offset_bottom = 87.0
+rotation = 1.57079
+disabled = true
+text = ">"
+
+[node name="up" type="Button" parent="bottombar/waves/list/ScrollContainer/VBoxContainer/example"]
+layout_mode = 0
+offset_left = 1017.0
+offset_top = 31.0
+offset_right = 1043.0
+offset_bottom = 85.0
+rotation = 4.71238
+disabled = true
+text = ">"
+
+[node name="trash" type="TextureButton" parent="bottombar/waves/list/ScrollContainer/VBoxContainer/example"]
+z_index = 2
+layout_mode = 0
+offset_left = 947.0
+offset_top = 5.0
+offset_right = 1001.0
+offset_bottom = 59.0
+texture_normal = SubResource("AtlasTexture_d10nh")
+stretch_mode = 0
 
 [node name="wavenumber" type="Label" parent="bottombar/waves"]
 layout_mode = 0
@@ -1223,6 +1247,8 @@ bus = &"SFX"
 [connection signal="pressed" from="bottombar/goback" to="." method="_on_goback_pressed"]
 [connection signal="pressed" from="bottombar/status" to="." method="_on_status_pressed"]
 [connection signal="pressed" from="bottombar/pertytype" to="." method="_on_pertytype_pressed"]
+[connection signal="pressed" from="bottombar/waves/list/ScrollContainer/VBoxContainer/example/down" to="bottombar/waves/list/ScrollContainer/VBoxContainer/example" method="_on_down_pressed"]
+[connection signal="pressed" from="bottombar/waves/list/ScrollContainer/VBoxContainer/example/up" to="bottombar/waves/list/ScrollContainer/VBoxContainer/example" method="_on_up_pressed"]
 [connection signal="pressed" from="bottombar/waves/list/ScrollContainer/VBoxContainer/example/trash" to="bottombar/waves/list/ScrollContainer/VBoxContainer/example" method="_on_trash_pressed"]
 [connection signal="pressed" from="bottombar/waves/left" to="." method="_on_left_pressed"]
 [connection signal="pressed" from="bottombar/waves/right" to="." method="_on_right_pressed"]

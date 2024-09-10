@@ -5,7 +5,8 @@ var enemyNode = preload("res://nodes/enemies/Perty.tscn")
 
 func _ready() -> void: get_parent().visible = GLOBALVAR_PTD.show_debug
 
-func _unhandled_key_input(event: InputEvent) -> void: get_parent().visible = GLOBALVAR_PTD.show_debug
+func _unhandled_key_input(event: InputEvent) -> void: 
+	get_parent().visible = (GLOBALVAR_PTD.show_debug and get_node("../..").visible)
 
 
 func _on_show_pressed():
@@ -19,7 +20,7 @@ func _on_moneys_pressed():
 
 
 func _on_win_pressed():
-	get_node("../../../enemyspawner").end_game(true)
+	get_node("../../../../enemyspawner").end_game(true)
 
 func _on_loss_pressed():
-	get_node("../../../enemyspawner").end_game(false)
+	get_node("../../../../enemyspawner").end_game(false)

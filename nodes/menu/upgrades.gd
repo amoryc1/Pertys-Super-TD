@@ -4,11 +4,16 @@ var towerPath = ""
 var lockedPath = -1
 
 # Checks upgrade values to determine if a path should be locked
-func check_values_for_lock(v1, v2, v3) -> int:
+func check_values_for_lock(v1, v2, v3) -> Array:
 	# Check if v1 v2 or v3 are bigger then 0 and apply that to the array
 	var value_array = [v1, v2, v3]
 	var count = 0
+	var count3 = 0 # number of 3 upgrades
+	var count2 = 0 # number of 2 upgrades
 	var false_index = -1
+	
+	var x = -1
+	var y = -1
 	
 	var iteration = 0
 	for i in value_array:
@@ -17,10 +22,17 @@ func check_values_for_lock(v1, v2, v3) -> int:
 			count += 1
 		else: 
 			false_index = iteration
+		
+		if i == 2: count2 = iteration
+		if i == 3: count3 = iteration
 	
-	if count >= 2:
-		return false_index
-	return -1
+	
+	if count >= 2: # If 2 upgrades are unlocked lock one path
+		x = false_index
+	if count3 > 0 and count2 > 0: # if one path is lvl 2 and the other is lvl 3 lock the level 2
+		y = count2
+	
+	return [x, y]
 
 
 func update_text(child, upg, tower, tier):
@@ -31,10 +43,12 @@ func update_text(child, upg, tower, tier):
 	get_node(child + "/lock").visible = false
 	get_node(child + "/Button").disabled = false
 	
+		
 	# Lock path
-	if child == "upgrade" + str(check_values_for_lock(get_node(towerPath).upgradeLevel1,get_node(towerPath).upgradeLevel2,get_node(towerPath).upgradeLevel3)):
-		get_node(child + "/lock").visible = true
-		get_node(child + "/Button").disabled = true
+	for x in check_values_for_lock(get_node(towerPath).upgradeLevel1,get_node(towerPath).upgradeLevel2,get_node(towerPath).upgradeLevel3):
+		if child == "upgrade" + str(x):
+			get_node(child + "/lock").visible = true
+			get_node(child + "/Button").disabled = true
 	
 	
 	if updgLevel >= 3:
@@ -60,6 +74,8 @@ func update_text(child, upg, tower, tier):
 	
 	
 	$sell.text = "Sell (" + str(get_node(towerPath).sellValue) + ")"
+		
+
 
 func open():
 	update_text("upgrade1", get_node(towerPath).upgradeLevel1, get_node(towerPath), 1)

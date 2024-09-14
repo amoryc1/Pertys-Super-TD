@@ -5,6 +5,7 @@ var logical_core_count = 0
 var processor_name = "Hi!"
 var os_name = "TempleOS"
 
+var old_exp = 0
 
 # Bless ChatGPT
 func human_readable_size(size: int):
@@ -56,14 +57,42 @@ func capture_screenshot():
 	else:
 		print("Screenshot saved as: " + OS.get_user_data_dir() + "/" + file_name)
 
+func update_expbar(vis):
+	var requirement = GLOBALVAR_PTD.calculate_xp_for_levelup()
+	$expbar.visible = vis
+	
+	if GLOBALVAR_PTD.exp >= requirement:
+		GLOBALVAR_PTD.exp -= requirement
+		GLOBALVAR_PTD.level += 1
+	
+	if vis:
+		if GLOBALVAR_PTD.exp > old_exp:
+			$expbar/AnimationPlayer.stop()
+			$expbar/AnimationPlayer.play("exp_gain")
+			$expbar/plus.text = "+" + str(GLOBALVAR_PTD.exp - old_exp)
+		$expbar.max_value = requirement
+		$expbar.value = GLOBALVAR_PTD.exp
+		$expbar/level.text = "Level " + str(GLOBALVAR_PTD.level) + " (" + str(GLOBALVAR_PTD.exp) + "/" + str(requirement) + ")"
+	
+	old_exp = GLOBALVAR_PTD.exp
 
 func _ready():
+	old_exp = GLOBALVAR_PTD.exp
+	$expbar/plus.self_modulate.a = 0
+	update_expbar(GLOBALVAR_PTD.show_exp_bar)
+	
+	if GLOBALVAR_PTD.in_game: # Move out of the way of the tower list
+		$expbar.position.x = 855
+	
 	load_time = Time.get_ticks_msec() - GLOBALVAR_PTD.ticks_at_load_start
 	processor_name = OS.get_processor_name()
 	logical_core_count = str(OS.get_processor_count())
 	os_name = OS.get_name()
 
 func _process(_delta):
+	update_expbar(GLOBALVAR_PTD.show_exp_bar)
+	$expbar.visible = GLOBALVAR_PTD.show_exp_bar
+	
 	if GLOBALVAR_PTD.show_debug:
 		var current_memory = OS.get_static_memory_usage()
 		var peak_memory = OS.get_static_memory_peak_usage()

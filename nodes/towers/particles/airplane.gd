@@ -32,12 +32,14 @@ func _process(delta):
 			piercing -= 1
 
 	if piercing <= 0: # Only explode on 3rd upgrade of path 2
-		if get_node(trueParent).upgradeAdded2[2] == true:
-			$explode.visible = true
-			$Sprite2D.visible = false
-			$explode.play("default")
-			$explode.z_index = 101
-			speed = 0
+		var parent = get_node_or_null(trueParent)
+		if parent:
+			if get_node(trueParent).upgradeAdded2[2] == true:
+				$explode.visible = true
+				$Sprite2D.visible = false
+				$explode.play("default")
+				$explode.z_index = 101
+				speed = 0
 		else:
 			queue_free()
 	

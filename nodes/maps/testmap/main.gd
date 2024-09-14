@@ -16,7 +16,7 @@ extends Node2D
 # The false is for if it occurs at the end. true - event occurs at wave end, false - event occurs at wave start 
 # When wave 2 starts a little message will appear with "This is Wave 2!"
 
-var levelStats =[{ "levelName": "The Park", "difficulty": "Easy", "startingHealth": 5, "startingMoney": 1500, "cashMultiplier": 1, "events": {  } }, [["Normal", 1, 0.1, []], ["Blue", 1, 0.1, []], ["Green", 1, 0.1, []], ["Yellow", 1, 0.1, []], ["Pink", 1, 0.1, []], ["Rainbow", 1, 0.1, []]], [["Rainbow", 1, 0.1, []]], [["Foap", 2, 0.1, []]], [["Normal", 1000, 0.02, []]]]
+var levelStats =[{ "levelName": "The Park", "difficulty": "Easy", "startingHealth": 5, "startingMoney": 1500, "cashMultiplier": 1, "expReward": 10, "events": {  } }, [["Normal", 1, 0.1, []], ["Blue", 1, 0.1, []], ["Green", 1, 0.1, []], ["Yellow", 1, 0.1, []], ["Pink", 1, 0.1, []], ["Rainbow", 1, 0.1, []]], [["Rainbow", 1, 0.1, []]], [["Foap", 2, 0.1, []]], [["Normal", 1000, 0.02, []]]]
 
 
 

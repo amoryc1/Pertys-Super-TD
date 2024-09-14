@@ -3,6 +3,7 @@ extends Area2D
 @export var speed = 1.0 # multiply this by GLOBALVAR.basePertySpeed
 @export var damage = 1 # How much damage they deal when reaching the end of its path
 @export var earnings = 1 # How much is earned after this is defeated
+@export var exp_earnings = 1 # EXP earned on defeat
 @export var health = 1
 @export var enemyStage = 1
 @export var status = []
@@ -103,6 +104,10 @@ func _process(_delta):
 		else:
 			get_parent().queue_free()
 		GLOBALVAR_PTD.money += earnings
+		GLOBALVAR_PTD.total_money += earnings
+		
+		GLOBALVAR_PTD.exp += exp_earnings
+		GLOBALVAR_PTD.total_exp += exp_earnings
 
 func _on_area_entered(area):
 	if area.name == "death":

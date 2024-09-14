@@ -15,6 +15,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Saving and loading progress for a level
 - 'Hide OS Name' option to replace part of file paths that show the full user directory inside logs or in ui with user:// to hide your name if screenshoting or recording
 - Difficulty select menu
+- Level and EXP System
+- EXP is rewarded by winning levels (100% first win and 50% after that) and defeating enemies (1 per layer, 3 per boss layer)
+- EXP Reward in level editor
+- My plan for EXP is to unlock towers at certain levels and 'hero' towers every 5 levels
+- 'total_money' and 'total_exp' is saved inside the saves file but currently cant be viewed in game
 
 ### Changes
 - Ruler Tower throws rulers twice as far

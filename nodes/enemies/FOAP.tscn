@@ -54,6 +54,7 @@ z_index = 30
 script = ExtResource("2_ou6j7")
 damage = 50
 earnings = 20
+exp_earnings = 3
 health = 250
 enemyStage = 6
 spawns = {

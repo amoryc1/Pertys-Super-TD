@@ -24,7 +24,6 @@ func _ready():
 	if GLOBALVAR_PTD.level_win["The Park"][0]["Hardcore"] > 0: $achievementRack/winTestMap.frame = 4
 	
 	
-	
 	$SettingsMenu/advanced/showDebug.button_pressed = GLOBALVAR_PTD.show_debug
 	$SettingsMenu/advanced/hideUser.button_pressed = GLOBALVAR_PTD.hide_user
 	
@@ -84,6 +83,7 @@ var secretCode = ["ui_up","ui_up","ui_down","ui_down","ui_left","ui_right","ui_l
 var secretCodePos = 0
 var canEnterCode = true
 var eggFlownAway = false
+
 
 
 func _input(event):

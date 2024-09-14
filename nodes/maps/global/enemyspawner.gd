@@ -17,7 +17,7 @@ var won_level = false
 func _on_gohome_pressed() -> void:
 	var level_name = get_parent().levelStats[0]["levelName"]
 	var level_difficulty = get_parent().levelStats[0]["difficulty"]
-	GLOBALVAR_PTD.end_game(level_difficulty, level_name, won_level)
+	GLOBALVAR_PTD.end_game(level_difficulty, level_name, won_level, get_parent().levelStats[0]["expReward"])
 
 func end_game(win):
 	var level_name = get_parent().levelStats[0]["levelName"]
@@ -102,6 +102,7 @@ func _process(_delta):
 			GLOBALVAR_PTD.in_wave = false
 			wave += 1
 			GLOBALVAR_PTD.money += (10 * (wave+5)) * winMultiplier
+			GLOBALVAR_PTD.total_money += (10 * (wave+5)) * winMultiplier
 			get_node("../LevelUI/startwave").disabled = false
 			enemyId = 0
 

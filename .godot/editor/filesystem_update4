@@ -17,3 +17,9 @@ res://nodes/towers/ruler/ruler.tscn
 res://nodes/towers/ruler/ruler.gd
 res://nodes/menu/upgrades.gd
 res://nodes/menu/menu.gd
+res://nodes/leveleditor/level_editor.gd
+res://nodes/maps/testmap/main.gd
+res://Global/ui.gd
+res://nodes/enemies/enemyai.gd
+res://nodes/enemies/FOAP.tscn
+res://nodes/towers/particles/airplane.gd

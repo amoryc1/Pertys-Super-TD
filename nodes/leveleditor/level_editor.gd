@@ -23,6 +23,7 @@ var currentWaveArray = [
 		"startingHealth": 100,
 		"startingMoney": 200,
 		"cashMultiplier": 1,
+		"expReward": 10,
 		"events": {
 			1: {}
 		}
@@ -68,6 +69,7 @@ func _on_set_pressed():
 	$bottombar/startingcash.text        = str(int($bottombar/startingcash.text))
 	$bottombar/cashmultiplier.text      = str(int($bottombar/cashmultiplier.text))
 	$bottombar/startinglife.text        = str(int($bottombar/startinglife.text))
+	$bottombar/expreward.text           = str(int($bottombar/expreward.text))
 	# turn to floats
 	$bottombar/spawntime.text = str(float($bottombar/spawntime.text))
 	
@@ -118,6 +120,7 @@ func _on_set_pressed():
 	currentWaveArray[0]["startingMoney"] = startingMoney
 	currentWaveArray[0]["cashMultiplier"] = cashMultiplier
 	currentWaveArray[0]["levelName"] = $bottombar/levelname.text
+	currentWaveArray[0]["expReward"] = int($bottombar/expreward.text)
 	# currentWaveArray[0]["events"] sorted up there ^
 	
 
@@ -126,6 +129,10 @@ func _on_set_pressed():
 	menuClone2.array_for_this_node = array_to_give
 	
 	spawnpartID += 1
+
+func _ready() -> void:
+	$GlobalUI/expbar.visible = false
+
 
 func _on_status_pressed():
 	var x = !$bottombar/statusMenu.visible

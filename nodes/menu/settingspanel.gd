@@ -47,4 +47,4 @@ func _on_nah_pressed() -> void:
 	$confirm.visible = false
 
 func _on_yea_pressed() -> void:
-	GLOBALVAR_PTD.end_game(get_node("../..").levelStats[0]["difficulty"], get_node("../..").levelStats[0]["levelName"], false)
+	GLOBALVAR_PTD.end_game(get_node("../..").levelStats[0]["difficulty"], get_node("../..").levelStats[0]["levelName"], false, get_node("../..").levelStats[0]["expReward"])

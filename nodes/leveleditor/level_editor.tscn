@@ -224,11 +224,30 @@ texture = ExtResource("5_82w2o")
 hframes = 16
 vframes = 16
 
+[node name="expreward" type="LineEdit" parent="bottombar"]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 118.0
+offset_right = 551.0
+offset_bottom = 165.0
+theme_override_fonts/font = ExtResource("2_gn0rb")
+theme_override_font_sizes/font_size = 32
+text = "10"
+placeholder_text = "XP Reward"
+
+[node name="Sprite2D" type="Sprite2D" parent="bottombar/expreward"]
+position = Vector2(232, 21)
+scale = Vector2(2, 2)
+texture = ExtResource("5_82w2o")
+hframes = 16
+vframes = 16
+frame = 4
+
 [node name="startinglife" type="LineEdit" parent="bottombar"]
 layout_mode = 0
 offset_left = 295.0
 offset_top = 66.0
-offset_right = 536.0
+offset_right = 551.0
 offset_bottom = 113.0
 theme_override_fonts/font = ExtResource("2_gn0rb")
 theme_override_font_sizes/font_size = 32
@@ -236,7 +255,7 @@ text = "100"
 placeholder_text = "Starting life"
 
 [node name="Sprite2D" type="Sprite2D" parent="bottombar/startinglife"]
-position = Vector2(218, 22)
+position = Vector2(234, 22)
 scale = Vector2(2, 2)
 texture = ExtResource("5_82w2o")
 hframes = 16
@@ -247,7 +266,7 @@ frame = 2
 layout_mode = 0
 offset_left = 295.0
 offset_top = 10.0
-offset_right = 536.0
+offset_right = 551.0
 offset_bottom = 57.0
 theme_override_fonts/font = ExtResource("2_gn0rb")
 theme_override_font_sizes/font_size = 32
@@ -255,7 +274,7 @@ text = "Normal"
 placeholder_text = "Difficulty name"
 
 [node name="Sprite2D" type="Sprite2D" parent="bottombar/difficultyname"]
-position = Vector2(218, 22)
+position = Vector2(234, 22)
 scale = Vector2(2, 2)
 texture = ExtResource("5_82w2o")
 hframes = 16

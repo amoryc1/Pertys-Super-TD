@@ -6,9 +6,14 @@ var game_version = "[beta 0.13] - 2024-09-14"
 var ticks_at_load_start = 0
 
 var money = 0
+var total_money = 0
 var health = 100
+var exp = 0
+var total_exp = 0
+var level = 1
 
 var has_loaded_data = false
+var show_exp_bar = true
 
 var hide_user = false
 var file_format_ver = 1
@@ -590,9 +595,22 @@ var perty_stages = {
 	"foap": ["res://nodes/enemies/FOAP.tscn", 7],
 	}
 
-func end_game(level_difficulty, level_name, win):
+
+func calculate_xp_for_levelup():
+	if level == 1: return 5
+	else: return int((10 * level) + (level ** 1.75))
+
+
+func end_game(level_difficulty, level_name, win, exp_reward):
 	if win: # Add 1 to difficulty count
+		if level_win[level_name][0][level_difficulty] == 0: # 100% xp on first win
+			exp += exp_reward
+			total_exp += exp_reward
+		else: # 50% xp on wins after
+			exp += exp_reward * 0.5
+			total_exp += exp_reward * 0.5
 		level_win[level_name][0][level_difficulty] += 1
+		
 	
 	level_win[level_name][1].erase(level_difficulty) # Erase progress on win/loss/deletion
 	
@@ -656,7 +674,11 @@ func save_data(filename):
 		"shadows_enabled": shadows_enabled,
 		"shadow_level": shadow_level,
 		"file_format_ver": file_format_ver,
-		"hide_user": hide_user
+		"hide_user": hide_user,
+		"total_money": total_money,
+		"total_exp": total_exp,
+		"exp": exp,
+		"level": level
 	}
 	
 	var json_string = JSON.stringify(data)
@@ -701,6 +723,10 @@ func load_data(filename):
 		if "shadow_level" in data: shadow_level = data.shadow_level
 		if "file_format_ver" in data: file_format_ver = data.file_format_ver
 		if "hide_user" in data: hide_user = data.hide_user
+		if "total_money" in data: total_money = data.total_money
+		if "exp" in data: exp = data.exp
+		if "total_exp" in data: total_exp = data.total_exp
+		if "level" in data: level = data.level
 		
 		
 		# Achievements

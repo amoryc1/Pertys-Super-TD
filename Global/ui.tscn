@@ -1,6 +1,87 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvhf0pyotf3qe"]
+[gd_scene load_steps=15 format=3 uid="uid://cvhf0pyotf3qe"]
 
 [ext_resource type="Script" path="res://Global/ui.gd" id="1_m5h7i"]
+[ext_resource type="FontFile" uid="uid://baoeo3040amly" path="res://font/small_pixel.ttf" id="2_locki"]
+[ext_resource type="Texture2D" uid="uid://e0jh3ckblci4" path="res://assets/ui/stats.png" id="3_731un"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4050"]
+bg_color = Color(0.048, 0.220267, 0.32, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibm2w"]
+bg_color = Color(0.158272, 0.488435, 0.686341, 1)
+
+[sub_resource type="Animation" id="Animation_8o1r0"]
+resource_name = "exp_gain"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("plus:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.266667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("plus:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(-112, 11), Vector2(-112, -5)]
+}
+
+[sub_resource type="Animation" id="Animation_x0eb5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("level:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("plus:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-64, 11)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("plus:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ojpn"]
+_data = {
+"RESET": SubResource("Animation_x0eb5"),
+"exp_gain": SubResource("Animation_8o1r0")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2khs"]
 bg_color = Color(0.15, 0.15, 0.15, 0.243137)
@@ -75,6 +156,53 @@ _data = {
 [node name="GlobalUI" type="CanvasLayer"]
 layer = 128
 script = ExtResource("1_m5h7i")
+
+[node name="expbar" type="ProgressBar" parent="."]
+z_index = -1
+offset_left = 1158.0
+offset_top = 7.0
+offset_right = 1590.0
+offset_bottom = 37.0
+theme_override_styles/background = SubResource("StyleBoxFlat_g4050")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ibm2w")
+max_value = 5.0
+value = 1.0
+show_percentage = false
+
+[node name="level" type="Label" parent="expbar"]
+layout_mode = 0
+offset_left = -4.0
+offset_right = 390.0
+offset_bottom = 30.0
+theme_override_fonts/font = ExtResource("2_locki")
+text = "Level 1 (1/5)"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="xp" type="Sprite2D" parent="expbar"]
+position = Vector2(413, 15)
+scale = Vector2(2, 2)
+texture = ExtResource("3_731un")
+hframes = 16
+vframes = 16
+frame = 4
+
+[node name="plus" type="Label" parent="expbar"]
+layout_mode = 0
+offset_left = -64.0
+offset_top = 11.0
+offset_right = 43.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.449, 0.42, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "+1"
+horizontal_alignment = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="expbar"]
+libraries = {
+"": SubResource("AnimationLibrary_3ojpn")
+}
 
 [node name="debug" type="Node2D" parent="."]
 

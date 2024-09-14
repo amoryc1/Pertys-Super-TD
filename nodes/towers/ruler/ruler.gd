@@ -117,7 +117,7 @@ else:
 		if upgradeLevel3 >= 1 and upgradeAdded3[0] == false:
 			$CollisionShape2D.shape.radius += 30 #230
 			$ring.scale += Vector2(0.225, 0.225)
-			travelTime += .1
+			travelTime += .2
 			upgradeAdded3[0] = true
 			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][3][1]["cost"] * 0.75)
 			print("upgrade3/1")
@@ -125,7 +125,7 @@ else:
 		if upgradeLevel3 >= 2 and upgradeAdded3[1] == false:
 			$CollisionShape2D.shape.radius += 30 #230
 			$ring.scale += Vector2(0.225, 0.225)
-			projectileSpeed += 32 # 10
+			projectileSpeed += 64 # 10
 			upgradeAdded3[1] = true
 			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][3][2]["cost"] * 0.75)
 			$otherrotate/upgrade32.visible = true
@@ -134,8 +134,8 @@ else:
 		if upgradeLevel3 >= 3 and upgradeAdded3[2] == false:
 			$CollisionShape2D.shape.radius += 30 #230
 			$ring.scale += Vector2(0.225, 0.225)
-			projectileSpeed += 80 # 15
-			travelTime += .2
+			projectileSpeed += 160 # 15
+			travelTime += .3
 			upgradeAdded3[2] = true
 			sellValue += int(GLOBALVAR_PTD.tower_upgrades[towerName][3][3]["cost"] * 0.75)
 			$otherrotate/upgrade33.visible = true

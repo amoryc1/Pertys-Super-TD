@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://ddopo0p0fyxle"]
+[gd_scene load_steps=53 format=3 uid="uid://ddopo0p0fyxle"]
 
 [ext_resource type="Script" path="res://nodes/menu/levelui.gd" id="1_wh3yf"]
 [ext_resource type="Texture2D" uid="uid://e0jh3ckblci4" path="res://assets/ui/stats.png" id="2_1rxh5"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://nsf6wevfx2b1" path="res://assets/towers/glue/upgrades.png" id="23_jfoah"]
 [ext_resource type="Texture2D" uid="uid://bg0w0uq4el2li" path="res://assets/ui/buttons/sell.png" id="24_e2vgh"]
 [ext_resource type="AudioStream" uid="uid://cn4c5l33bs1io" path="res://music/sfx/error.ogg" id="27_7fov2"]
+[ext_resource type="Script" path="res://nodes/menu/settingspanel.gd" id="27_j6gdj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eqq23"]
 atlas = ExtResource("3_pdfay")
@@ -126,6 +127,12 @@ animations = [{
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfiio"]
 bg_color = Color(0.18, 0.18, 0.18, 0.890196)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yyuua"]
+bg_color = Color(0.442911, 0.442911, 0.442911, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_absh4"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 0.976471)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bmxx3"]
 atlas = ExtResource("19_63xd6")
@@ -232,6 +239,7 @@ offset_right = 136.0
 offset_bottom = 192.0
 pivot_offset = Vector2(64, 64)
 script = ExtResource("3_3qh5k")
+towerPath = "Pencil Tower"
 
 [node name="Sprite2D" type="Sprite2D" parent="units/list/penciltower"]
 texture = ExtResource("8_l7lej")
@@ -363,7 +371,7 @@ offset_right = 272.0
 offset_bottom = 192.0
 pivot_offset = Vector2(64, 64)
 script = ExtResource("3_3qh5k")
-towerPath = "ruler/ruler"
+towerPath = "Ruler Tower"
 
 [node name="Sprite2D" type="Sprite2D" parent="units/list/rulertower"]
 texture = ExtResource("15_eui31")
@@ -492,7 +500,7 @@ offset_right = 136.0
 offset_bottom = 328.0
 pivot_offset = Vector2(64, 64)
 script = ExtResource("3_3qh5k")
-towerPath = "glue/gluetower"
+towerPath = "Glue Gunner"
 posInList = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="units/list/gluetower"]
@@ -625,7 +633,7 @@ offset_right = 272.0
 offset_bottom = 328.0
 pivot_offset = Vector2(64, 64)
 script = ExtResource("3_3qh5k")
-towerPath = "redwoodworker/worker"
+towerPath = "Redwood Worker"
 posInList = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="units/list/redwoodworker"]
@@ -762,7 +770,7 @@ offset_right = 136.0
 offset_bottom = 464.0
 pivot_offset = Vector2(64, 64)
 script = ExtResource("3_3qh5k")
-towerPath = "particles/spikes"
+towerPath = "Gabby's Book"
 posInList = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="units/list/spiketrap"]
@@ -898,7 +906,7 @@ offset_right = 272.0
 offset_bottom = 464.0
 pivot_offset = Vector2(64, 64)
 script = ExtResource("3_3qh5k")
-towerPath = "flamethrower/flamethrower"
+towerPath = "Flamethrower"
 posInList = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="units/list/flamethrower"]
@@ -1032,7 +1040,7 @@ offset_right = 272.0
 offset_bottom = 600.0
 pivot_offset = Vector2(64, 64)
 script = ExtResource("3_3qh5k")
-towerPath = "airplanesniper/airplanesniper"
+towerPath = "Airplane Sniper"
 posInList = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="units/list/airplanesniper"]
@@ -1170,7 +1178,7 @@ offset_right = 136.0
 offset_bottom = 600.0
 pivot_offset = Vector2(64, 64)
 script = ExtResource("3_3qh5k")
-towerPath = "watergunner/watergunner"
+towerPath = "Watergunner"
 posInList = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="units/list/watergunner"]
@@ -1752,45 +1760,91 @@ offset_top = -14.0
 offset_right = 1659.0
 offset_bottom = 926.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qfiio")
+script = ExtResource("27_j6gdj")
 
-[node name="debugbuttons" type="Node2D" parent="settingspanel"]
+[node name="Panel" type="Panel" parent="settingspanel"]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 2.0
+offset_right = 874.0
+offset_bottom = 939.0
+
+[node name="pausedtitle" type="Label" parent="settingspanel"]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 47.0
+offset_right = 876.0
+offset_bottom = 129.0
+theme_override_fonts/font = ExtResource("10_walxs")
+theme_override_font_sizes/font_size = 64
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="saveandexit" type="Button" parent="settingspanel"]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 718.0
+offset_right = 896.0
+offset_bottom = 813.0
+theme_override_font_sizes/font_size = 32
+text = "Save and Exit"
+
+[node name="deleteprogress" type="Button" parent="settingspanel"]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 574.0
+offset_right = 896.0
+offset_bottom = 629.0
+theme_override_font_sizes/font_size = 32
+text = "Delete Level Progress
+"
+
+[node name="confirm" type="Panel" parent="settingspanel"]
 visible = false
-position = Vector2(21, 14)
+layout_mode = 0
+offset_left = 575.0
+offset_top = 171.0
+offset_right = 1066.0
+offset_bottom = 594.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yyuua")
 
-[node name="list" type="Node2D" parent="settingspanel/debugbuttons"]
-visible = false
-position = Vector2(72, -8)
-script = ExtResource("8_j5xjt")
+[node name="Panel" type="Panel" parent="settingspanel/confirm"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -587.0
+offset_top = -205.0
+offset_right = 1097.0
+offset_bottom = 783.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_absh4")
 
-[node name="moneys" type="Button" parent="settingspanel/debugbuttons/list"]
-offset_left = 56.0
-offset_top = 860.0
-offset_right = 340.0
-offset_bottom = 896.0
-text = "Get a ton of $$$"
+[node name="Label" type="Label" parent="settingspanel/confirm"]
+layout_mode = 0
+offset_top = 34.0
+offset_right = 490.0
+offset_bottom = 421.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "You sure you wanna delete this levels progress forever until you reach this point again? Forever is a looooong time..."
+horizontal_alignment = 1
+autowrap_mode = 2
 
-[node name="win" type="Button" parent="settingspanel/debugbuttons/list"]
-offset_left = 56.0
-offset_top = 820.0
-offset_right = 340.0
-offset_bottom = 856.0
-text = "Force a win"
+[node name="yea" type="Button" parent="settingspanel/confirm"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 213.0
+offset_right = 429.0
+offset_bottom = 258.0
+theme_override_font_sizes/font_size = 32
+text = "Yea!"
 
-[node name="loss" type="Button" parent="settingspanel/debugbuttons/list"]
-offset_left = 56.0
-offset_top = 780.0
-offset_right = 340.0
-offset_bottom = 816.0
-text = "Force a loss"
-
-[node name="show" type="Button" parent="settingspanel/debugbuttons"]
-offset_left = 436.0
-offset_top = 855.0
-offset_right = 468.0
-offset_bottom = 887.0
-rotation = 3.14159
-pivot_offset = Vector2(16, 16)
-text = "V"
+[node name="nah" type="Button" parent="settingspanel/confirm"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 306.0
+offset_right = 429.0
+offset_bottom = 394.0
+theme_override_font_sizes/font_size = 32
+text = "Nah."
 
 [node name="pausegame" type="TextureButton" parent="."]
 self_modulate = Color(1, 1, 1, 0.592157)
@@ -1801,6 +1855,44 @@ offset_bottom = 827.0
 scale = Vector2(3, 3)
 texture_normal = SubResource("AtlasTexture_bmxx3")
 
+[node name="debugbuttons" type="Node2D" parent="."]
+visible = false
+
+[node name="list" type="Node2D" parent="debugbuttons"]
+visible = false
+position = Vector2(72, -8)
+script = ExtResource("8_j5xjt")
+
+[node name="moneys" type="Button" parent="debugbuttons/list"]
+offset_left = 56.0
+offset_top = 860.0
+offset_right = 340.0
+offset_bottom = 896.0
+text = "Get a ton of $$$"
+
+[node name="win" type="Button" parent="debugbuttons/list"]
+offset_left = 56.0
+offset_top = 820.0
+offset_right = 340.0
+offset_bottom = 856.0
+text = "Force a win"
+
+[node name="loss" type="Button" parent="debugbuttons/list"]
+offset_left = 56.0
+offset_top = 780.0
+offset_right = 340.0
+offset_bottom = 816.0
+text = "Force a loss"
+
+[node name="show" type="Button" parent="debugbuttons"]
+offset_left = 436.0
+offset_top = 855.0
+offset_right = 468.0
+offset_bottom = 887.0
+rotation = 3.14159
+pivot_offset = Vector2(16, 16)
+text = "V"
+
 [connection signal="pressed" from="units/scrollup" to="units/list" method="_on_scrollup_pressed"]
 [connection signal="pressed" from="units/scrolldown" to="units/list" method="_on_scrolldown_pressed"]
 [connection signal="pressed" from="startwave" to="." method="_on_startwave_pressed"]
@@ -1810,8 +1902,12 @@ texture_normal = SubResource("AtlasTexture_bmxx3")
 [connection signal="pressed" from="upgrades/upgrade2/Button" to="upgrades" method="_on_texture_button2_pressed"]
 [connection signal="pressed" from="upgrades/upgrade3/Button" to="upgrades" method="_on_texture_button3_pressed"]
 [connection signal="pressed" from="upgrades/sell" to="upgrades" method="_on_sell_pressed"]
-[connection signal="pressed" from="settingspanel/debugbuttons/list/moneys" to="settingspanel/debugbuttons/list" method="_on_moneys_pressed"]
-[connection signal="pressed" from="settingspanel/debugbuttons/list/win" to="settingspanel/debugbuttons/list" method="_on_win_pressed"]
-[connection signal="pressed" from="settingspanel/debugbuttons/list/loss" to="settingspanel/debugbuttons/list" method="_on_loss_pressed"]
-[connection signal="pressed" from="settingspanel/debugbuttons/show" to="settingspanel/debugbuttons/list" method="_on_show_pressed"]
+[connection signal="pressed" from="settingspanel/saveandexit" to="settingspanel" method="_on_saveandexit_pressed"]
+[connection signal="pressed" from="settingspanel/deleteprogress" to="settingspanel" method="_on_deleteprogress_pressed"]
+[connection signal="pressed" from="settingspanel/confirm/yea" to="settingspanel" method="_on_yea_pressed"]
+[connection signal="pressed" from="settingspanel/confirm/nah" to="settingspanel" method="_on_nah_pressed"]
 [connection signal="pressed" from="pausegame" to="." method="_on_pausegame_pressed"]
+[connection signal="pressed" from="debugbuttons/list/moneys" to="debugbuttons/list" method="_on_moneys_pressed"]
+[connection signal="pressed" from="debugbuttons/list/win" to="debugbuttons/list" method="_on_win_pressed"]
+[connection signal="pressed" from="debugbuttons/list/loss" to="debugbuttons/list" method="_on_loss_pressed"]
+[connection signal="pressed" from="debugbuttons/show" to="debugbuttons/list" method="_on_show_pressed"]

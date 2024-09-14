@@ -20,7 +20,7 @@ func _on_moneys_pressed():
 
 
 func _on_win_pressed():
-	get_node("../../../../enemyspawner").end_game(true)
+	get_node("../../../enemyspawner").end_game(true)
 
 func _on_loss_pressed():
-	get_node("../../../../enemyspawner").end_game(false)
+	get_node("../../../enemyspawner").end_game(false)

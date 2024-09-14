@@ -101,7 +101,7 @@ func _on_graphics_menu_pressed(): openMenu("graphics", "graphicsMenu")
 func _on_save_pressed():
 	get_node("../tapSFX").play()
 	var x = GLOBALVAR_PTD.save_data(GLOBALVAR_PTD.chosen_save_file)
-	if x[0]: 
+	if x[0]:
 		makeNotification("Saved at " + str(x[1]))
 	else: 
 		makeNotification("Saving Failed")
@@ -142,3 +142,12 @@ func _on_shadowmode_pressed() -> void:
 		$graphics/shadow/mode.text = "Off"
 		GLOBALVAR_PTD.shadows_enabled = false
 		GLOBALVAR_PTD.shadow_level = "none"
+
+
+func _on_folder_pressed(dir) -> void:
+	if DirAccess.dir_exists_absolute(dir):
+		OS.shell_open(ProjectSettings.globalize_path(dir))
+
+
+func _on_hide_user_pressed() -> void:
+	GLOBALVAR_PTD.hide_user = $advanced/hideUser.button_pressed

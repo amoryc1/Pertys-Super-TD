@@ -20,6 +20,9 @@ func _on_gohome_pressed() -> void:
 	GLOBALVAR_PTD.end_game(level_difficulty, level_name, won_level)
 
 func end_game(win):
+	var level_name = get_parent().levelStats[0]["levelName"]
+	var level_difficulty = get_parent().levelStats[0]["difficulty"]
+	
 	won_level = win
 	checked_level_outcome = true
 	
@@ -48,6 +51,34 @@ func _ready():
 	var level_difficulty = get_parent().levelStats[0]["difficulty"]
 	get_node("../summary_screen/win/Label").text = "You beat " + level_name + " on " + level_difficulty + "! :D"
 	get_node("../summary_screen/loss/Label").text = "You lost " + level_name + " on " + level_difficulty + "! D:"
+
+	# Load shit
+	if GLOBALVAR_PTD.level_win[level_name][1].has(level_difficulty):
+		var loading_array = GLOBALVAR_PTD.level_win[level_name][1][level_difficulty]
+		print(loading_array)
+		wave = loading_array[0][0]
+		GLOBALVAR_PTD.money = loading_array[0][1]
+		GLOBALVAR_PTD.health = loading_array[0][2]
+		
+		for x in loading_array:
+			if typeof(x[0]) == TYPE_STRING: # This means 0 is the tower name
+				var tower_clone = load("res://nodes/towers/" + GLOBALVAR_PTD.tower_nodes[x[0]] + ".tscn").instantiate()
+				tower_clone.name = "TEMP"
+				get_node("../towers").add_child(tower_clone)
+				
+				tower_clone.global_position.x = x[1][0]
+				tower_clone.global_position.y = x[1][1]
+				if typeof(x[2]) != TYPE_BOOL: # bool = false = cant be upgraded
+					tower_clone.upgradeLevel1 += int(x[2][0])
+					tower_clone.upgradeLevel2 += int(x[2][1])
+					tower_clone.upgradeLevel3 += int(x[2][2])
+				
+				tower_clone.rotation_degrees = 90
+				tower_clone.active = true
+				tower_clone.name = "PLACED"
+				
+	else:
+		print("Starting new")
 
 func spawn_perty(node, status):
 	var clone = load(node).instantiate()

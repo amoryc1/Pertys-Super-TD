@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=4 uid="uid://sqxxg1fohppr"]
+[gd_scene load_steps=85 format=4 uid="uid://sqxxg1fohppr"]
 
 [ext_resource type="Script" path="res://nodes/menu/menu.gd" id="1_xnaki"]
 [ext_resource type="AudioStream" uid="uid://bm5v0bhh6vkyn" path="res://music/other/menu.ogg" id="2_bifoo"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://b5yy58aqnjs0i" path="res://assets/ui/levelframes/testlevelFrame.png" id="14_ogly1"]
 [ext_resource type="Script" path="res://nodes/menu/level_select_menu.gd" id="14_vuphx"]
 [ext_resource type="PackedScene" uid="uid://cah6h6440ntlp" path="res://nodes/menu/loading_screen.tscn" id="15_dcrs0"]
+[ext_resource type="Texture2D" uid="uid://cpekpby2h0h0h" path="res://assets/ui/buttons/play.png" id="16_cxclx"]
 [ext_resource type="FontFile" uid="uid://baoeo3040amly" path="res://font/small_pixel.ttf" id="16_hsqa8"]
 [ext_resource type="LabelSettings" uid="uid://em8bdwags5a3" path="res://font/Small_smallpixel_LabelSettings.tres" id="17_evcpf"]
 [ext_resource type="Texture2D" uid="uid://rkvfcq4ndfq" path="res://assets/ui/other/trophies.png" id="17_gxmnt"]
@@ -25,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://c80ymu3jql2tn" path="res://assets/ui/encyclopedia/status.png" id="21_4bipr"]
 [ext_resource type="Texture2D" uid="uid://c0e3nvlcko56" path="res://assets/ui/encyclopedia/towers.png" id="22_74qi1"]
 [ext_resource type="Texture2D" uid="uid://b7o7pe7rqyghk" path="res://assets/towers/normal/upgrades.png" id="23_x1f0u"]
+[ext_resource type="Texture2D" uid="uid://wkit1q20xg5s" path="res://assets/ui/levelframes/difficulty.png" id="27_fenuu"]
+[ext_resource type="Texture2D" uid="uid://clo01dj60xv3b" path="res://assets/ui/summary/difficultywon.png" id="27_qyu22"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxc2o"]
 bg_color = Color(0.273873, 0.273873, 0.273872, 1)
@@ -621,6 +624,28 @@ bg_color = Color(0.370624, 0.136244, 0.136701, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2fbe"]
 bg_color = Color(0.188341, 0.0537576, 0.0541242, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c885h"]
+bg_color = Color(0.154876, 0.154876, 0.154876, 1)
+border_width_bottom = 400
+border_color = Color(0.0235294, 0.164706, 0, 1)
+border_blend = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3vkm"]
+atlas = ExtResource("27_fenuu")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l086u"]
+atlas = ExtResource("27_fenuu")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1leh"]
+atlas = ExtResource("27_fenuu")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_piwmb"]
+atlas = ExtResource("27_fenuu")
+region = Rect2(384, 0, 128, 128)
+
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_xnaki")
 
@@ -636,6 +661,7 @@ theme_override_fonts/font = ExtResource("2_eimta")
 theme_override_font_sizes/font_size = 48
 text = "PERTY'S"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="gametitle"]
 layout_mode = 0
@@ -649,6 +675,7 @@ theme_override_fonts/font = ExtResource("2_eimta")
 theme_override_font_sizes/font_size = 24
 text = "SUPER TOWER DEFENSE"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Play" type="Button" parent="."]
 offset_left = 103.0
@@ -662,6 +689,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_jxc2o")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_he1yo")
 theme_override_styles/normal = SubResource("StyleBoxFlat_dp1xf")
 text = "PLAY"
+metadata/_edit_use_anchors_ = true
 
 [node name="Setting" type="Button" parent="."]
 offset_left = 863.0
@@ -675,6 +703,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_jxc2o")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_he1yo")
 theme_override_styles/normal = SubResource("StyleBoxFlat_dp1xf")
 text = "SETTINGS"
+metadata/_edit_use_anchors_ = true
 
 [node name="Encyclopedia" type="Button" parent="."]
 offset_left = 2534.0
@@ -688,6 +717,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_jxc2o")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_he1yo")
 theme_override_styles/normal = SubResource("StyleBoxFlat_dp1xf")
 text = "Encyclopedia"
+metadata/_edit_use_anchors_ = true
 
 [node name="Achievements" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0.882353)
@@ -702,6 +732,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_jxc2o")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_he1yo")
 theme_override_styles/normal = SubResource("StyleBoxFlat_dp1xf")
 text = ">"
+metadata/_edit_use_anchors_ = true
 
 [node name="bg" type="TileMap" parent="."]
 z_index = -10
@@ -940,6 +971,40 @@ theme_override_fonts/font = ExtResource("2_eimta")
 theme_override_font_sizes/font_size = 32
 text = "Show Debug Stats"
 
+[node name="hideUser" type="CheckButton" parent="SettingsMenu/advanced"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 111.0
+offset_right = 449.0
+offset_bottom = 171.0
+theme_override_fonts/font = ExtResource("2_eimta")
+theme_override_font_sizes/font_size = 32
+text = "Hide OS Name"
+
+[node name="openSaveFolder" type="Button" parent="SettingsMenu/advanced"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 833.0
+offset_right = 322.0
+offset_bottom = 884.0
+text = "Open Saves Folder"
+
+[node name="openScreenshotFolder" type="Button" parent="SettingsMenu/advanced"]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 833.0
+offset_right = 642.0
+offset_bottom = 884.0
+text = "Open Screenshots Folder"
+
+[node name="openLevelsFolder" type="Button" parent="SettingsMenu/advanced"]
+layout_mode = 0
+offset_left = 690.0
+offset_top = 833.0
+offset_right = 962.0
+offset_bottom = 884.0
+text = "Open Levels Folder"
+
 [node name="graphics" type="Panel" parent="SettingsMenu"]
 visible = false
 layout_mode = 0
@@ -969,7 +1034,7 @@ theme_override_fonts/font = ExtResource("2_eimta")
 theme_override_font_sizes/font_size = 48
 text = "60"
 placeholder_text = "Default: 60"
-max_length = 3
+max_length = 4
 
 [node name="title" type="Label" parent="SettingsMenu/graphics/maxFPS"]
 layout_mode = 0
@@ -1111,6 +1176,23 @@ offset_right = 1613.0
 offset_bottom = 1740.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_dysn4")
 script = ExtResource("14_vuphx")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="levelSelectMenu"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00123533
+anchor_top = 0.00375
+anchor_right = -0.00123533
+anchor_bottom = 0.00375
+offset_left = 1107.0
+offset_top = -36.0
+offset_right = 1621.0
+offset_bottom = 31.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_dysn4")
+metadata/_edit_use_anchors_ = true
 
 [node name="title" type="Label" parent="levelSelectMenu"]
 layout_mode = 0
@@ -1120,6 +1202,7 @@ offset_right = 492.0
 offset_bottom = 25.0
 text = "Level Selection:"
 label_settings = ExtResource("8_tbi7o")
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="levelSelectMenu/title"]
 show_behind_parent = true
@@ -1128,9 +1211,15 @@ offset_left = -23.0
 offset_right = 491.0
 offset_bottom = 67.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_dysn4")
+metadata/_edit_use_anchors_ = true
 
 [node name="levelEditor" type="Button" parent="levelSelectMenu"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00988264
+anchor_top = 0.02375
+anchor_right = 0.00988264
+anchor_bottom = 0.02375
 offset_left = 1193.0
 offset_top = -27.0
 offset_right = 1469.0
@@ -1139,25 +1228,23 @@ theme_override_fonts/font = ExtResource("2_eimta")
 theme_override_font_sizes/font_size = 24
 text = "Level Editor"
 alignment = 2
-
-[node name="Panel" type="Panel" parent="levelSelectMenu/levelEditor"]
-show_behind_parent = true
-layout_mode = 0
-offset_left = -86.0
-offset_top = -9.0
-offset_right = 428.0
-offset_bottom = 58.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_dysn4")
+metadata/_edit_use_anchors_ = true
 
 [node name="X" type="Button" parent="levelSelectMenu"]
-layout_mode = 0
-offset_left = 1536.0
-offset_top = -22.0
-offset_right = 1589.0
-offset_bottom = 17.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00988264
+anchor_top = 0.02375
+anchor_right = 0.00988264
+anchor_bottom = 0.02375
+offset_left = 1526.0
+offset_top = -27.0
+offset_right = 1579.0
+offset_bottom = 12.0
 theme_override_fonts/font = ExtResource("2_eimta")
 theme_override_font_sizes/font_size = 24
 text = "X"
+metadata/_edit_use_anchors_ = true
 
 [node name="thepark" type="Sprite2D" parent="levelSelectMenu"]
 z_index = 1
@@ -1165,16 +1252,23 @@ position = Vector2(309, 269)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("14_ogly1")
 
-[node name="theparkeasy" type="Button" parent="levelSelectMenu/thepark"]
+[node name="thepark" type="TextureButton" parent="levelSelectMenu/thepark"]
 z_index = 1
-offset_left = 976.667
-offset_top = -513.333
-offset_right = 1447.67
-offset_bottom = -423.333
+anchors_preset = -1
+anchor_left = -0.00327895
+anchor_top = -0.00649345
+anchor_right = 0.0641747
+anchor_bottom = 0.148352
+offset_left = 672.833
+offset_top = 249.5
+offset_right = 682.833
+offset_bottom = 224.5
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(2.7, 2.7)
-theme_override_fonts/font = ExtResource("2_eimta")
-theme_override_font_sizes/font_size = 64
-text = "Easy"
+texture_normal = ExtResource("16_cxclx")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="levelSelectMenu/thepark"]
 offset_left = -883.333
@@ -1185,9 +1279,7 @@ scale = Vector2(2.7, 2.7)
 theme_override_fonts/font = ExtResource("16_hsqa8")
 theme_override_font_sizes/font_size = 48
 text = "The Park"
-
-[node name="LoadingScreen" parent="." instance=ExtResource("15_dcrs0")]
-z_index = 20
+metadata/_edit_use_anchors_ = true
 
 [node name="notificationTemplate" type="Label" parent="."]
 visible = false
@@ -1232,6 +1324,7 @@ label_settings = ExtResource("17_evcpf")
 horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="EncyclopediaMenu" type="Panel" parent="."]
 visible = false
@@ -4809,6 +4902,217 @@ stream = ExtResource("13_m8fqo")
 volume_db = -8.0
 bus = &"SFX"
 
+[node name="difficultySelect" type="Panel" parent="."]
+visible = false
+z_index = 2000
+offset_left = -23.0
+offset_top = -57.0
+offset_right = 1642.0
+offset_bottom = 903.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c885h")
+
+[node name="mapName" type="Label" parent="difficultySelect"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 261.0
+offset_right = 1625.0
+offset_bottom = 325.0
+theme_override_fonts/font = ExtResource("16_hsqa8")
+theme_override_font_sizes/font_size = 64
+text = "Map Name"
+horizontal_alignment = 1
+
+[node name="easyDifficulty" type="TextureButton" parent="difficultySelect"]
+layout_mode = 0
+offset_left = 242.0
+offset_top = 411.0
+offset_right = 480.0
+offset_bottom = 649.0
+texture_normal = SubResource("AtlasTexture_d3vkm")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="difficultySelect/easyDifficulty"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -25.0
+offset_right = 235.0
+offset_bottom = -2.0
+text = "Easy"
+
+[node name="won" type="Sprite2D" parent="difficultySelect/easyDifficulty"]
+position = Vector2(3, 236)
+scale = Vector2(2, 2)
+texture = ExtResource("27_qyu22")
+hframes = 3
+
+[node name="Label" type="Label" parent="difficultySelect/easyDifficulty/won"]
+offset_left = 24.5
+offset_top = 1.0
+offset_right = 131.5
+offset_bottom = 17.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("16_hsqa8")
+text = "0 Wins"
+
+[node name="normalDifficulty" type="TextureButton" parent="difficultySelect"]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 411.0
+offset_right = 782.0
+offset_bottom = 649.0
+texture_normal = SubResource("AtlasTexture_l086u")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="difficultySelect/normalDifficulty"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -25.0
+offset_right = 235.0
+offset_bottom = -2.0
+text = "Normal"
+
+[node name="won" type="Sprite2D" parent="difficultySelect/normalDifficulty"]
+position = Vector2(1, 236)
+scale = Vector2(2, 2)
+texture = ExtResource("27_qyu22")
+hframes = 3
+
+[node name="Label" type="Label" parent="difficultySelect/normalDifficulty/won"]
+offset_left = 24.5
+offset_top = 1.0
+offset_right = 131.5
+offset_bottom = 17.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("16_hsqa8")
+text = "0 Wins"
+
+[node name="hardDifficulty" type="TextureButton" parent="difficultySelect"]
+layout_mode = 0
+offset_left = 842.0
+offset_top = 411.0
+offset_right = 1080.0
+offset_bottom = 649.0
+texture_normal = SubResource("AtlasTexture_l1leh")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="difficultySelect/hardDifficulty"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -25.0
+offset_right = 235.0
+offset_bottom = -2.0
+text = "Hard"
+horizontal_alignment = 2
+
+[node name="won" type="Sprite2D" parent="difficultySelect/hardDifficulty"]
+position = Vector2(2, 236)
+scale = Vector2(2, 2)
+texture = ExtResource("27_qyu22")
+hframes = 3
+
+[node name="Label" type="Label" parent="difficultySelect/hardDifficulty/won"]
+offset_left = 25.0
+offset_top = 1.0
+offset_right = 132.0
+offset_bottom = 17.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("16_hsqa8")
+text = "0 Wins"
+
+[node name="hardcoreDifficulty" type="TextureButton" parent="difficultySelect"]
+layout_mode = 0
+offset_left = 1142.0
+offset_top = 411.0
+offset_right = 1380.0
+offset_bottom = 649.0
+texture_normal = SubResource("AtlasTexture_piwmb")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="difficultySelect/hardcoreDifficulty"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -25.0
+offset_right = 235.0
+offset_bottom = -2.0
+text = "Hardcore"
+horizontal_alignment = 2
+
+[node name="won" type="Sprite2D" parent="difficultySelect/hardcoreDifficulty"]
+position = Vector2(3, 236)
+scale = Vector2(2, 2)
+texture = ExtResource("27_qyu22")
+hframes = 3
+
+[node name="Label" type="Label" parent="difficultySelect/hardcoreDifficulty/won"]
+offset_left = 25.0
+offset_top = 1.0
+offset_right = 132.0
+offset_bottom = 17.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("16_hsqa8")
+text = "0 Wins"
+
+[node name="close" type="Button" parent="difficultySelect"]
+layout_mode = 0
+offset_left = 1562.0
+offset_top = 890.0
+offset_right = 1612.0
+offset_bottom = 940.0
+theme_override_fonts/font = ExtResource("2_eimta")
+theme_override_font_sizes/font_size = 24
+text = "X"
+
+[node name="continueTextEasy" type="Label" parent="difficultySelect"]
+layout_mode = 0
+offset_left = 222.0
+offset_top = 669.0
+offset_right = 507.0
+offset_bottom = 706.0
+text = "Continue? (Wave 0)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="continueTextNormal" type="Label" parent="difficultySelect"]
+layout_mode = 0
+offset_left = 518.0
+offset_top = 669.0
+offset_right = 803.0
+offset_bottom = 706.0
+text = "Continue? (Wave 0)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="continueTextHard" type="Label" parent="difficultySelect"]
+layout_mode = 0
+offset_left = 814.0
+offset_top = 669.0
+offset_right = 1099.0
+offset_bottom = 706.0
+text = "Continue? (Wave 0)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="continueTextHardcore" type="Label" parent="difficultySelect"]
+layout_mode = 0
+offset_left = 1126.0
+offset_top = 669.0
+offset_right = 1411.0
+offset_bottom = 706.0
+text = "Continue? (Wave 0)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="LoadingScreen" parent="." instance=ExtResource("15_dcrs0")]
+z_index = 4094
+
 [connection signal="mouse_entered" from="Play" to="." method="_on_play_mouse_entered"]
 [connection signal="mouse_exited" from="Play" to="." method="_on_play_mouse_exited"]
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
@@ -4828,13 +5132,17 @@ bus = &"SFX"
 [connection signal="value_changed" from="SettingsMenu/sounds/musicSlider" to="SettingsMenu" method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="SettingsMenu/sounds/sfxSlider" to="SettingsMenu" method="_on_sfx_slider_value_changed"]
 [connection signal="pressed" from="SettingsMenu/advanced/showDebug" to="SettingsMenu" method="_on_show_debug_pressed"]
+[connection signal="pressed" from="SettingsMenu/advanced/hideUser" to="SettingsMenu" method="_on_hide_user_pressed"]
+[connection signal="pressed" from="SettingsMenu/advanced/openSaveFolder" to="SettingsMenu" method="_on_folder_pressed" binds= ["user://saves"]]
+[connection signal="pressed" from="SettingsMenu/advanced/openScreenshotFolder" to="SettingsMenu" method="_on_folder_pressed" binds= ["user://screenshots"]]
+[connection signal="pressed" from="SettingsMenu/advanced/openLevelsFolder" to="SettingsMenu" method="_on_folder_pressed" binds= ["user://levels"]]
 [connection signal="pressed" from="SettingsMenu/graphics/windowMode" to="SettingsMenu" method="_on_window_mode_pressed"]
 [connection signal="pressed" from="SettingsMenu/graphics/maxFPS/set" to="SettingsMenu" method="_on_maxFPS_pressed"]
 [connection signal="pressed" from="SettingsMenu/graphics/maxFPS/vsync" to="SettingsMenu" method="_on_vsync_pressed"]
 [connection signal="pressed" from="SettingsMenu/graphics/shadow/mode" to="SettingsMenu" method="_on_shadowmode_pressed"]
 [connection signal="pressed" from="levelSelectMenu/levelEditor" to="SettingsMenu" method="_on_level_editor_pressed"]
 [connection signal="pressed" from="levelSelectMenu/X" to="." method="_on_x_pressed"]
-[connection signal="pressed" from="levelSelectMenu/thepark/theparkeasy" to="levelSelectMenu" method="_on_theparkeasy_pressed"]
+[connection signal="pressed" from="levelSelectMenu/thepark/thepark" to="levelSelectMenu" method="_on_levelselect_pressed" binds= ["The Park"]]
 [connection signal="pressed" from="EncyclopediaMenu/towers" to="EncyclopediaMenu" method="_on_towers_pressed" binds= ["towerslist"]]
 [connection signal="pressed" from="EncyclopediaMenu/close" to="EncyclopediaMenu" method="_on_close_pressed"]
 [connection signal="pressed" from="EncyclopediaMenu/perty" to="EncyclopediaMenu" method="_on_towers_pressed" binds= ["pertylist"]]
@@ -4853,3 +5161,9 @@ bus = &"SFX"
 [connection signal="pressed" from="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Watergunner/pathdown" to="EncyclopediaMenu" method="_on_pathdown_pressed" binds= [&"Watergunner"]]
 [connection signal="pressed" from="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/pathup" to="EncyclopediaMenu" method="_on_pathup_pressed" binds= [&"Airplane Sniper"]]
 [connection signal="pressed" from="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/pathdown" to="EncyclopediaMenu" method="_on_pathdown_pressed" binds= [&"Airplane Sniper"]]
+[connection signal="mouse_entered" from="difficultySelect/easyDifficulty" to="levelSelectMenu" method="_on_difficulty_mouse_entered" binds= [Color(0.0222957, 0.163041, 0, 1)]]
+[connection signal="pressed" from="difficultySelect/easyDifficulty" to="levelSelectMenu" method="_on_difficulty_pressed" binds= ["Easy"]]
+[connection signal="mouse_entered" from="difficultySelect/normalDifficulty" to="levelSelectMenu" method="_on_difficulty_mouse_entered" binds= [Color(0.178077, 0.168281, 8.42288e-08, 1)]]
+[connection signal="mouse_entered" from="difficultySelect/hardDifficulty" to="levelSelectMenu" method="_on_difficulty_mouse_entered" binds= [Color(0.326883, 6.76839e-07, 1.20327e-07, 1)]]
+[connection signal="mouse_entered" from="difficultySelect/hardcoreDifficulty" to="levelSelectMenu" method="_on_difficulty_mouse_entered" binds= [Color(0.172549, 0, 0, 1), true]]
+[connection signal="pressed" from="difficultySelect/close" to="levelSelectMenu" method="_on_close_pressed"]

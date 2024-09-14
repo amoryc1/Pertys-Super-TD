@@ -60,7 +60,7 @@ script = ExtResource("1_qgutj")
 waittime = 1.0
 cost = 350
 sellValue = 175
-projectileSpeed = 128
+projectileSpeed = 256
 projectilePiercing = 3
 towerName = "Ruler Tower"
 

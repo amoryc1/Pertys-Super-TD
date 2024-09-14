@@ -16,19 +16,46 @@ func human_readable_size(size: int):
 		index += 1
 	
 	return str(size) + " " + units[index]
-	
+
 func capture_screenshot():
 	# Get the viewport's texture
 	var image_texture = get_viewport().get_texture()
 
 	# Extract the image from the texture
 	var image = image_texture.get_image()
-
+	
+	$screenshotPreview.visible = true
+	$screenshotPreview.texture = ImageTexture.create_from_image(image)
+	
+	$AnimationPlayer.play("screenshot")
+	$screenshotPreview.self_modulate.a = 1
+	$screenshotPreview.visible = true
+	$screenshotPreview/screenshotPreviewTimer.start()
+	
+	var dir = DirAccess.open("user://" + GLOBALVAR_PTD.screenshot_folder)
+	if dir == null:
+		DirAccess.make_dir_absolute("user://" + GLOBALVAR_PTD.screenshot_folder)
+	
 	# Save the image as a PNG in the user:// folder
-	var file_name = "pertystd_screenshot_" + str(int(Time.get_unix_time_from_system())) + ".png"
+	
+	await RenderingServer.frame_post_draw
+	
+	var file_name = GLOBALVAR_PTD.screenshot_folder + "/" + "screenshot_" + str(int(Time.get_unix_time_from_system())) + ".png"
 	image.save_png(OS.get_user_data_dir() + "/" + file_name)
+	
+	if FileAccess.file_exists(OS.get_user_data_dir() + "/" + file_name):
+		if GLOBALVAR_PTD.hide_user:
+			$screenshotPreview/filepath.text = "user://" + file_name
+		else:
+			$screenshotPreview/filepath.text = OS.get_user_data_dir() + "/" + file_name
+		
+	else: $screenshotPreview/filepath.text = "Did not save."
+	
+	if GLOBALVAR_PTD.hide_user:
+		print("Screenshot saved as: user://" + file_name)
+	else:
+		print("Screenshot saved as: " + OS.get_user_data_dir() + "/" + file_name)
 
-	print("Screenshot saved as: " + OS.get_user_data_dir() + "/" + file_name)
 
 func _ready():
 	load_time = Time.get_ticks_msec() - GLOBALVAR_PTD.ticks_at_load_start
@@ -70,3 +97,7 @@ func _input(event):
 	
 	if Input.is_action_just_pressed("f12"):
 		capture_screenshot()
+
+
+func _on_screenshot_preview_timer_timeout() -> void:
+	$screenshotPreview.visible = false

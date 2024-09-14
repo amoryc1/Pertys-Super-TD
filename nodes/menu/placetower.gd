@@ -11,7 +11,7 @@ var yesMouse = preload("res://mouse/placingMouse.png")
 var normalMouse = preload("res://mouse/mouse.png")
 
 func _ready():
-	realTowerPath = "res://nodes/towers/" + towerPath + ".tscn"
+	realTowerPath = "res://nodes/towers/" + GLOBALVAR_PTD.tower_nodes[towerPath] + ".tscn"
 
 # If a tower is selected, place it
 func _input(_event): if visible:

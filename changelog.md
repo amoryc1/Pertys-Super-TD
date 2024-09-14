@@ -6,11 +6,25 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
-## [beta 0.13] - 2024-09-10
+## [beta 0.13] - 2024-09-14
 
 ### Added
 - Its now possible to delete things inside the level editor (thanks to me using a scroll now its not a total headache)
 - Only one path of upgrades can be maxed to lv3, the other to lv2 and the last to lv0
+- Buttons inside settings to open save, screenshot and level editor folders
+- Saving and loading progress for a level
+- 'Hide OS Name' option to replace part of file paths that show the full user directory inside logs or in ui with user:// to hide your name if screenshoting or recording
+- Difficulty select menu
+
+### Changes
+- Ruler Tower throws rulers twice as far
+- Save file now tracks how many times you have completed a level on each difficulty and not just the highest won difficulty
+- Saves now are inside "user://saves/". Screenshots are inside "user://screenshots/" and level editor files are inside "user://levels/"
+- Changelog now inside changelog.md not readme.md
+- Highest possible FPS is now 9999 instead of 999
+- List of all tower node paths is found inside the GLOBALVAR_PTD script to allow use inside of level loading
+- Short animation when a screenshot is taken showing a small preview of what it looks like
+- New buttons and some ui changes
 
 ### Fixes
 - Play and Settings are now undisabled if the achievement list button is pressed mid play button animation

@@ -18,14 +18,15 @@ func _ready():
 	
 	# achivements
 	# Bronze -> Silver -> Gold -> Diamond
-	if GLOBALVAR_PTD.level_win["The Park"][0] == "Easy": $achievementRack/winTestMap.frame = 1
-	if GLOBALVAR_PTD.level_win["The Park"][0] == "Normal": $achievementRack/winTestMap.frame = 2
-	if GLOBALVAR_PTD.level_win["The Park"][0] == "Hard": $achievementRack/winTestMap.frame = 3
-	if GLOBALVAR_PTD.level_win["The Park"][0] == "Hardcore": $achievementRack/winTestMap.frame = 4
+	if GLOBALVAR_PTD.level_win["The Park"][0]["Easy"] > 0: $achievementRack/winTestMap.frame = 1
+	if GLOBALVAR_PTD.level_win["The Park"][0]["Normal"] > 0: $achievementRack/winTestMap.frame = 2
+	if GLOBALVAR_PTD.level_win["The Park"][0]["Hard"] > 0: $achievementRack/winTestMap.frame = 3
+	if GLOBALVAR_PTD.level_win["The Park"][0]["Hardcore"] > 0: $achievementRack/winTestMap.frame = 4
 	
 	
 	
 	$SettingsMenu/advanced/showDebug.button_pressed = GLOBALVAR_PTD.show_debug
+	$SettingsMenu/advanced/hideUser.button_pressed = GLOBALVAR_PTD.hide_user
 	
 	
 	if GLOBALVAR_PTD.shadow_level == "none" and GLOBALVAR_PTD.shadows_enabled == false:

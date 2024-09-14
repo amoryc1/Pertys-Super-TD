@@ -1,7 +1,7 @@
 extends Node
 
 
-var game_version = "[beta 0.13] - 2024-09-10"
+var game_version = "[beta 0.13] - 2024-09-14"
 
 var ticks_at_load_start = 0
 
@@ -10,7 +10,10 @@ var health = 100
 
 var has_loaded_data = false
 
-var chosen_save_file = "SaveFile1"
+var hide_user = false
+var file_format_ver = 1
+var chosen_save_file = "saves/SaveFile1"
+var screenshot_folder = "screenshots"
 var show_debug = false
 var fps_cap = 60
 var vsync_mode = "Enabled"
@@ -18,15 +21,16 @@ var window_mode = "Windowed"
 var music_volume = 1
 var sfx_volume = 1
 var master_volume = 1
-var level_win = { # Difficulty, [wave, ["tower name", pos, upgrades], ["tower name", pos, upgrades]]
-	"The Park": ["no", []]
+var level_win = { 
+	# Difficulty Won, [[wave, money, life, current difficulty], ["tower name", pos, upgrades], ["tower name", pos, upgrades]]
+	"The Park": [{"Easy":0,"Normal":0,"Hard":0,"Hardcore":0}, {}]
 }
 var shadows_enabled = true
 var shadow_level = "pcf5"
 
 
 
-var difficultys = ["no","Easy","Normal","Hard","Hardcore"]
+var difficultys = ["Easy","Normal","Hard","Hardcore"]
 
 
 var placed_towers = {
@@ -38,6 +42,17 @@ var placed_towers = {
 	"Ruler Tower": 0,
 	"Watergunner": 0,
 	"Airplane Sniper": 0,
+}
+
+var tower_nodes = { # Path inside of res://nodes/towers/
+	"Pencil Tower": "dart/darttower",
+	"Gabby's Book": "particles/spikes",
+	"Glue Gunner": "glue/gluetower",
+	"Redwood Worker": "redwoodworker/worker",
+	"Flamethrower": "flamethrower/flamethrower",
+	"Ruler Tower": "ruler/ruler",
+	"Watergunner": "watergunner/watergunner",
+	"Airplane Sniper": "airplanesniper/airplanesniper",
 }
 
 var tower_upgrades = {
@@ -540,6 +555,11 @@ var tower_upgrades = {
 	}
 }
 
+var map_nodes = {
+	"The Park": {
+		"Easy": "res://nodes/maps/testmap/main.tscn"
+	}
+}
 
 
 var placing_tower = ""
@@ -571,15 +591,12 @@ var perty_stages = {
 	}
 
 func end_game(level_difficulty, level_name, win):
-	if win: # Only update achievement on win
-		var current_in_array = difficultys.find(level_win[level_name][0])
-		var new_in_array = difficultys.find(level_difficulty)
-		
-		if new_in_array > current_in_array:
-			level_win[level_name][0] = level_difficulty
-		
-	save_data(chosen_save_file)
+	if win: # Add 1 to difficulty count
+		level_win[level_name][0][level_difficulty] += 1
 	
+	level_win[level_name][1].erase(level_difficulty) # Erase progress on win/loss/deletion
+	
+	save_data(chosen_save_file)
 	placing_tower = ""
 	in_game = false
 	ticks_at_load_start = Time.get_ticks_msec()
@@ -601,9 +618,28 @@ func format_with_commas(number):
 	
 	return result
 
+
+func _ready() -> void:
+	var dir1 = DirAccess.open("user://saves")
+	if dir1 == null:
+		DirAccess.make_dir_absolute("user://saves")
+	
+	var dir2 = DirAccess.open("user://screenshots")
+	if dir2 == null:
+		DirAccess.make_dir_absolute("user://screenshots")
+	
+	var dir3 = DirAccess.open("user://levels")
+	if dir3 == null:
+		DirAccess.make_dir_absolute("user://levels")
+
+
 # I want to marry ChatGPT thank you so much for this pookie <3
 
 func save_data(filename):
+	var dir = DirAccess.open("user://saves")
+	if dir == null:
+		DirAccess.make_dir_absolute("user://saves")
+	
 	var savePath = "user://" + str(filename) + ".json"
 	
 	var data = {
@@ -618,7 +654,9 @@ func save_data(filename):
 		"show_debug": show_debug,
 		"placed_towers": placed_towers,
 		"shadows_enabled": shadows_enabled,
-		"shadow_level": shadow_level
+		"shadow_level": shadow_level,
+		"file_format_ver": file_format_ver,
+		"hide_user": hide_user
 	}
 	
 	var json_string = JSON.stringify(data)
@@ -627,15 +665,23 @@ func save_data(filename):
 	if file:
 		file.store_string(json_string)
 		file.close()
-		print("Successfully saved data as JSON. Path: ", file.get_path_absolute())
-		return [true, file.get_path_absolute()]
+		if hide_user:
+			print("Successfully saved data as JSON. Path: ", file.get_path())
+			return [true, file.get_path()]
+		else:
+			print("Successfully saved data as JSON. Path: ", file.get_path_absolute())
+			return [true, file.get_path_absolute()]
 	else:
 		print("Failed to open save file for writing.")
-		return false
+		return [false]
 
 func load_data(filename):
 	var savePath = "user://" + str(filename) + ".json"
-
+	
+	var dir = DirAccess.open("user://saves")
+	if dir == null:
+		DirAccess.make_dir_absolute("user://saves")
+	
 	var file = FileAccess.open(savePath, FileAccess.READ)
 	if file:
 		var json_string = file.get_as_text()
@@ -653,6 +699,8 @@ func load_data(filename):
 		if "show_debug" in data: show_debug = data.show_debug
 		if "shadows_enabled" in data: shadows_enabled = data.shadows_enabled
 		if "shadow_level" in data: shadow_level = data.shadow_level
+		if "file_format_ver" in data: file_format_ver = data.file_format_ver
+		if "hide_user" in data: hide_user = data.hide_user
 		
 		
 		# Achievements

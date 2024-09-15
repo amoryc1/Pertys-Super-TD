@@ -26,7 +26,10 @@ func _process(delta):
 	if len(targetlist) > 0:
 		var enemy = get_node_or_null(targetlist[0])
 		if enemy:
-			enemy.health -= damage
+			if piercing > 0:
+				enemy.health -= damage
+			else:
+				enemy.explosive_damage += damage
 			
 			targetlist.erase(targetlist[0])
 			piercing -= 1

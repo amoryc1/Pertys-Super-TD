@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://j887qkdp3sd8"]
+[gd_scene load_steps=21 format=3 uid="uid://j887qkdp3sd8"]
 
 [ext_resource type="Script" path="res://nodes/towers/redwoodworker/worker.gd" id="1_7ta4r"]
 [ext_resource type="Texture2D" uid="uid://d0557ul50bqgn" path="res://assets/towers/redwoodworker/redwoodworker.png" id="2_1isoo"]
+[ext_resource type="Texture2D" uid="uid://17bix8jcxk82" path="res://assets/towers/redwoodworker/skin.png" id="3_ugbwo"]
 [ext_resource type="Texture2D" uid="uid://b21hiwh2ohg4c" path="res://assets/ui/ring.png" id="4_rtrpb"]
 [ext_resource type="Script" path="res://nodes/towers/global/StackCollision.gd" id="5_mxq52"]
 [ext_resource type="FontFile" uid="uid://bqn5qcu0iu4yn" path="res://font/Retro Gaming.ttf" id="5_q7rc0"]
@@ -49,6 +50,38 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwjdd"]
+atlas = ExtResource("3_ugbwo")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukwsa"]
+atlas = ExtResource("3_ugbwo")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tu5ou"]
+atlas = ExtResource("3_ugbwo")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j0xma"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwjdd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukwsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tu5ou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwjdd")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ybiqf"]
 radius = 47.9082
 
@@ -74,6 +107,12 @@ z_index = -1
 rotation = 4.71238
 scale = Vector2(1.1, 1.1)
 sprite_frames = SubResource("SpriteFrames_ndj0y")
+
+[node name="skin" type="AnimatedSprite2D" parent="sprite"]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_j0xma")
+frame = 3
+frame_progress = 1.0
 
 [node name="waittime" type="Timer" parent="."]
 wait_time = 0.5

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cwwqr0weqrvd8"]
+[gd_scene load_steps=13 format=3 uid="uid://cwwqr0weqrvd8"]
 
 [ext_resource type="Script" path="res://nodes/enemies/pathFollow.gd" id="1_627ej"]
 [ext_resource type="Script" path="res://nodes/enemies/enemyai.gd" id="2_ou6j7"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cjad37uon8nav" path="res://music/sfx/poop.ogg" id="4_tieuw"]
 [ext_resource type="Script" path="res://nodes/enemies/deathSFX.gd" id="5_86jlf"]
 [ext_resource type="Texture2D" uid="uid://qymhge4jgbo3" path="res://assets/enemies/particles.png" id="6_6yxri"]
+[ext_resource type="AudioStream" uid="uid://fu6liekq8gvh" path="res://music/sfx/lighthit.ogg" id="7_8t6f2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gucul"]
 size = Vector2(128, 65)
@@ -57,6 +58,7 @@ earnings = 20
 exp_earnings = 3
 health = 250
 enemyStage = 6
+is_boss = true
 spawns = {
 "rainbow": 3
 }
@@ -80,6 +82,7 @@ script = ExtResource("5_86jlf")
 
 [node name="particlesprite" type="Sprite2D" parent="Area2D"]
 visible = false
+position = Vector2(32, 0)
 texture = ExtResource("6_6yxri")
 hframes = 10
 vframes = 10
@@ -87,6 +90,11 @@ vframes = 10
 [node name="deathPop" type="AnimatedSprite2D" parent="Area2D"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_7ecc2")
+
+[node name="lighthit" type="AudioStreamPlayer" parent="Area2D"]
+stream = ExtResource("7_8t6f2")
+volume_db = -10.0
+bus = &"SFX"
 
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
 [connection signal="area_exited" from="Area2D" to="Area2D" method="_on_area_exited"]

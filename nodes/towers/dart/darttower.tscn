@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://b8u0v0h86vayw"]
+[gd_scene load_steps=21 format=3 uid="uid://b8u0v0h86vayw"]
 
 [ext_resource type="Script" path="res://nodes/towers/dart/darttower.gd" id="1_aq53w"]
 [ext_resource type="Texture2D" uid="uid://bo72e1fwe01n4" path="res://assets/towers/normal/normal.png" id="2_37i8s"]
 [ext_resource type="Script" path="res://nodes/towers/global/shootenemy.gd" id="3_7xhts"]
+[ext_resource type="Texture2D" uid="uid://cftfmp8qcr0lq" path="res://assets/towers/normal/skin.png" id="3_kkhoq"]
 [ext_resource type="Texture2D" uid="uid://b21hiwh2ohg4c" path="res://assets/ui/ring.png" id="4_0byt7"]
 [ext_resource type="Script" path="res://nodes/towers/global/StackCollision.gd" id="5_2xhdg"]
 [ext_resource type="FontFile" uid="uid://bqn5qcu0iu4yn" path="res://font/Retro Gaming.ttf" id="6_xfyc6"]
@@ -44,6 +45,35 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlub8"]
+atlas = ExtResource("3_kkhoq")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnvpn"]
+atlas = ExtResource("3_kkhoq")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwju0"]
+atlas = ExtResource("3_kkhoq")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x6xd7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlub8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnvpn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwju0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ybiqf"]
 radius = 36.0
 
@@ -70,6 +100,12 @@ occluder = SubResource("OccluderPolygon2D_61vly")
 rotation = 4.71238
 scale = Vector2(1.1, 1.1)
 sprite_frames = SubResource("SpriteFrames_ndj0y")
+frame = 2
+frame_progress = 1.0
+
+[node name="skin" type="AnimatedSprite2D" parent="sprite"]
+show_behind_parent = true
+sprite_frames = SubResource("SpriteFrames_x6xd7")
 frame = 2
 frame_progress = 1.0
 

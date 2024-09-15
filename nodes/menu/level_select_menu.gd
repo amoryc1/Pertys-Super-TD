@@ -1,6 +1,5 @@
 extends Panel
 
-
 func chosen_level(path):
 	GLOBALVAR_PTD.won = false
 	GLOBALVAR_PTD.in_game = true
@@ -10,6 +9,7 @@ func chosen_level(path):
 
 
 func _on_levelselect_pressed(level_name: String) -> void:
+	GLOBALVAR_PTD.show_exp_bar = false
 	var difficultyNode = get_node("../difficultySelect")
 	difficultyNode.find_child("mapName").text = level_name
 	
@@ -50,6 +50,7 @@ func _on_difficulty_pressed(difficulty_name: String) -> void:
 
 func _on_close_pressed() -> void:
 	get_node("../difficultySelect").visible = false
+	GLOBALVAR_PTD.show_exp_bar = true
 
 
 func _on_difficulty_mouse_entered(extra_arg_0: Color, extra_arg_1 = false) -> void:
@@ -60,3 +61,14 @@ func _on_difficulty_mouse_entered(extra_arg_0: Color, extra_arg_1 = false) -> vo
 	else: stylebox.border_width_bottom = 300 ; stylebox.border_width_top = 150
 	stylebox.bg_color = Color8(39,39,39)
 	get_node("../difficultySelect").add_theme_stylebox_override("panel", stylebox)
+
+
+func _on_continuelast_pressed() -> void:
+	var loadingScreenPath = get_node("../LoadingScreen")
+	var path = GLOBALVAR_PTD.map_nodes[GLOBALVAR_PTD.last_played[0]][GLOBALVAR_PTD.last_played[1]]
+	
+	loadingScreenPath.show()
+	loadingScreenPath.find_child("nodepath").text = "Path: " + path
+	
+	await get_tree().create_timer(0.02).timeout
+	chosen_level(path)

@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [beta 0.14] - 2024-09-15
+
+### Added
+- 2 new enemy types: White and Black (White is immune to all glue and freeze status effects and Black has 5 health and immune to explosions. Both are 0.8x normal size and spawn 1 pink)
+- Sun inside the main menu and trophies now have a shadow applied on them
+- Bosses (currently just FoaP) has a special glue sprite and glue is not as effective on them (Normal glue has Min - 0.75x, Max - 0.3x   Boss glue has Min - 0.95x, Max 0.5x)
+- A button in the level select menu to play the last played map
+
+### Changes
+- EXP bar changed a tiny bit
+- Towers now have a 'skin' layer which does not effect them visually but means you have more control over how they look.
+- Changed colour of Ruler Towers headband to be a bit more orange
+- Ruler Tower base animation speed set to 6 FPS not 5 FPS
+- Airplane Sniper sprite changes
+
+### Fixes
+- Fixed EXP bar position not resetting if a level was left with the "Save and exit" button
+- EXP Bar now not visible inside level editor, when selecting a difficulty and when viewing the guide
+
 
 ## [beta 0.13] - 2024-09-14
 

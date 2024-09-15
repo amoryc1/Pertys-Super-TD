@@ -6,37 +6,22 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4050"]
 bg_color = Color(0.048, 0.220267, 0.32, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.00677837, 0.0673464, 0.112815, 1)
+border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibm2w"]
 bg_color = Color(0.158272, 0.488435, 0.686341, 1)
-
-[sub_resource type="Animation" id="Animation_8o1r0"]
-resource_name = "exp_gain"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("plus:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.266667, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("plus:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.166667),
-"transitions": PackedFloat32Array(0.5, 0.5),
-"update": 0,
-"values": [Vector2(-112, 11), Vector2(-112, -5)]
-}
+border_width_left = 4
+border_width_top = 4
+border_width_bottom = 4
+border_color = Color(0.070946, 0.285893, 0.410669, 1)
+border_blend = true
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
 
 [sub_resource type="Animation" id="Animation_x0eb5"]
 length = 0.001
@@ -75,6 +60,34 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8o1r0"]
+resource_name = "exp_gain"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("plus:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.266667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("plus:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(-112, 11), Vector2(-112, -5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ojpn"]
@@ -223,7 +236,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="screenshotPreview" type="Sprite2D" parent="."]
 visible = false
-modulate = Color(1, 1, 1, 0.701961)
 position = Vector2(301, 184)
 scale = Vector2(0.3, 0.3)
 

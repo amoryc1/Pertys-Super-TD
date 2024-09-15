@@ -3,6 +3,8 @@ extends Node2D
 var bananaFileExists = false # _ready() checks if res://high quality banana.png exists.
 
 func _ready():
+	GLOBALVAR_PTD.show_exp_bar = true
+	
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_RESIZE_DISABLED, false)
 	
 	Engine.time_scale = 1
@@ -22,6 +24,7 @@ func _ready():
 	if GLOBALVAR_PTD.level_win["The Park"][0]["Normal"] > 0: $achievementRack/winTestMap.frame = 2
 	if GLOBALVAR_PTD.level_win["The Park"][0]["Hard"] > 0: $achievementRack/winTestMap.frame = 3
 	if GLOBALVAR_PTD.level_win["The Park"][0]["Hardcore"] > 0: $achievementRack/winTestMap.frame = 4
+	if $achievementRack/winTestMap.frame != 0: $achievementRack/winTestMap/LightOccluder2D.visible = true
 	
 	
 	$SettingsMenu/advanced/showDebug.button_pressed = GLOBALVAR_PTD.show_debug
@@ -36,6 +39,15 @@ func _ready():
 		$SettingsMenu/graphics/shadow/mode.text = "Fancy"
 	elif GLOBALVAR_PTD.shadow_level == "pcf13":
 		$SettingsMenu/graphics/shadow/mode.text = "Fabulous"
+	
+	
+	if GLOBALVAR_PTD.last_played[0] != "NONE":
+		var level_name = GLOBALVAR_PTD.last_played[0]
+		var diff_name = GLOBALVAR_PTD.last_played[1]
+		var wave_on = GLOBALVAR_PTD.level_win[level_name][1][diff_name][0][0]
+		$levelSelectMenu/continuelast.text = "Continue: "+str(level_name)+" / "+str(diff_name)+" / Wave "+str(wave_on)
+	else:
+		$levelSelectMenu/continuelast.visible = false
 	
 	
 	
@@ -163,5 +175,6 @@ func _on_x_pressed():
 
 func _on_encyclopedia_pressed(): 
 	$tapSFX.play()
+	GLOBALVAR_PTD.show_exp_bar = false
 	$EncyclopediaMenu.visible = true
 	$EncyclopediaMenu.updateList("Tower")

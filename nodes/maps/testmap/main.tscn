@@ -275,7 +275,7 @@ libraries = {
 }
 
 [node name="sun" type="PointLight2D" parent="."]
-position = Vector2(771, -572)
+position = Vector2(832, -1095)
 energy = 0.2
 shadow_enabled = true
 texture = ExtResource("12_h53tv")

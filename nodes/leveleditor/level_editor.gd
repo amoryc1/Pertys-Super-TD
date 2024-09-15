@@ -131,7 +131,7 @@ func _on_set_pressed():
 	spawnpartID += 1
 
 func _ready() -> void:
-	$GlobalUI/expbar.visible = false
+	GLOBALVAR_PTD.show_exp_bar = false
 
 
 func _on_status_pressed():

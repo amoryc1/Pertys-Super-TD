@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=4 uid="uid://sqxxg1fohppr"]
+[gd_scene load_steps=86 format=4 uid="uid://sqxxg1fohppr"]
 
 [ext_resource type="Script" path="res://nodes/menu/menu.gd" id="1_xnaki"]
 [ext_resource type="AudioStream" uid="uid://bm5v0bhh6vkyn" path="res://music/other/menu.ogg" id="2_bifoo"]
@@ -216,6 +216,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Encyclopedia:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2534, 798)]
+}
 
 [sub_resource type="Animation" id="Animation_e47hb"]
 resource_name = "achievementslide"
@@ -319,38 +331,38 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Encyclopedia:position")
+tracks/8/path = NodePath("Play:disabled")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector2(2534, 798), Vector2(934, 798)]
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(-2),
+"update": 1,
+"values": [false]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Play:disabled")
+tracks/9/path = NodePath("Setting:disabled")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0.8),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.766667),
+"transitions": PackedFloat32Array(-2),
 "update": 1,
 "values": [false]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Setting:disabled")
+tracks/10/path = NodePath("Encyclopedia:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0.766667),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"times": PackedFloat32Array(0.0333333, 0.8),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(2534, 798), Vector2(934, 798)]
 }
 
 [sub_resource type="Animation" id="Animation_fxxhp"]
@@ -570,6 +582,32 @@ _data = {
 "new_animation": SubResource("Animation_ouvy2")
 }
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_r227v"]
+closed = false
+polygon = PackedVector2Array(-5.70813, 7.26484, -14.0108, 17.6432, -14.0108, 23.8702, 14.0107, 23.8702, 14.0107, 17.6432, 6.74591, 7.78376, 6.22699, 0, 12.9729, -3.63242, 20.2377, -7.78376, 14.5297, -14.0108, 14.0107, -17.1243, -14.0108, -17.1243, -14.5297, -14.0108, -20.2378, -7.78376, -12.973, -3.63242, -6.22699, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c885h"]
+bg_color = Color(0.154876, 0.154876, 0.154876, 1)
+border_width_bottom = 400
+border_color = Color(0.0235294, 0.164706, 0, 1)
+border_blend = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3vkm"]
+atlas = ExtResource("27_fenuu")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l086u"]
+atlas = ExtResource("27_fenuu")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1leh"]
+atlas = ExtResource("27_fenuu")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_piwmb"]
+atlas = ExtResource("27_fenuu")
+region = Rect2(384, 0, 128, 128)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xc8h"]
 bg_color = Color(0.0846899, 0.0846899, 0.0846899, 1)
 
@@ -623,28 +661,6 @@ bg_color = Color(0.370624, 0.136244, 0.136701, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2fbe"]
 bg_color = Color(0.188341, 0.0537576, 0.0541242, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c885h"]
-bg_color = Color(0.154876, 0.154876, 0.154876, 1)
-border_width_bottom = 400
-border_color = Color(0.0235294, 0.164706, 0, 1)
-border_blend = true
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d3vkm"]
-atlas = ExtResource("27_fenuu")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l086u"]
-atlas = ExtResource("27_fenuu")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l1leh"]
-atlas = ExtResource("27_fenuu")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_piwmb"]
-atlas = ExtResource("27_fenuu")
-region = Rect2(384, 0, 128, 128)
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_xnaki")
@@ -716,7 +732,7 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/hover = SubResource("StyleBoxFlat_jxc2o")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_he1yo")
 theme_override_styles/normal = SubResource("StyleBoxFlat_dp1xf")
-text = "Encyclopedia"
+text = "Guide"
 metadata/_edit_use_anchors_ = true
 
 [node name="Achievements" type="Button" parent="."]
@@ -1217,9 +1233,9 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.00988264
-anchor_top = 0.02375
+anchor_top = 0.00375
 anchor_right = 0.00988264
-anchor_bottom = 0.02375
+anchor_bottom = 0.00375
 offset_left = 1193.0
 offset_top = -27.0
 offset_right = 1469.0
@@ -1234,9 +1250,9 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.00988264
-anchor_top = 0.02375
+anchor_top = 0.00375
 anchor_right = 0.00988264
-anchor_bottom = 0.02375
+anchor_bottom = 0.00375
 offset_left = 1526.0
 offset_top = -27.0
 offset_right = 1579.0
@@ -1248,7 +1264,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="thepark" type="Sprite2D" parent="levelSelectMenu"]
 z_index = 1
-position = Vector2(309, 269)
+position = Vector2(309, 341)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("14_ogly1")
 
@@ -1280,6 +1296,16 @@ theme_override_fonts/font = ExtResource("16_hsqa8")
 theme_override_font_sizes/font_size = 48
 text = "The Park"
 metadata/_edit_use_anchors_ = true
+
+[node name="continuelast" type="Button" parent="levelSelectMenu"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 41.0
+offset_right = 1610.0
+offset_bottom = 115.0
+theme_override_fonts/font = ExtResource("2_eimta")
+theme_override_font_sizes/font_size = 32
+text = "Continue: MAP / DIFFICULTY / Wave 0"
 
 [node name="notificationTemplate" type="Label" parent="."]
 visible = false
@@ -1325,6 +1351,232 @@ horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="achievementRack/winTestMap"]
+visible = false
+z_index = -1
+occluder = SubResource("OccluderPolygon2D_r227v")
+
+[node name="tapSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_i8vyn")
+volume_db = -8.0
+bus = &"SFX"
+
+[node name="snas" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_m8fqo")
+volume_db = -8.0
+bus = &"SFX"
+
+[node name="difficultySelect" type="Panel" parent="."]
+visible = false
+z_index = 2000
+offset_left = -23.0
+offset_top = -57.0
+offset_right = 1642.0
+offset_bottom = 903.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c885h")
+
+[node name="mapName" type="Label" parent="difficultySelect"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 261.0
+offset_right = 1625.0
+offset_bottom = 325.0
+theme_override_fonts/font = ExtResource("16_hsqa8")
+theme_override_font_sizes/font_size = 64
+text = "Map Name"
+horizontal_alignment = 1
+
+[node name="easyDifficulty" type="TextureButton" parent="difficultySelect"]
+layout_mode = 0
+offset_left = 242.0
+offset_top = 411.0
+offset_right = 480.0
+offset_bottom = 649.0
+texture_normal = SubResource("AtlasTexture_d3vkm")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="difficultySelect/easyDifficulty"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -25.0
+offset_right = 235.0
+offset_bottom = -2.0
+text = "Easy"
+
+[node name="won" type="Sprite2D" parent="difficultySelect/easyDifficulty"]
+position = Vector2(3, 236)
+scale = Vector2(2, 2)
+texture = ExtResource("27_qyu22")
+hframes = 3
+
+[node name="Label" type="Label" parent="difficultySelect/easyDifficulty/won"]
+offset_left = 24.5
+offset_top = 1.0
+offset_right = 131.5
+offset_bottom = 17.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("16_hsqa8")
+text = "0 Wins"
+
+[node name="normalDifficulty" type="TextureButton" parent="difficultySelect"]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 411.0
+offset_right = 782.0
+offset_bottom = 649.0
+texture_normal = SubResource("AtlasTexture_l086u")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="difficultySelect/normalDifficulty"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -25.0
+offset_right = 235.0
+offset_bottom = -2.0
+text = "Normal"
+
+[node name="won" type="Sprite2D" parent="difficultySelect/normalDifficulty"]
+position = Vector2(1, 236)
+scale = Vector2(2, 2)
+texture = ExtResource("27_qyu22")
+hframes = 3
+
+[node name="Label" type="Label" parent="difficultySelect/normalDifficulty/won"]
+offset_left = 24.5
+offset_top = 1.0
+offset_right = 131.5
+offset_bottom = 17.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("16_hsqa8")
+text = "0 Wins"
+
+[node name="hardDifficulty" type="TextureButton" parent="difficultySelect"]
+layout_mode = 0
+offset_left = 842.0
+offset_top = 411.0
+offset_right = 1080.0
+offset_bottom = 649.0
+texture_normal = SubResource("AtlasTexture_l1leh")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="difficultySelect/hardDifficulty"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -25.0
+offset_right = 235.0
+offset_bottom = -2.0
+text = "Hard"
+horizontal_alignment = 2
+
+[node name="won" type="Sprite2D" parent="difficultySelect/hardDifficulty"]
+position = Vector2(2, 236)
+scale = Vector2(2, 2)
+texture = ExtResource("27_qyu22")
+hframes = 3
+
+[node name="Label" type="Label" parent="difficultySelect/hardDifficulty/won"]
+offset_left = 25.0
+offset_top = 1.0
+offset_right = 132.0
+offset_bottom = 17.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("16_hsqa8")
+text = "0 Wins"
+
+[node name="hardcoreDifficulty" type="TextureButton" parent="difficultySelect"]
+layout_mode = 0
+offset_left = 1142.0
+offset_top = 411.0
+offset_right = 1380.0
+offset_bottom = 649.0
+texture_normal = SubResource("AtlasTexture_piwmb")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="difficultySelect/hardcoreDifficulty"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -25.0
+offset_right = 235.0
+offset_bottom = -2.0
+text = "Hardcore"
+horizontal_alignment = 2
+
+[node name="won" type="Sprite2D" parent="difficultySelect/hardcoreDifficulty"]
+position = Vector2(3, 236)
+scale = Vector2(2, 2)
+texture = ExtResource("27_qyu22")
+hframes = 3
+
+[node name="Label" type="Label" parent="difficultySelect/hardcoreDifficulty/won"]
+offset_left = 25.0
+offset_top = 1.0
+offset_right = 132.0
+offset_bottom = 17.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("16_hsqa8")
+text = "0 Wins"
+
+[node name="close" type="Button" parent="difficultySelect"]
+layout_mode = 0
+offset_left = 1562.0
+offset_top = 890.0
+offset_right = 1612.0
+offset_bottom = 940.0
+theme_override_fonts/font = ExtResource("2_eimta")
+theme_override_font_sizes/font_size = 24
+text = "X"
+
+[node name="continueTextEasy" type="Label" parent="difficultySelect"]
+layout_mode = 0
+offset_left = 222.0
+offset_top = 669.0
+offset_right = 507.0
+offset_bottom = 706.0
+text = "Continue? (Wave 0)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="continueTextNormal" type="Label" parent="difficultySelect"]
+layout_mode = 0
+offset_left = 518.0
+offset_top = 669.0
+offset_right = 803.0
+offset_bottom = 706.0
+text = "Continue? (Wave 0)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="continueTextHard" type="Label" parent="difficultySelect"]
+layout_mode = 0
+offset_left = 814.0
+offset_top = 669.0
+offset_right = 1099.0
+offset_bottom = 706.0
+text = "Continue? (Wave 0)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="continueTextHardcore" type="Label" parent="difficultySelect"]
+layout_mode = 0
+offset_left = 1126.0
+offset_top = 669.0
+offset_right = 1411.0
+offset_bottom = 706.0
+text = "Continue? (Wave 0)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="LoadingScreen" parent="." instance=ExtResource("15_dcrs0")]
+z_index = 4094
 
 [node name="EncyclopediaMenu" type="Panel" parent="."]
 visible = false
@@ -4401,7 +4653,7 @@ layout_mode = 0
 offset_left = 259.0
 offset_right = 735.0
 offset_bottom = 52.0
-text = "Gives 1 money on pop
+text = "1 Money, 1 EXP
 
 Spawns from Blue Perty and Rainbow Perty
 Spawns into nothing"
@@ -4438,7 +4690,7 @@ layout_mode = 0
 offset_left = 259.0
 offset_right = 735.0
 offset_bottom = 52.0
-text = "Gives 1 money on pop
+text = "1 Money, 1 EXP
 
 Spawns from Green Perty and Rainbow Perty
 Spawns into 1 Normal Perty"
@@ -4475,7 +4727,7 @@ layout_mode = 0
 offset_left = 259.0
 offset_right = 735.0
 offset_bottom = 52.0
-text = "Gives 1 money on pop
+text = "1 Money, 1 EXP
 
 Spawns from Yellow Perty and Rainbow Perty
 Spawns into 1 Blue Perty"
@@ -4512,7 +4764,7 @@ layout_mode = 0
 offset_left = 259.0
 offset_right = 735.0
 offset_bottom = 52.0
-text = "Gives 1 money on pop
+text = "1 Money, 1 EXP
 
 Spawns from Pink Perty and Rainbow Perty
 Spawns into 1 Green Perty"
@@ -4549,7 +4801,7 @@ layout_mode = 0
 offset_left = 259.0
 offset_right = 735.0
 offset_bottom = 52.0
-text = "Gives 1 money on pop
+text = "1 Money, 1 EXP
 
 Spawns from Rainbow Perty
 Spawns into 1 Yellow Perty"
@@ -4586,10 +4838,88 @@ layout_mode = 0
 offset_left = 259.0
 offset_right = 735.0
 offset_bottom = 52.0
-text = "Gives 1 money on pop
+text = "1 Money, 1 EXP
 
 Spawns from FOAP
 Spawns into 1 Pink Perty, 1 Yellow Perty, 1 Green Perty, 1 Blue Perty and 1 Normal Perty"
+autowrap_mode = 2
+
+[node name="White" type="Panel" parent="EncyclopediaMenu/pertylist/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="bg" type="Panel" parent="EncyclopediaMenu/pertylist/ScrollContainer/VBoxContainer/White"]
+layout_mode = 0
+offset_left = -46.0
+offset_right = 754.0
+offset_bottom = 200.0
+
+[node name="Sprite2D" type="Sprite2D" parent="EncyclopediaMenu/pertylist/ScrollContainer/VBoxContainer/White"]
+position = Vector2(131, 100)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("20_vmcsv")
+hframes = 10
+vframes = 10
+frame = 7
+
+[node name="title" type="Label" parent="EncyclopediaMenu/pertylist/ScrollContainer/VBoxContainer/White"]
+layout_mode = 0
+offset_left = 3.0
+offset_right = 256.0
+offset_bottom = 23.0
+text = "White Perty"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="desc" type="Label" parent="EncyclopediaMenu/pertylist/ScrollContainer/VBoxContainer/White"]
+layout_mode = 0
+offset_left = 259.0
+offset_right = 735.0
+offset_bottom = 52.0
+text = "1 Money, 1 EXP
+
+Spawns from nothing
+Spawns into 1 Pink Perty
+
+Is immune to all glue and freeze status effects."
+autowrap_mode = 2
+
+[node name="Black" type="Panel" parent="EncyclopediaMenu/pertylist/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="bg" type="Panel" parent="EncyclopediaMenu/pertylist/ScrollContainer/VBoxContainer/Black"]
+layout_mode = 0
+offset_left = -46.0
+offset_right = 754.0
+offset_bottom = 200.0
+
+[node name="Sprite2D" type="Sprite2D" parent="EncyclopediaMenu/pertylist/ScrollContainer/VBoxContainer/Black"]
+position = Vector2(131, 100)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("20_vmcsv")
+hframes = 10
+vframes = 10
+frame = 8
+
+[node name="title" type="Label" parent="EncyclopediaMenu/pertylist/ScrollContainer/VBoxContainer/Black"]
+layout_mode = 0
+offset_left = 3.0
+offset_right = 256.0
+offset_bottom = 23.0
+text = "Black Perty"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="desc" type="Label" parent="EncyclopediaMenu/pertylist/ScrollContainer/VBoxContainer/Black"]
+layout_mode = 0
+offset_left = 259.0
+offset_right = 735.0
+offset_bottom = 52.0
+text = "1 Money, 1 EXP
+
+Spawns from nothing
+Spawns into 1 Pink Perty
+
+Is immune to explosive damage and can take a few more hits"
 autowrap_mode = 2
 
 [node name="FOAP" type="Panel" parent="EncyclopediaMenu/pertylist/ScrollContainer/VBoxContainer"]
@@ -4623,7 +4953,7 @@ layout_mode = 0
 offset_left = 259.0
 offset_right = 735.0
 offset_bottom = 52.0
-text = "Gives 20 money on pop
+text = "20 Money, 3 EXP
 
 Spawns from nothing
 Spawns into 3 Rainbow Pertys"
@@ -4892,227 +5222,6 @@ Level 3: 0.1x speed"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="tapSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_i8vyn")
-volume_db = -8.0
-bus = &"SFX"
-
-[node name="snas" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_m8fqo")
-volume_db = -8.0
-bus = &"SFX"
-
-[node name="difficultySelect" type="Panel" parent="."]
-visible = false
-z_index = 2000
-offset_left = -23.0
-offset_top = -57.0
-offset_right = 1642.0
-offset_bottom = 903.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_c885h")
-
-[node name="mapName" type="Label" parent="difficultySelect"]
-layout_mode = 0
-offset_left = 26.0
-offset_top = 261.0
-offset_right = 1625.0
-offset_bottom = 325.0
-theme_override_fonts/font = ExtResource("16_hsqa8")
-theme_override_font_sizes/font_size = 64
-text = "Map Name"
-horizontal_alignment = 1
-
-[node name="easyDifficulty" type="TextureButton" parent="difficultySelect"]
-layout_mode = 0
-offset_left = 242.0
-offset_top = 411.0
-offset_right = 480.0
-offset_bottom = 649.0
-texture_normal = SubResource("AtlasTexture_d3vkm")
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="difficultySelect/easyDifficulty"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = -25.0
-offset_right = 235.0
-offset_bottom = -2.0
-text = "Easy"
-
-[node name="won" type="Sprite2D" parent="difficultySelect/easyDifficulty"]
-position = Vector2(3, 236)
-scale = Vector2(2, 2)
-texture = ExtResource("27_qyu22")
-hframes = 3
-
-[node name="Label" type="Label" parent="difficultySelect/easyDifficulty/won"]
-offset_left = 24.5
-offset_top = 1.0
-offset_right = 131.5
-offset_bottom = 17.0
-scale = Vector2(0.5, 0.5)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("16_hsqa8")
-text = "0 Wins"
-
-[node name="normalDifficulty" type="TextureButton" parent="difficultySelect"]
-layout_mode = 0
-offset_left = 544.0
-offset_top = 411.0
-offset_right = 782.0
-offset_bottom = 649.0
-texture_normal = SubResource("AtlasTexture_l086u")
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="difficultySelect/normalDifficulty"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = -25.0
-offset_right = 235.0
-offset_bottom = -2.0
-text = "Normal"
-
-[node name="won" type="Sprite2D" parent="difficultySelect/normalDifficulty"]
-position = Vector2(1, 236)
-scale = Vector2(2, 2)
-texture = ExtResource("27_qyu22")
-hframes = 3
-
-[node name="Label" type="Label" parent="difficultySelect/normalDifficulty/won"]
-offset_left = 24.5
-offset_top = 1.0
-offset_right = 131.5
-offset_bottom = 17.0
-scale = Vector2(0.5, 0.5)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("16_hsqa8")
-text = "0 Wins"
-
-[node name="hardDifficulty" type="TextureButton" parent="difficultySelect"]
-layout_mode = 0
-offset_left = 842.0
-offset_top = 411.0
-offset_right = 1080.0
-offset_bottom = 649.0
-texture_normal = SubResource("AtlasTexture_l1leh")
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="difficultySelect/hardDifficulty"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = -25.0
-offset_right = 235.0
-offset_bottom = -2.0
-text = "Hard"
-horizontal_alignment = 2
-
-[node name="won" type="Sprite2D" parent="difficultySelect/hardDifficulty"]
-position = Vector2(2, 236)
-scale = Vector2(2, 2)
-texture = ExtResource("27_qyu22")
-hframes = 3
-
-[node name="Label" type="Label" parent="difficultySelect/hardDifficulty/won"]
-offset_left = 25.0
-offset_top = 1.0
-offset_right = 132.0
-offset_bottom = 17.0
-scale = Vector2(0.5, 0.5)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("16_hsqa8")
-text = "0 Wins"
-
-[node name="hardcoreDifficulty" type="TextureButton" parent="difficultySelect"]
-layout_mode = 0
-offset_left = 1142.0
-offset_top = 411.0
-offset_right = 1380.0
-offset_bottom = 649.0
-texture_normal = SubResource("AtlasTexture_piwmb")
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="difficultySelect/hardcoreDifficulty"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = -25.0
-offset_right = 235.0
-offset_bottom = -2.0
-text = "Hardcore"
-horizontal_alignment = 2
-
-[node name="won" type="Sprite2D" parent="difficultySelect/hardcoreDifficulty"]
-position = Vector2(3, 236)
-scale = Vector2(2, 2)
-texture = ExtResource("27_qyu22")
-hframes = 3
-
-[node name="Label" type="Label" parent="difficultySelect/hardcoreDifficulty/won"]
-offset_left = 25.0
-offset_top = 1.0
-offset_right = 132.0
-offset_bottom = 17.0
-scale = Vector2(0.5, 0.5)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("16_hsqa8")
-text = "0 Wins"
-
-[node name="close" type="Button" parent="difficultySelect"]
-layout_mode = 0
-offset_left = 1562.0
-offset_top = 890.0
-offset_right = 1612.0
-offset_bottom = 940.0
-theme_override_fonts/font = ExtResource("2_eimta")
-theme_override_font_sizes/font_size = 24
-text = "X"
-
-[node name="continueTextEasy" type="Label" parent="difficultySelect"]
-layout_mode = 0
-offset_left = 222.0
-offset_top = 669.0
-offset_right = 507.0
-offset_bottom = 706.0
-text = "Continue? (Wave 0)"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="continueTextNormal" type="Label" parent="difficultySelect"]
-layout_mode = 0
-offset_left = 518.0
-offset_top = 669.0
-offset_right = 803.0
-offset_bottom = 706.0
-text = "Continue? (Wave 0)"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="continueTextHard" type="Label" parent="difficultySelect"]
-layout_mode = 0
-offset_left = 814.0
-offset_top = 669.0
-offset_right = 1099.0
-offset_bottom = 706.0
-text = "Continue? (Wave 0)"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="continueTextHardcore" type="Label" parent="difficultySelect"]
-layout_mode = 0
-offset_left = 1126.0
-offset_top = 669.0
-offset_right = 1411.0
-offset_bottom = 706.0
-text = "Continue? (Wave 0)"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="LoadingScreen" parent="." instance=ExtResource("15_dcrs0")]
-z_index = 4094
-
 [connection signal="mouse_entered" from="Play" to="." method="_on_play_mouse_entered"]
 [connection signal="mouse_exited" from="Play" to="." method="_on_play_mouse_exited"]
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
@@ -5143,6 +5252,13 @@ z_index = 4094
 [connection signal="pressed" from="levelSelectMenu/levelEditor" to="SettingsMenu" method="_on_level_editor_pressed"]
 [connection signal="pressed" from="levelSelectMenu/X" to="." method="_on_x_pressed"]
 [connection signal="pressed" from="levelSelectMenu/thepark/thepark" to="levelSelectMenu" method="_on_levelselect_pressed" binds= ["The Park"]]
+[connection signal="pressed" from="levelSelectMenu/continuelast" to="levelSelectMenu" method="_on_continuelast_pressed"]
+[connection signal="mouse_entered" from="difficultySelect/easyDifficulty" to="levelSelectMenu" method="_on_difficulty_mouse_entered" binds= [Color(0.0222957, 0.163041, 0, 1)]]
+[connection signal="pressed" from="difficultySelect/easyDifficulty" to="levelSelectMenu" method="_on_difficulty_pressed" binds= ["Easy"]]
+[connection signal="mouse_entered" from="difficultySelect/normalDifficulty" to="levelSelectMenu" method="_on_difficulty_mouse_entered" binds= [Color(0.178077, 0.168281, 8.42288e-08, 1)]]
+[connection signal="mouse_entered" from="difficultySelect/hardDifficulty" to="levelSelectMenu" method="_on_difficulty_mouse_entered" binds= [Color(0.326883, 6.76839e-07, 1.20327e-07, 1)]]
+[connection signal="mouse_entered" from="difficultySelect/hardcoreDifficulty" to="levelSelectMenu" method="_on_difficulty_mouse_entered" binds= [Color(0.172549, 0, 0, 1), true]]
+[connection signal="pressed" from="difficultySelect/close" to="levelSelectMenu" method="_on_close_pressed"]
 [connection signal="pressed" from="EncyclopediaMenu/towers" to="EncyclopediaMenu" method="_on_towers_pressed" binds= ["towerslist"]]
 [connection signal="pressed" from="EncyclopediaMenu/close" to="EncyclopediaMenu" method="_on_close_pressed"]
 [connection signal="pressed" from="EncyclopediaMenu/perty" to="EncyclopediaMenu" method="_on_towers_pressed" binds= ["pertylist"]]
@@ -5161,9 +5277,3 @@ z_index = 4094
 [connection signal="pressed" from="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Watergunner/pathdown" to="EncyclopediaMenu" method="_on_pathdown_pressed" binds= [&"Watergunner"]]
 [connection signal="pressed" from="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/pathup" to="EncyclopediaMenu" method="_on_pathup_pressed" binds= [&"Airplane Sniper"]]
 [connection signal="pressed" from="EncyclopediaMenu/towerslist/ScrollContainer/VBoxContainer/Airplane Sniper/pathdown" to="EncyclopediaMenu" method="_on_pathdown_pressed" binds= [&"Airplane Sniper"]]
-[connection signal="mouse_entered" from="difficultySelect/easyDifficulty" to="levelSelectMenu" method="_on_difficulty_mouse_entered" binds= [Color(0.0222957, 0.163041, 0, 1)]]
-[connection signal="pressed" from="difficultySelect/easyDifficulty" to="levelSelectMenu" method="_on_difficulty_pressed" binds= ["Easy"]]
-[connection signal="mouse_entered" from="difficultySelect/normalDifficulty" to="levelSelectMenu" method="_on_difficulty_mouse_entered" binds= [Color(0.178077, 0.168281, 8.42288e-08, 1)]]
-[connection signal="mouse_entered" from="difficultySelect/hardDifficulty" to="levelSelectMenu" method="_on_difficulty_mouse_entered" binds= [Color(0.326883, 6.76839e-07, 1.20327e-07, 1)]]
-[connection signal="mouse_entered" from="difficultySelect/hardcoreDifficulty" to="levelSelectMenu" method="_on_difficulty_mouse_entered" binds= [Color(0.172549, 0, 0, 1), true]]
-[connection signal="pressed" from="difficultySelect/close" to="levelSelectMenu" method="_on_close_pressed"]

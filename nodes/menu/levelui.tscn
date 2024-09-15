@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://ddopo0p0fyxle"]
+[gd_scene load_steps=59 format=3 uid="uid://ddopo0p0fyxle"]
 
 [ext_resource type="Script" path="res://nodes/menu/levelui.gd" id="1_wh3yf"]
 [ext_resource type="Texture2D" uid="uid://e0jh3ckblci4" path="res://assets/ui/stats.png" id="2_1rxh5"]
@@ -6,26 +6,32 @@
 [ext_resource type="Script" path="res://nodes/menu/placetower.gd" id="3_3qh5k"]
 [ext_resource type="Texture2D" uid="uid://dvv3wv4u2fafm" path="res://assets/ui/panelframes.png" id="3_pdfay"]
 [ext_resource type="Texture2D" uid="uid://b5ovrlqtmu3qd" path="res://assets/ui/bg1.png" id="4_ml0ht"]
+[ext_resource type="Texture2D" uid="uid://cftfmp8qcr0lq" path="res://assets/towers/normal/skin.png" id="8_3te1y"]
 [ext_resource type="Script" path="res://nodes/menu/debug/superperry.gd" id="8_j5xjt"]
 [ext_resource type="Texture2D" uid="uid://bo72e1fwe01n4" path="res://assets/towers/normal/normal.png" id="8_l7lej"]
 [ext_resource type="Texture2D" uid="uid://d0557ul50bqgn" path="res://assets/towers/redwoodworker/redwoodworker.png" id="10_62wvg"]
 [ext_resource type="Texture2D" uid="uid://bhkqtynrawxc8" path="res://assets/ui/icons.png" id="10_b61uo"]
 [ext_resource type="FontFile" uid="uid://bqn5qcu0iu4yn" path="res://font/Retro Gaming.ttf" id="10_walxs"]
 [ext_resource type="Texture2D" uid="uid://2o2tw76tf5h7" path="res://assets/towers/glue/glue.png" id="11_btr4y"]
+[ext_resource type="Texture2D" uid="uid://cvbc1bejun6ah" path="res://assets/towers/ruler/skin.png" id="12_8fs1m"]
+[ext_resource type="Texture2D" uid="uid://cb8xk6olbk8o0" path="res://assets/towers/glue/skin.png" id="13_13w3f"]
 [ext_resource type="PackedScene" uid="uid://cvhf0pyotf3qe" path="res://Global/ui.tscn" id="13_ai2x0"]
 [ext_resource type="Texture2D" uid="uid://dqattgkkgfsux" path="res://assets/towers/flamethrower/flamethrower.png" id="14_td4c5"]
 [ext_resource type="Texture2D" uid="uid://dgsgfxs2lxqfl" path="res://assets/towers/airplanesniper/paperairplane.png" id="15_5au15"]
 [ext_resource type="Texture2D" uid="uid://bpr4lfemmviqv" path="res://assets/towers/particles.png" id="15_ene0l"]
 [ext_resource type="Texture2D" uid="uid://c5k0w0ts7op73" path="res://assets/towers/ruler/ruler.png" id="15_eui31"]
+[ext_resource type="Texture2D" uid="uid://17bix8jcxk82" path="res://assets/towers/redwoodworker/skin.png" id="15_mdo0u"]
 [ext_resource type="Texture2D" uid="uid://dp6l0fv0n161v" path="res://assets/towers/watergunner/watergunner.png" id="15_nqiie"]
 [ext_resource type="Script" path="res://nodes/menu/upgrades.gd" id="15_r22wj"]
 [ext_resource type="Texture2D" uid="uid://c6fnlictfwxwu" path="res://assets/ui/buttons/arrow.png" id="15_xj0ay"]
 [ext_resource type="Texture2D" uid="uid://crxku4m7exa3d" path="res://assets/towers/watergunner/floatie.png" id="16_1rwl6"]
 [ext_resource type="Script" path="res://nodes/menu/timescale.gd" id="16_cebt5"]
 [ext_resource type="Texture2D" uid="uid://dtxdw0au6r51o" path="res://assets/towers/airplanesniper/camo.png" id="16_e73gx"]
+[ext_resource type="Texture2D" uid="uid://hvs8jslqnof2" path="res://assets/towers/airplanesniper/skin.png" id="18_xg7fl"]
 [ext_resource type="Texture2D" uid="uid://duwqathcb0xlw" path="res://assets/ui/buttons/speedup.png" id="19_63xd6"]
 [ext_resource type="Texture2D" uid="uid://nsf6wevfx2b1" path="res://assets/towers/glue/upgrades.png" id="23_jfoah"]
 [ext_resource type="Texture2D" uid="uid://bg0w0uq4el2li" path="res://assets/ui/buttons/sell.png" id="24_e2vgh"]
+[ext_resource type="Texture2D" uid="uid://djp3476nj4rjj" path="res://assets/towers/watergunner/skin.png" id="24_ndt5v"]
 [ext_resource type="AudioStream" uid="uid://cn4c5l33bs1io" path="res://music/sfx/error.ogg" id="27_7fov2"]
 [ext_resource type="Script" path="res://nodes/menu/settingspanel.gd" id="27_j6gdj"]
 
@@ -246,6 +252,11 @@ texture = ExtResource("8_l7lej")
 centered = false
 hframes = 3
 
+[node name="skin" type="Sprite2D" parent="units/list/penciltower/Sprite2D"]
+texture = ExtResource("8_3te1y")
+centered = false
+hframes = 3
+
 [node name="bg" type="Panel" parent="units/list/penciltower"]
 visible = false
 z_index = -1
@@ -375,6 +386,11 @@ towerPath = "Ruler Tower"
 
 [node name="Sprite2D" type="Sprite2D" parent="units/list/rulertower"]
 texture = ExtResource("15_eui31")
+centered = false
+hframes = 3
+
+[node name="skin" type="Sprite2D" parent="units/list/rulertower/Sprite2D"]
+texture = ExtResource("12_8fs1m")
 centered = false
 hframes = 3
 
@@ -508,6 +524,10 @@ texture = ExtResource("11_btr4y")
 centered = false
 hframes = 3
 
+[node name="skin" type="Sprite2D" parent="units/list/gluetower/Sprite2D"]
+texture = ExtResource("13_13w3f")
+centered = false
+
 [node name="bg" type="Panel" parent="units/list/gluetower"]
 visible = false
 z_index = -1
@@ -638,6 +658,12 @@ posInList = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="units/list/redwoodworker"]
 texture = ExtResource("10_62wvg")
+centered = false
+hframes = 3
+frame = 2
+
+[node name="skin" type="Sprite2D" parent="units/list/redwoodworker/Sprite2D"]
+texture = ExtResource("15_mdo0u")
 centered = false
 hframes = 3
 frame = 2
@@ -1048,6 +1074,12 @@ texture = ExtResource("15_5au15")
 centered = false
 hframes = 3
 
+[node name="skin" type="Sprite2D" parent="units/list/airplanesniper/Sprite2D"]
+show_behind_parent = true
+texture = ExtResource("18_xg7fl")
+centered = false
+hframes = 3
+
 [node name="camo" type="Sprite2D" parent="units/list/airplanesniper/Sprite2D"]
 texture = ExtResource("16_e73gx")
 centered = false
@@ -1181,15 +1213,20 @@ script = ExtResource("3_3qh5k")
 towerPath = "Watergunner"
 posInList = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="units/list/watergunner"]
+[node name="Sprite2D2" type="Sprite2D" parent="units/list/watergunner"]
 texture = ExtResource("15_nqiie")
 centered = false
 hframes = 3
 
-[node name="floatie" type="Sprite2D" parent="units/list/watergunner/Sprite2D"]
+[node name="floatie" type="Sprite2D" parent="units/list/watergunner/Sprite2D2"]
 show_behind_parent = true
 position = Vector2(64, 64)
 texture = ExtResource("16_1rwl6")
+
+[node name="skin" type="Sprite2D" parent="units/list/watergunner/Sprite2D2"]
+texture = ExtResource("24_ndt5v")
+centered = false
+hframes = 3
 
 [node name="bg" type="Panel" parent="units/list/watergunner"]
 visible = false

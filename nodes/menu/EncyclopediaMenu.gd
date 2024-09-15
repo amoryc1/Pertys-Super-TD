@@ -3,7 +3,7 @@ extends Panel
 var upgrade_vis = {
 }
 
-func _on_close_pressed(): visible = false ; get_node("../tapSFX").play()
+func _on_close_pressed(): visible = false ; get_node("../tapSFX").play() ; GLOBALVAR_PTD.show_exp_bar = true
 
 func _ready():
 	# Get all tower names from placedTower dict and put em in updgradeVis

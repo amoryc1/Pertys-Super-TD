@@ -142,7 +142,7 @@ func _on_shadowmode_pressed() -> void:
 		$graphics/shadow/mode.text = "Off"
 		GLOBALVAR_PTD.shadows_enabled = false
 		GLOBALVAR_PTD.shadow_level = "none"
-
+	
 
 func _on_folder_pressed(dir) -> void:
 	if DirAccess.dir_exists_absolute(dir):

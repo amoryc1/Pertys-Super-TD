@@ -32,7 +32,7 @@ func _process(delta):
 		
 		var enemy = get_node_or_null(targetlist[0])
 		if enemy:
-			enemy.health -= damage
+			enemy.explosive_damage += damage
 			
 			for x in ripStatus:
 				if enemy.status.has(x):

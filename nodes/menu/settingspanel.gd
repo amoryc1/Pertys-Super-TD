@@ -2,7 +2,6 @@ extends Panel
 
 func chosen_level(path):
 	GLOBALVAR_PTD.won = false
-	GLOBALVAR_PTD.in_game = true
 	GLOBALVAR_PTD.health = 1 # prevent Game Over loop. Will go to proper hp when map fully loads
 	GLOBALVAR_PTD.ticks_at_load_start = Time.get_ticks_msec()
 	get_tree().change_scene_to_file(path)
@@ -12,6 +11,8 @@ func _on_saveandexit_pressed() -> void:
 	
 	$saveandexit.text = "Saving..."
 	var save_array = [[]]
+	
+	GLOBALVAR_PTD.in_game = false
 	
 	var level_name = get_node("../..").levelStats[0]["levelName"]
 	var level_difficulty = get_node("../..").levelStats[0]["difficulty"]
@@ -38,7 +39,6 @@ func _on_saveandexit_pressed() -> void:
 	GLOBALVAR_PTD.save_data(GLOBALVAR_PTD.chosen_save_file)
 	var path = "res://nodes/menu/menu.tscn"
 	chosen_level(path)
-
 
 func _on_deleteprogress_pressed() -> void:
 	$confirm.visible = true

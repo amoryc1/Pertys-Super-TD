@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://blrmoccvixwi"]
+[gd_scene load_steps=13 format=3 uid="uid://blrmoccvixwi"]
 
 [ext_resource type="Script" path="res://nodes/enemies/pathFollow.gd" id="1_4vcqq"]
 [ext_resource type="Script" path="res://nodes/enemies/enemyai.gd" id="1_fblju"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://nodes/enemies/deathSFX.gd" id="4_ce1le"]
 [ext_resource type="AudioStream" uid="uid://cjad37uon8nav" path="res://music/sfx/poop.ogg" id="4_siwtk"]
 [ext_resource type="Texture2D" uid="uid://qymhge4jgbo3" path="res://assets/enemies/particles.png" id="6_f5twy"]
+[ext_resource type="AudioStream" uid="uid://fu6liekq8gvh" path="res://music/sfx/lighthit.ogg" id="7_2sh1e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62ebh"]
 size = Vector2(64, 64)
@@ -82,5 +83,11 @@ vframes = 10
 [node name="deathPop" type="AnimatedSprite2D" parent="Area2D"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_bqmhx")
+
+[node name="lighthit" type="AudioStreamPlayer" parent="Area2D"]
+stream = ExtResource("7_2sh1e")
+volume_db = -10.0
+pitch_scale = 0.5
+bus = &"SFX"
 
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]

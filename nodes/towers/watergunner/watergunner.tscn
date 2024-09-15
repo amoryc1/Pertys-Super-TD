@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://cr0rl8bxvn04v"]
+[gd_scene load_steps=21 format=3 uid="uid://cr0rl8bxvn04v"]
 
 [ext_resource type="Script" path="res://nodes/towers/watergunner/watergunner.gd" id="1_j128j"]
 [ext_resource type="Texture2D" uid="uid://dp6l0fv0n161v" path="res://assets/towers/watergunner/watergunner.png" id="2_vwvtf"]
 [ext_resource type="Script" path="res://nodes/towers/global/shootenemy.gd" id="3_1nroj"]
+[ext_resource type="Texture2D" uid="uid://djp3476nj4rjj" path="res://assets/towers/watergunner/skin.png" id="3_bb50x"]
 [ext_resource type="Texture2D" uid="uid://b21hiwh2ohg4c" path="res://assets/ui/ring.png" id="4_uiupx"]
 [ext_resource type="Script" path="res://nodes/towers/global/StackCollision.gd" id="5_cwban"]
 [ext_resource type="FontFile" uid="uid://bqn5qcu0iu4yn" path="res://font/Retro Gaming.ttf" id="6_y3jko"]
@@ -44,6 +45,35 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_luh8e"]
+atlas = ExtResource("3_bb50x")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kioq3"]
+atlas = ExtResource("3_bb50x")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50cdf"]
+atlas = ExtResource("3_bb50x")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jc5l4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_luh8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kioq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50cdf")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ybiqf"]
 radius = 36.0
 
@@ -72,6 +102,12 @@ z_index = 3
 rotation = 4.71238
 scale = Vector2(1.1, 1.1)
 sprite_frames = SubResource("SpriteFrames_ndj0y")
+frame = 2
+frame_progress = 1.0
+
+[node name="skin" type="AnimatedSprite2D" parent="sprite"]
+show_behind_parent = true
+sprite_frames = SubResource("SpriteFrames_jc5l4")
 frame = 2
 frame_progress = 1.0
 

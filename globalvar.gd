@@ -1,7 +1,7 @@
 extends Node
 
 
-var game_version = "[beta 0.13] - 2024-09-14"
+var game_version = "[beta 0.14] - 2024-09-15"
 
 var ticks_at_load_start = 0
 
@@ -15,6 +15,7 @@ var level = 1
 var has_loaded_data = false
 var show_exp_bar = true
 
+var last_played = ["NONE", "Easy"]
 var hide_user = false
 var file_format_ver = 1
 var chosen_save_file = "saves/SaveFile1"
@@ -36,7 +37,6 @@ var shadow_level = "pcf5"
 
 
 var difficultys = ["Easy","Normal","Hard","Hardcore"]
-
 
 var placed_towers = {
 	"Pencil Tower": 0,
@@ -572,6 +572,7 @@ var in_game = false
 var max_health = 150
 var starting_money = 225
 var level_name = "placeholder_level_name"
+var chosen_difficulty = "Normal"
 var base_perty_speed = 70
 var in_wave = false
 var wave_number = 1
@@ -593,6 +594,8 @@ var perty_stages = {
 	"pink": ["res://nodes/enemies/PinkPerty.tscn", 4],
 	"rainbow": ["res://nodes/enemies/RainbowPerty.tscn", 5],
 	"foap": ["res://nodes/enemies/FOAP.tscn", 7],
+	"white": ["res://nodes/enemies/WhitePerty.tscn", 8],
+	"black": ["res://nodes/enemies/BlackPerty.tscn", 9],
 	}
 
 
@@ -610,8 +613,8 @@ func end_game(level_difficulty, level_name, win, exp_reward):
 			exp += exp_reward * 0.5
 			total_exp += exp_reward * 0.5
 		level_win[level_name][0][level_difficulty] += 1
-		
 	
+	last_played[0] = "NONE"
 	level_win[level_name][1].erase(level_difficulty) # Erase progress on win/loss/deletion
 	
 	save_data(chosen_save_file)
@@ -678,7 +681,8 @@ func save_data(filename):
 		"total_money": total_money,
 		"total_exp": total_exp,
 		"exp": exp,
-		"level": level
+		"level": level,
+		"last_played": last_played,
 	}
 	
 	var json_string = JSON.stringify(data)
@@ -727,6 +731,7 @@ func load_data(filename):
 		if "exp" in data: exp = data.exp
 		if "total_exp" in data: total_exp = data.total_exp
 		if "level" in data: level = data.level
+		if "last_played" in data: last_played = data.last_played
 		
 		
 		# Achievements

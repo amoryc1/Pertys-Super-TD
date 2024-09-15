@@ -42,6 +42,10 @@ func shoot(target, status):
 		clone.ripStatus.append(x)
 	
 	get_node("../sprite").play("default")
+	for x in get_node("../sprite").get_children():
+		if x is AnimatedSprite2D:
+			x.play("default")
+	
 	get_node("../../").add_child(clone)
 	spawnedProjectiles.append(str(clone.get_path()))
 	

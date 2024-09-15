@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://bygvpgi5h0jw8"]
+[gd_scene load_steps=17 format=3 uid="uid://bygvpgi5h0jw8"]
 
 [ext_resource type="Script" path="res://nodes/towers/glue/gluetower.gd" id="1_co6dj"]
 [ext_resource type="Texture2D" uid="uid://2o2tw76tf5h7" path="res://assets/towers/glue/glue.png" id="2_d8jux"]
+[ext_resource type="Texture2D" uid="uid://cb8xk6olbk8o0" path="res://assets/towers/glue/skin.png" id="3_48xeg"]
 [ext_resource type="Script" path="res://nodes/towers/global/shootenemy.gd" id="3_ij3ib"]
 [ext_resource type="Texture2D" uid="uid://b21hiwh2ohg4c" path="res://assets/ui/ring.png" id="4_2xakp"]
 [ext_resource type="Script" path="res://nodes/towers/global/StackCollision.gd" id="5_tuivf"]
@@ -14,29 +15,29 @@ radius = 200.0
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ctuja"]
 polygon = PackedVector2Array(-43, 0, -44, -23, 0, -35, 24, -25, 35, 0, 25, 25, 0, 35, -47, 20)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1tmur"]
-atlas = ExtResource("2_d8jux")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pggms"]
-atlas = ExtResource("2_d8jux")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4c8jb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kdr8"]
 atlas = ExtResource("2_d8jux")
 region = Rect2(256, 0, 128, 128)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ndj0y"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpkr8"]
+atlas = ExtResource("2_d8jux")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8g8u"]
+atlas = ExtResource("2_d8jux")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0yt7j"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1tmur")
+"texture": SubResource("AtlasTexture_3kdr8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pggms")
+"texture": SubResource("AtlasTexture_xpkr8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4c8jb")
+"texture": SubResource("AtlasTexture_f8g8u")
 }],
 "loop": false,
 "name": &"default",
@@ -71,9 +72,13 @@ occluder = SubResource("OccluderPolygon2D_ctuja")
 z_index = -1
 rotation = 4.71239
 scale = Vector2(1.1, 1.1)
-sprite_frames = SubResource("SpriteFrames_ndj0y")
+sprite_frames = SubResource("SpriteFrames_0yt7j")
 frame = 2
 frame_progress = 1.0
+
+[node name="skin" type="Sprite2D" parent="sprite"]
+z_index = -1
+texture = ExtResource("3_48xeg")
 
 [node name="waittime" type="Timer" parent="."]
 wait_time = 0.5

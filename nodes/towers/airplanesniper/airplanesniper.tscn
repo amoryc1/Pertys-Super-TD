@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://c1kdy1wboah3"]
+[gd_scene load_steps=22 format=3 uid="uid://c1kdy1wboah3"]
 
 [ext_resource type="Script" path="res://nodes/towers/airplanesniper/airplanesniper.gd" id="1_vsm6e"]
 [ext_resource type="Texture2D" uid="uid://dgsgfxs2lxqfl" path="res://assets/towers/airplanesniper/paperairplane.png" id="2_mvnll"]
 [ext_resource type="Texture2D" uid="uid://dtxdw0au6r51o" path="res://assets/towers/airplanesniper/camo.png" id="3_fu1ny"]
 [ext_resource type="Script" path="res://nodes/towers/global/shootenemy.gd" id="3_s05km"]
+[ext_resource type="Texture2D" uid="uid://hvs8jslqnof2" path="res://assets/towers/airplanesniper/skin.png" id="4_6xclx"]
 [ext_resource type="Texture2D" uid="uid://b21hiwh2ohg4c" path="res://assets/ui/ring.png" id="4_d7p4h"]
 [ext_resource type="Script" path="res://nodes/towers/global/StackCollision.gd" id="5_fnwhr"]
 [ext_resource type="FontFile" uid="uid://bqn5qcu0iu4yn" path="res://font/Retro Gaming.ttf" id="6_hrtuv"]
@@ -39,6 +40,41 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0atwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldyoj")
+}],
+"loop": false,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_862lp"]
+atlas = ExtResource("4_6xclx")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5bnd"]
+atlas = ExtResource("4_6xclx")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox38k"]
+atlas = ExtResource("4_6xclx")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2qjob"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_862lp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5bnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox38k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_862lp")
 }],
 "loop": false,
 "name": &"default",
@@ -73,9 +109,12 @@ scale = Vector2(1.1, 1.1)
 sprite_frames = SubResource("SpriteFrames_ndj0y")
 
 [node name="camo" type="Sprite2D" parent="sprite"]
-show_behind_parent = true
 texture = ExtResource("3_fu1ny")
 hframes = 5
+
+[node name="skin" type="AnimatedSprite2D" parent="sprite"]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_2qjob")
 
 [node name="waittime" type="Timer" parent="."]
 wait_time = 0.5

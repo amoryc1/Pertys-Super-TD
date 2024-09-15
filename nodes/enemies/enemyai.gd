@@ -7,42 +7,45 @@ extends Area2D
 @export var health = 1
 @export var enemyStage = 1
 @export var status = []
+@export var immune_to = []
+@export var is_boss = false
 @export var spawns = {
 	"normal": 1 # id in GLOBALVAR.pertyStages + amount to spawn
 }
 
 var popped = false
-
+var explosive_damage = 0
 var appliedGlue = false
 
 var glueLevel = 0
-
+var old_hp = 0
 
 func _ready():
+	old_hp = health
 	# hot camo metal fast
-	if status.has("camo"):
+	if status.has("camo") and !immune_to.has("camo"):
 		var cloneParticle = $particlesprite.duplicate()
 		cloneParticle.frame = 3
 		cloneParticle.visible = true
 		add_child(cloneParticle)
-	if status.has("hot"):
+	if status.has("hot") and !immune_to.has("hot"):
 		var cloneParticle = $particlesprite.duplicate()
 		cloneParticle.frame = 5
 		cloneParticle.visible = true
 		add_child(cloneParticle)
-	if status.has("fast"):
+	if status.has("fast") and !immune_to.has("fast"):
 		var cloneParticle = $particlesprite.duplicate()
 		cloneParticle.frame = 4
 		cloneParticle.visible = true
 		
 		speed *= 1.5
 		add_child(cloneParticle)
-	if status.has("metal"):
+	if status.has("metal") and !immune_to.has("metal"):
 		var cloneParticle = $particlesprite.duplicate()
 		cloneParticle.frame = 7
 		cloneParticle.visible = true
 		add_child(cloneParticle)
-	if status.has("shield"):
+	if status.has("shield") and !immune_to.has("shield"):
 		var cloneParticle = $particlesprite.duplicate()
 		cloneParticle.frame = 8
 		cloneParticle.visible = true
@@ -54,16 +57,21 @@ func _ready():
 
 func _process(_delta):
 	var speedEffect = 1
-	if status.has("glue") and !status.has("hot"): speedEffect = 0.75
-	if status.has("glue2") and !status.has("hot"): speedEffect = 0.5
-	if status.has("glue3") and !status.has("hot"): speedEffect = 0.3
+	if status.has("glue") and !status.has("hot") and !immune_to.has("glue"): speedEffect = 0.75
+	if status.has("glue2") and !status.has("hot") and !immune_to.has("glue2"): speedEffect = 0.5
+	if status.has("glue3") and !status.has("hot") and !immune_to.has("glue3"): speedEffect = 0.3
+	
+	if speedEffect < 1 and is_boss: speedEffect += 0.2 # FOR BOSS: Max - 0.95, Min - 0.5
 	
 	if speedEffect != 1 and !appliedGlue:
 		speed *= speedEffect
 		appliedGlue = true
 		
 		var cloneParticle = $particlesprite.duplicate()
-		cloneParticle.frame = 6
+		if is_boss:
+			cloneParticle.frame = 9
+		else:
+			cloneParticle.frame = 6
 		cloneParticle.visible = true
 		add_child(cloneParticle)
 	
@@ -108,6 +116,14 @@ func _process(_delta):
 		
 		GLOBALVAR_PTD.exp += exp_earnings
 		GLOBALVAR_PTD.total_exp += exp_earnings
+	
+	if explosive_damage > 0 and !immune_to.has("explode"):
+		health -= explosive_damage
+		explosive_damage = 0
+	
+	if old_hp > health:
+		old_hp = health
+		$lighthit.play()
 
 func _on_area_entered(area):
 	if area.name == "death":

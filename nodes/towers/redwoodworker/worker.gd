@@ -119,6 +119,7 @@ func _on_waittime_timeout():
 	if spawnsThisWave < spawnCount:
 		var randomDir = Vector2(randf(), randf()) * 50
 		$sprite.play("default")
+		$sprite/skin.play("default")
 		
 		var goldClone = load("res://nodes/towers/particles/gold.tscn").instantiate()
 		goldClone.position = global_position + randomDir
